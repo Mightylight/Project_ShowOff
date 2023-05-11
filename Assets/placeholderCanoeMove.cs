@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
 
 public class placeholderCanoeMove : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class placeholderCanoeMove : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Debug.Log(Input.GetAxis("Vertical"));
+        //Debug.Log(input.axis.x + ", " + input.axis.y);
         rb.MovePosition(rb.position + new Vector3(transform.forward.x, 0, transform.forward.z)*speed*Time.fixedDeltaTime);
     }
 }
