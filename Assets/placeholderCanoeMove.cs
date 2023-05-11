@@ -8,6 +8,7 @@ public class placeholderCanoeMove : MonoBehaviour
 {
     Rigidbody rb;
     [SerializeField] float speed = 5;
+    public Vector3 move;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -15,6 +16,7 @@ public class placeholderCanoeMove : MonoBehaviour
     private void FixedUpdate()
     {
         //Debug.Log(input.axis.x + ", " + input.axis.y);
-        rb.MovePosition(rb.position + new Vector3(transform.forward.x, 0, transform.forward.z)*speed*Time.fixedDeltaTime);
+        move = rb.position + new Vector3(transform.forward.x, 0, transform.forward.z) * speed * Time.fixedDeltaTime;
+        rb.MovePosition(move);
     }
 }
