@@ -279,6 +279,21 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2310900906172698117, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989575589153939081, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989575589153939081, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7989575589153939087, guid: dc06161b6d97feb419f45f03b62e14b9,
         type: 3}
       propertyPath: m_LocalScale.y
@@ -293,6 +308,62 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 200159764}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &395687122 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6152829589409575129, guid: db00e64fb01f21440a2a8dbeb1f87c85,
+    type: 3}
+  m_PrefabInstance: {fileID: 2391331555587908318}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &395687127
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395687122}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &523551551 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7440837348943246285, guid: dc06161b6d97feb419f45f03b62e14b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 200159764}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41736c41884e4ba4db815f0785dd195e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &562672575 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4095202952174434445, guid: db00e64fb01f21440a2a8dbeb1f87c85,
+    type: 3}
+  m_PrefabInstance: {fileID: 2391331555587908318}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &562672580
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562672575}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &680841851
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,7 +475,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1503583850}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56f24195b6f206d4eb7ecffed9088348, type: 3}
   m_Name: 
@@ -458,12 +529,11 @@ MonoBehaviour:
   rightInput:
     actionPath: /actions/default/in/rightPaddleTurn
     needsReinit: 0
-  leftDraw:
-    actionPath: 
-    needsReinit: 0
+  leftPaddle: {fileID: 523551551}
+  rightPaddle: {fileID: 1880608118}
   movementSource: {fileID: 0}
   turnRate: 100
-  motionTurnEnabled: 0
+  motionTurnEnabled: 1
 --- !u!1001 &1544736220
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -480,6 +550,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Alligator
+      objectReference: {fileID: 0}
+    - target: {fileID: 3418243383689878941, guid: 9cb31200bdd8bae4e8474dfbf33e7b8d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8788330686797849561, guid: 9cb31200bdd8bae4e8474dfbf33e7b8d,
         type: 3}
@@ -635,6 +710,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1781599014}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1880608118 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3004603190706627393, guid: dc06161b6d97feb419f45f03b62e14b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 200159764}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41736c41884e4ba4db815f0785dd195e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1942141921
 GameObject:
   m_ObjectHideFlags: 0
@@ -918,6 +1005,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: canoe
+      objectReference: {fileID: 0}
+    - target: {fileID: 2927815274477239916, guid: db00e64fb01f21440a2a8dbeb1f87c85,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9057654648044578341, guid: db00e64fb01f21440a2a8dbeb1f87c85,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db00e64fb01f21440a2a8dbeb1f87c85, type: 3}
