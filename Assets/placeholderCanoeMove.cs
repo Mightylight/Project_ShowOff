@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class placeholderCanoeMove : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    Rigidbody rb;
+    [SerializeField] float speed = 5;
+    private void Awake()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
-
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        
+        rb.MovePosition(rb.position + transform.forward*speed*Time.fixedDeltaTime);
     }
 }
