@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.project_showoff.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "D:\\Libraries\\Documents\\School\\Y2\\Project Show Off\\Project_ShowOff\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "C:\\Users\\Alex\\Documents\\School\\Y2\\Project Show Off\\Project_ShowOff\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
           "name": "Project_ShowOff [Testing]"
