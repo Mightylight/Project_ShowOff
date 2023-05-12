@@ -4,7 +4,16 @@ using UnityEngine;
 
 public class Paddle : MonoBehaviour
 {
+    [SerializeField] Transform paddleTip;
     bool paddling = false;
+
+
+    private void Update()
+    {
+        //if (paddleTip.position.y < 0) paddling= true;
+        //else paddling= false;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("paddleZone"))
