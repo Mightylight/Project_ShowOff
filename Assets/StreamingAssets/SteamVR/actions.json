@@ -58,6 +58,10 @@
       "type": "vector2"
     },
     {
+      "name": "/actions/default/in/drawToggle",
+      "type": "boolean"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },
@@ -179,7 +183,8 @@
       "/actions/default/in/SnapTurnLeft": "Snap Turn (Left)",
       "/actions/default/in/SnapTurnRight": "Snap Turn (Right)",
       "/actions/default/in/leftPaddleTurn": "leftPaddleTurn",
-      "/actions/default/in/rightPaddleTurn": "rightPaddleTurn"
+      "/actions/default/in/rightPaddleTurn": "rightPaddleTurn",
+      "/actions/default/in/drawToggle": "drawToggle"
     }
   ]
 }
