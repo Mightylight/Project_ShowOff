@@ -6,12 +6,27 @@ public class Paddle : MonoBehaviour
 {
     [SerializeField] Transform paddleTip;
     bool paddling = false;
+    Vector3 lastPosition = Vector3.zero;
+    Vector3 currentPosition = Vector3.zero;
+    Vector3 thrust;
+    [SerializeField] float strength = 1000;
 
 
-    private void Update()
+    private void FixedUpdate()
     {
-        //if (paddleTip.position.y < 0) paddling= true;
-        //else paddling= false;
+        if(paddling) 
+        {
+            lastPosition = currentPosition;
+            currentPosition = paddleTip.position;
+            //Debug.Log(lastPosition - currentPosition);
+            thrust -= strength * (lastPosition - currentPosition);
+            thrust.y = 0;
+        }
+        else
+        {
+            lastPosition = Vector3.zero;
+            currentPosition = Vector3.zero;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -32,5 +47,10 @@ public class Paddle : MonoBehaviour
         }
     }
 
+    public Vector3 getThrust()
+    {
+        Debug.Log(thrust.ToString());
+        return thrust;
+    }
     public bool IsPaddling() { return paddling; }
 }

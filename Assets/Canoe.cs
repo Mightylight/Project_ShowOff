@@ -5,19 +5,19 @@ using UnityEngine;
 public class Canoe : MonoBehaviour
 {
     [SerializeField] Transform vrCam;
-    bool canoe = false;
+    public bool synced = false;
     private void Start()
     {
        
     }
-    private void Update()
+    private void FixedUpdate()
     {
-        if(!canoe)transform.position = new Vector3(vrCam.position.x, vrCam.position.y - 0.7f, vrCam.position.z);
+        if(!synced) transform.position = new Vector3(vrCam.position.x, vrCam.position.y - 0.7f, vrCam.position.z);
 
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("player"))canoe= true;
+        if (other.CompareTag("player"))synced= true;
     }
 }

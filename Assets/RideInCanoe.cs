@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class RideInCanoe : MonoBehaviour
 {
-    [SerializeField] Transform canoe;
+    [SerializeField] Canoe canoe;
 
     private void FixedUpdate()
     {
-        transform.position = new Vector3 (canoe.position.x, transform.position.y, canoe.position.z);
+       if(canoe.synced) transform.position = new Vector3 (canoe.transform.position.x, transform.position.y, canoe.transform.position.z);
     }
 }
