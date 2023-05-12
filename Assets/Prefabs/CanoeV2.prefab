@@ -167,8 +167,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 459003221761696238, guid: c5c8a9830cafc464fbf33d08222b3b87,
         type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4799469
+      objectReference: {fileID: 0}
+    - target: {fileID: 459003221761696238, guid: c5c8a9830cafc464fbf33d08222b3b87,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.54844135
+      value: 1.2298
       objectReference: {fileID: 0}
     - target: {fileID: 459003221761696238, guid: c5c8a9830cafc464fbf33d08222b3b87,
         type: 3}
@@ -178,7 +183,7 @@ PrefabInstance:
     - target: {fileID: 459003221761696238, guid: c5c8a9830cafc464fbf33d08222b3b87,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.000004330197
+      value: 0.0000043103
       objectReference: {fileID: 0}
     - target: {fileID: 459003221761696238, guid: c5c8a9830cafc464fbf33d08222b3b87,
         type: 3}
@@ -214,6 +219,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7044456287657024131, guid: c5c8a9830cafc464fbf33d08222b3b87,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5c8a9830cafc464fbf33d08222b3b87, type: 3}
@@ -251,7 +261,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.50000006, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.5484413, y: 0.538, z: 0.000004330197}
+  m_ConnectedAnchor: {x: 0.5484413, y: 0.56799996, z: 0.000004330197}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -412,8 +422,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 459003221761696238, guid: c5c8a9830cafc464fbf33d08222b3b87,
         type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4799469
+      objectReference: {fileID: 0}
+    - target: {fileID: 459003221761696238, guid: c5c8a9830cafc464fbf33d08222b3b87,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5484414
+      value: -1.2298
       objectReference: {fileID: 0}
     - target: {fileID: 459003221761696238, guid: c5c8a9830cafc464fbf33d08222b3b87,
         type: 3}
@@ -423,7 +438,7 @@ PrefabInstance:
     - target: {fileID: 459003221761696238, guid: c5c8a9830cafc464fbf33d08222b3b87,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.000004330197
+      value: 0.0000043501
       objectReference: {fileID: 0}
     - target: {fileID: 459003221761696238, guid: c5c8a9830cafc464fbf33d08222b3b87,
         type: 3}
@@ -459,6 +474,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7044456287657024131, guid: c5c8a9830cafc464fbf33d08222b3b87,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5c8a9830cafc464fbf33d08222b3b87, type: 3}
@@ -496,7 +516,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.50000006, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.5484413, y: 0.538, z: 0.000004330197}
+  m_ConnectedAnchor: {x: -0.5484414, y: 0.56799996, z: 0.000004330197}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
