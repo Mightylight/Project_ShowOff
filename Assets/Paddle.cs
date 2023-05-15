@@ -19,7 +19,7 @@ public class Paddle : MonoBehaviour
             lastPosition = currentPosition;
             currentPosition = paddleTip.position;
             //Debug.Log(lastPosition - currentPosition);
-            thrust -= strength * (lastPosition - currentPosition);
+            thrust = -strength * (lastPosition - currentPosition);
             thrust.y = 0;
         }
         else
@@ -49,7 +49,7 @@ public class Paddle : MonoBehaviour
 
     public Vector3 getThrust()
     {
-        Debug.Log(thrust.ToString());
+        //Debug.Log(thrust.ToString());
         return thrust;
     }
     public bool IsPaddling() { return paddling; }

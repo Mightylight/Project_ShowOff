@@ -6,20 +6,27 @@ public class CanoeMove : MonoBehaviour
 {
     public Paddle[] paddles;
     [SerializeField] Rigidbody rb;
-    Vector3 velocity;
+  
 
     private void Awake()
     {
-        paddles = GetComponentsInChildren<Paddle>();
+       // paddles = GetComponentsInChildren<Paddle>();
     }
 
     private void FixedUpdate()
     {
+        Vector3 velocity = Vector3.zero;
         foreach (Paddle p in paddles)
         {
             velocity += p.getThrust();
         }
 
-        rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
+        rb.AddForce(velocity);
+    }
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log(collision.gameObject.name);
     }
 }
