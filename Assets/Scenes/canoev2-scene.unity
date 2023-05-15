@@ -1545,6 +1545,16 @@ PrefabInstance:
       propertyPath: rightPaddle
       value: 
       objectReference: {fileID: 1764148531}
+    - target: {fileID: 6224654053507393684, guid: 938291b506570af49958bb0e84a13dce,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9198073121882706136, guid: 938291b506570af49958bb0e84a13dce,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4451261063252130490, guid: 938291b506570af49958bb0e84a13dce, type: 3}
     - {fileID: 4451261062548678426, guid: 938291b506570af49958bb0e84a13dce, type: 3}
