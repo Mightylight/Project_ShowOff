@@ -7,6 +7,7 @@ public class Canoe : MonoBehaviour
     [SerializeField] Transform vrCam;
     public bool synced = false;
     [SerializeField] float timeLeft = 1.0f;
+    [SerializeField] GameObject canoe;
     private void Start()
     {
        
@@ -15,7 +16,7 @@ public class Canoe : MonoBehaviour
     {
         timeLeft -= Time.fixedDeltaTime;
         if (timeLeft < 0) synced = true;
-        if(!synced) transform.position = new Vector3(vrCam.position.x, vrCam.position.y - 0.7f, vrCam.position.z);
+        if(!synced) canoe.transform.position = new Vector3(vrCam.position.x, vrCam.position.y - 0.7f, vrCam.position.z);
 
     }
 

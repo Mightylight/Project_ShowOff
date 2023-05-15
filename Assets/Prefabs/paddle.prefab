@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paddleTip: {fileID: 7044456287657024131}
-  strength: 1
+  strength: 2
 --- !u!54 &167673584604011623
 Rigidbody:
   m_ObjectHideFlags: 0
