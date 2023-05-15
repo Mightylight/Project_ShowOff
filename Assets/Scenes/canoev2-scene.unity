@@ -1305,6 +1305,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1114584903658694732, guid: 938291b506570af49958bb0e84a13dce,
+        type: 3}
+      propertyPath: timeLeft
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114584903658694732, guid: 938291b506570af49958bb0e84a13dce,
+        type: 3}
+      propertyPath: yLocation
+      value: -0.85
+      objectReference: {fileID: 0}
     - target: {fileID: 1119244960887694474, guid: 938291b506570af49958bb0e84a13dce,
         type: 3}
       propertyPath: m_Layer
@@ -1465,22 +1475,6 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Mass
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4451261062641524002, guid: 938291b506570af49958bb0e84a13dce,
         type: 3}
       propertyPath: m_Layer
@@ -1489,17 +1483,17 @@ PrefabInstance:
     - target: {fileID: 4451261062641524003, guid: 938291b506570af49958bb0e84a13dce,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4451261062641524003, guid: 938291b506570af49958bb0e84a13dce,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4451261062641524003, guid: 938291b506570af49958bb0e84a13dce,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.75
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4451261062641524014, guid: 938291b506570af49958bb0e84a13dce,
         type: 3}

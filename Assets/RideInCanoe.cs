@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class RideInCanoe : MonoBehaviour
 {
-    [SerializeField] Canoe canoeSync;
+    [SerializeField] CanoeSync canoeSync;
     [SerializeField] Rigidbody canoe;
     Vector3 offset;
 
     private void FixedUpdate()
     {
-        if (canoeSync.synced)
+        //if (canoeSync.synced)
         {
             offset = canoeSync.transform.position;
             //Debug.Log(offset);
