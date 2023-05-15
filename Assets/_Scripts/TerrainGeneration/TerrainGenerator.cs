@@ -66,7 +66,7 @@ namespace _Scripts.TerrainGeneration
             for (int j = -1; j < _terrainLength; j++)
             {
                 int index = Random.Range(0, _riverTiles.Length);
-                Instantiate(_riverTiles[index], new Vector3(0, 0, j * _tileSize), Quaternion.identity,_tileParent);
+                Instantiate(_riverTiles[index], new Vector3(0, 0, j * _tileSize) + _tileParent.position, Quaternion.identity,_tileParent);
             }
             
             //Generate the rest of the river
@@ -75,11 +75,11 @@ namespace _Scripts.TerrainGeneration
                 for (int j = -1; j < _terrainLength; j++)
                 {
                     int index = Random.Range(0, _riverTiles.Length);
-                    TerrainPiece riverTile = Instantiate(_riverTiles[index], new Vector3(i * _tileSize, 0, j * _tileSize),
+                    TerrainPiece riverTile = Instantiate(_riverTiles[index], new Vector3(i * _tileSize, 0, j * _tileSize)+ _tileParent.position,
                         Quaternion.identity, _tileParent);
                     _terrain.Add(riverTile);
                     index = Random.Range(0, _riverTiles.Length);
-                    TerrainPiece riverTile2 = Instantiate(_riverTiles[index], new Vector3(-i * _tileSize, 0, j * _tileSize),
+                    TerrainPiece riverTile2 = Instantiate(_riverTiles[index], new Vector3(-i * _tileSize, 0, j * _tileSize)+ _tileParent.position,
                         Quaternion.identity, _tileParent);
                     _terrain.Add(riverTile2);
                 }
@@ -93,11 +93,11 @@ namespace _Scripts.TerrainGeneration
                 {
                     int index = Random.Range(0, _terrainTiles.Length);
                     TerrainPiece terrainTile = Instantiate(_terrainTiles[index], 
-                        new Vector3(i * _tileSize, 0, j * _tileSize), Quaternion.identity,_tileParent);
+                        new Vector3(i * _tileSize, 0, j * _tileSize) + _tileParent.position, Quaternion.identity,_tileParent);
                     _terrain.Add(terrainTile); 
                     index = Random.Range(0, _terrainTiles.Length);
                     TerrainPiece terrainTile2 = Instantiate(_terrainTiles[index], 
-                        new Vector3(-i * _tileSize, 0, j * _tileSize), Quaternion.identity,_tileParent);
+                        new Vector3(-i * _tileSize, 0, j * _tileSize) + _tileParent.position, Quaternion.identity,_tileParent);
                     _terrain.Add(terrainTile2);
                 }
             }
