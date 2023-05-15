@@ -6,12 +6,12 @@ using Valve.VR;
 
 public class placeholderCanoeMove : MonoBehaviour
 {
-    Rigidbody rb;
+    [SerializeField]Rigidbody rb;
     [SerializeField] float speed = 5;
     public Vector3 move;
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+       
     }
     private void FixedUpdate()
     {

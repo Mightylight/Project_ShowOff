@@ -5,11 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - paddleZone
+  - projectile
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - ignoreCollision
   - Water
   - UI
   - 
