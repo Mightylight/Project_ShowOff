@@ -10,6 +10,8 @@ public class Paddle : MonoBehaviour
     Vector3 currentPosition = Vector3.zero;
     Vector3 thrust;
     [SerializeField] float strength = 1000;
+    [SerializeField] float depthModifier = 0.5f;
+    [Range(-10, 0)][SerializeField] float maxDepthForStrength = -1;
 
 
     private void FixedUpdate()
@@ -20,6 +22,14 @@ public class Paddle : MonoBehaviour
             currentPosition = paddleTip.position;
             //Debug.Log(lastPosition - currentPosition);
             thrust = -strength * (lastPosition - currentPosition);
+
+            float forceFromDepth = depthModifier *- maxDepthForStrength;
+            if(paddleTip.position.y < maxDepthForStrength)
+            {
+                forceFromDepth= depthModifier *-paddleTip.position.y;
+            }
+
+            thrust *= forceFromDepth;
             thrust.y = 0;
         }
         else
