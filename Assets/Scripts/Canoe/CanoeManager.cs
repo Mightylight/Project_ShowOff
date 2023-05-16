@@ -18,7 +18,7 @@ namespace Canoe
 
             if(_health <= 0)
             {
-                //TODO: Loss
+                loss?.Invoke();
             }
         }
     }

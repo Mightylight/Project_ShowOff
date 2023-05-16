@@ -1,5 +1,6 @@
 using Canoe;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Alligator
 {
@@ -18,6 +19,7 @@ namespace Alligator
         Rigidbody _rb;
 
         public bool bounceBack = false;
+        public UnityEvent loss;
 
         private void Awake()
         {
@@ -48,7 +50,7 @@ namespace Alligator
 
                 if(_health <= 0)
                 {
-                    //TODO: loss
+                    loss?.Invoke();
                 }
             }
             
