@@ -7,6 +7,8 @@ TagManager:
   - paddleZone
   - projectile
   - FxTemporaire
+  - Canoe
+  - Obstacle
   layers:
   - Default
   - TransparentFX

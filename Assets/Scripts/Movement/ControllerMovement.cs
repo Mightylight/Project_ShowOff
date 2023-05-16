@@ -5,41 +5,46 @@ using UnityEngine;
 
 public class ControllerMovement : MonoBehaviour
 {
-    Rigidbody rb;
-    [SerializeField] float speed = 5;
-    Vector3 inputs = Vector3.zero;
+    private Rigidbody _rb;
+    [SerializeField] private float _speed = 5;
+    private Vector3 _inputs = Vector3.zero;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        _rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
-        turn();
+        Turn();
     }
 
     private void FixedUpdate()
     {
-        move();
+        Move();
     }
 
-    void turn()
+    private void Turn()
     {
-        inputs = Vector3.zero;
-        inputs.x = Input.GetAxis("Horizontal2");
-        inputs.z = Input.GetAxis("Vertical2");
-
-        if(inputs != Vector3.zero)
+        _inputs = Vector3.zero;
+        _inputs.x = Input.GetAxis("Horizontal2");
+        _inputs.z = Input.GetAxis("Vertical2");
+        
+        if(_inputs.z < 0)
         {
-            transform.forward = inputs;
+            _inputs.z = 0;
+        }
+
+        if(_inputs != Vector3.zero)
+        {
+            transform.forward = _inputs;
         }
 
 
     }
 
-    void move()
+    private void Move()
     {
-        rb.MovePosition(rb.position + inputs * speed * Time.fixedDeltaTime);
+        _rb.MovePosition(_rb.position + _inputs * _speed * Time.fixedDeltaTime);
     }
 }
