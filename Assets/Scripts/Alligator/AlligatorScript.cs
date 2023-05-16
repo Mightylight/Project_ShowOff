@@ -45,6 +45,11 @@ namespace Alligator
                 
                 _pushBack = transform.rotation* _pushBack;
                 _rb.AddForce(_pushBack);
+
+                if(_health <= 0)
+                {
+                    //TODO: loss
+                }
             }
             
         }
