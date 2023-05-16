@@ -80,7 +80,7 @@ PrefabInstance:
     - target: {fileID: 50576977445910096, guid: 4006c198683498145af35223ddcd14c3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -333
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 50576977445910096, guid: 4006c198683498145af35223ddcd14c3,
         type: 3}
@@ -182,7 +182,7 @@ PrefabInstance:
     - target: {fileID: 7730271785111419653, guid: 4006c198683498145af35223ddcd14c3,
         type: 3}
       propertyPath: m_Name
-      value: healthHUD (1)
+      value: playerHUD
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7379032600544725655, guid: 4006c198683498145af35223ddcd14c3, type: 3}
