@@ -8,7 +8,7 @@ namespace Alligator
     {
         [SerializeField] private int _health;
         [SerializeField] private float _stamina;
-        [SerializeField] private HealthBar _healthBar;
+        [SerializeField] private HealthBar[] _healthBars;
 
         [SerializeField] private float _invincibilityTimer = 0.5f;
         [SerializeField] private Vector3 _pushBack = Vector3.zero;
@@ -37,10 +37,15 @@ namespace Alligator
 
         public void OnHit()
         {
+            
             if (!_isInvincible)
             {
                 _health--;
-                _healthBar.TakeDamage(1);
+                foreach (HealthBar healthBar in _healthBars)
+                {
+                    healthBar.TakeDamage(1);
+                }
+                
                 _isInvincible = true;
                 _timer = _invincibilityTimer;
                 _rb.velocity= Vector3.zero;

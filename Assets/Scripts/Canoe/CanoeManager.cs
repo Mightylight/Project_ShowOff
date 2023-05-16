@@ -6,7 +6,7 @@ namespace Canoe
     public class CanoeManager : MonoBehaviour
     {
         [SerializeField] private int _health;
-        [SerializeField] private HealthBar _healthBar;
+        [SerializeField] private HealthBar[] _healthBars;
 
         public UnityEvent loss;
         private float _timer;
@@ -26,8 +26,11 @@ namespace Canoe
             if (!_isInvincible)
             {
                 _health--;
-                _healthBar.TakeDamage(1);
-
+                foreach(HealthBar healthBar in _healthBars)
+                {
+                    healthBar.TakeDamage(1);
+                }
+             
                 if (_health <= 0)
                 {
                     loss?.Invoke();
