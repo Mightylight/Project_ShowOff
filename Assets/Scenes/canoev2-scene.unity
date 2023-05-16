@@ -424,6 +424,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ae63e6847e9dbb4aba718de8b200232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _destroyObjects:
+  - {fileID: 1994364291}
 --- !u!114 &623117677 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8216991834843955219, guid: 938291b506570af49958bb0e84a13dce,
@@ -901,6 +903,12 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!1 &1994364291 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4451261061722039381, guid: 938291b506570af49958bb0e84a13dce,
+    type: 3}
+  m_PrefabInstance: {fileID: 4451261062286424326}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2005210006 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1130618500876601490, guid: 8400340fd64f19a458c1672f97870dd1,
@@ -1385,11 +1393,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsKinematic
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6717589736699591898, guid: 938291b506570af49958bb0e84a13dce,
-        type: 3}
-      propertyPath: m_Mass
-      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8911242703756815698, guid: 938291b506570af49958bb0e84a13dce,
         type: 3}
