@@ -72,8 +72,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _paddles:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8216991834843955219}
+  - {fileID: 6614918883361634399}
   _rb: {fileID: 6717589736699591898}
 --- !u!54 &6717589736699591898
 Rigidbody:
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 4451261062641524001}
   - component: {fileID: 1399730252288841652}
   - component: {fileID: 1114584903658694732}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: canoe-body
   m_TagString: Canoe
   m_Icon: {fileID: 0}
@@ -217,9 +217,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _vrCam: {fileID: 2861846346010707239}
-  _yLocation: -0.5
+  _yLocation: -0.8
   _synced: 0
-  _timeLeft: 1
+  _timeLeft: 0.5
 --- !u!1001 &2638976341301644369
 PrefabInstance:
   m_ObjectHideFlags: 0

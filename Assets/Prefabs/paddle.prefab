@@ -112,8 +112,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41736c41884e4ba4db815f0785dd195e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paddleTip: {fileID: 7044456287657024131}
-  strength: 5
+  _paddleTip: {fileID: 7044456287657024131}
+  _strength: 5
+  _depthModifier: 1
+  _maxDepthForStrength: -1
 --- !u!54 &167673584604011623
 Rigidbody:
   m_ObjectHideFlags: 0
