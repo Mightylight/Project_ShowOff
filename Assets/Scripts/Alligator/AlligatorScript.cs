@@ -15,12 +15,14 @@ namespace Alligator
             //TODO: extra effect? Push alligator back or something
         }
 
-        private void OnTriggerEnter(Collider pOther)
+        private void OnCollisionEnter(Collision pCollision)
         {
-            if (pOther.CompareTag("Canoe"))
+            Debug.Log("collision" + pCollision.gameObject.name);
+            if (pCollision.gameObject.CompareTag("Canoe"))
             {
                 //TODO: call canoe hit
-                pOther.GetComponent<CanoeManager>().OnAlligatorHit();
+                Debug.Log("Hit the canoe!");
+                pCollision.gameObject.GetComponentInChildren<CanoeManager>().OnAlligatorHit();
             }
         }
     }
