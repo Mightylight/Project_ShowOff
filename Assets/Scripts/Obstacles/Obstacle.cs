@@ -1,3 +1,4 @@
+using System;
 using Alligator;
 using UnityEngine;
 
@@ -10,8 +11,14 @@ namespace Obstacles
     [RequireComponent(typeof(BoxCollider))]
     public abstract class Obstacle : MonoBehaviour
     {
+        [SerializeField] private float _speed;
         public abstract void OnAlligatorHit(AlligatorScript pAlligatorScript);
         public abstract void OnCanoeHit();
+
+        private void Update()
+        {
+            transform.position += Vector3.back * _speed * Time.deltaTime;
+        }
 
         private void OnTriggerEnter(Collider pOther)
         {
