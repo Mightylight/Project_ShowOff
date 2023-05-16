@@ -1,3 +1,4 @@
+using Canoe;
 using UnityEngine;
 
 namespace Alligator
@@ -19,7 +20,7 @@ namespace Alligator
             if (pOther.CompareTag("Canoe"))
             {
                 //TODO: call canoe hit
-            
+                pOther.GetComponent<CanoeManager>().OnAlligatorHit();
             }
         }
     }
