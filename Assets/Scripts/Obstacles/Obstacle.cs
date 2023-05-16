@@ -1,27 +1,27 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using Alligator;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-/// <summary>
-/// An abstract class that can be inherited from to make custom effect for obstacles
-/// </summary>
-
-[RequireComponent(typeof(BoxCollider))]
-public abstract class Obstacle : MonoBehaviour
+namespace Obstacles
 {
-    public abstract void OnAlligatorHit(AlligatorScript pAlligatorScript);
-    public abstract void OnCanoeHit();
+    /// <summary>
+    /// An abstract class that can be inherited from to make custom effect for obstacles
+    /// </summary>
 
-    private void OnTriggerEnter(Collider pOther)
+    [RequireComponent(typeof(BoxCollider))]
+    public abstract class Obstacle : MonoBehaviour
     {
-        if (pOther.CompareTag("Alligator"))
+        public abstract void OnAlligatorHit(AlligatorScript pAlligatorScript);
+        public abstract void OnCanoeHit();
+
+        private void OnTriggerEnter(Collider pOther)
         {
-            OnAlligatorHit(pOther.GetComponent<AlligatorScript>());
-        } else if (pOther.CompareTag("Canoe"))
-        {
-            OnCanoeHit();
+            if (pOther.CompareTag("Alligator"))
+            {
+                OnAlligatorHit(pOther.GetComponent<AlligatorScript>());
+            } else if (pOther.CompareTag("Canoe"))
+            {
+                OnCanoeHit();
+            }
         }
     }
 }

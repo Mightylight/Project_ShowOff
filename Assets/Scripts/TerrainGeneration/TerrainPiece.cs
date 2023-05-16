@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace _Scripts.TerrainGeneration
+namespace TerrainGeneration
 {
     public class TerrainPiece : MonoBehaviour
     {
