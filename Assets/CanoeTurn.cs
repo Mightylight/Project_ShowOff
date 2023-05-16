@@ -16,16 +16,15 @@ public class CanoeTurn : MonoBehaviour
     bool isMoving = false;
 
     List<Vector3> positionList= new List<Vector3>();
-    [SerializeField] Transform movementSource;
 
-    public float turnRate = 10f;
-    Rigidbody rb;
+    public float turnRate = 100f;
+    [SerializeField] Rigidbody rb;
 
     public bool motionTurnEnabled = false;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        
     }
 
     private void FixedUpdate()
@@ -52,11 +51,11 @@ public class CanoeTurn : MonoBehaviour
         float rightPowerTotal = 0;
         if (leftPaddle.IsPaddling())
         {
-            leftPowerTotal = 1;
+            leftPowerTotal += 1f;
         }
         if (rightPaddle.IsPaddling())
         {
-            rightPowerTotal= 1;
+            rightPowerTotal+= 1f;
         }
 
         turnPowerTotal = leftPowerTotal - rightPowerTotal;
@@ -64,6 +63,8 @@ public class CanoeTurn : MonoBehaviour
         
         Quaternion deltaRot = Quaternion.Euler(0, turnPowerTotal*turnRate*Time.fixedDeltaTime, 0);
         rb.MoveRotation(rb.rotation * deltaRot);
+
+        //Debug.Log(deltaRot.ToString());
 
 
         //if (!isMoving && leftDraw.state == true)
