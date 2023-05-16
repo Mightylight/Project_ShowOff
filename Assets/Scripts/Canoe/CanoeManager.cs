@@ -10,7 +10,6 @@ namespace Canoe
         public void OnAlligatorHit()
         {
             _health--;
-            Debug.Log("Health deducted from canoe");
         }
     }
 }
