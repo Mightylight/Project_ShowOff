@@ -22,7 +22,14 @@ namespace Alligator
 
         private void FixedUpdate()
         {
+            //Move();
             Move();
+        }
+
+        private void Move()
+        {
+            Vector3 movement = new Vector3(_inputs.x, 0.0f, _inputs.z);
+            transform.Translate(movement * _speed * Time.deltaTime);
         }
 
         private void Turn()
@@ -44,9 +51,9 @@ namespace Alligator
 
         }
 
-        private void Move()
-        {
-            _rb.MovePosition(_rb.position + _inputs * _speed * Time.fixedDeltaTime);
-        }
+        // private void Move()
+        // {
+        //     _rb.MovePosition(_rb.position + _inputs * _speed * Time.fixedDeltaTime);
+        // }
     }
 }
