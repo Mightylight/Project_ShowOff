@@ -377,6 +377,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6632008}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &53199670 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4451261062641524002, guid: 938291b506570af49958bb0e84a13dce,
+    type: 3}
+  m_PrefabInstance: {fileID: 1544881216}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &53199677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53199670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e6c7a88e0e332b4d8d9626b0d2d90be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 2
 --- !u!1 &53481607
 GameObject:
   m_ObjectHideFlags: 0
@@ -6506,6 +6525,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alligator
       objectReference: {fileID: 0}
+    - target: {fileID: 8001988023239212201, guid: 9cb31200bdd8bae4e8474dfbf33e7b8d,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 36
+      objectReference: {fileID: 0}
     - target: {fileID: 8788330686797849561, guid: 9cb31200bdd8bae4e8474dfbf33e7b8d,
         type: 3}
       propertyPath: m_RootOrder
@@ -8615,7 +8639,7 @@ PrefabInstance:
     - target: {fileID: 4451261061722039378, guid: 938291b506570af49958bb0e84a13dce,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.16
+      value: 1.32
       objectReference: {fileID: 0}
     - target: {fileID: 4451261061722039378, guid: 938291b506570af49958bb0e84a13dce,
         type: 3}
