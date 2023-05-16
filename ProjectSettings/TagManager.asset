@@ -9,6 +9,7 @@ TagManager:
   - FxTemporaire
   - Canoe
   - Obstacle
+  - alligator
   layers:
   - Default
   - TransparentFX

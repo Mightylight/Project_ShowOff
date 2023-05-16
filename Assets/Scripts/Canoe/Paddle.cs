@@ -1,3 +1,4 @@
+using Alligator;
 using UnityEngine;
 
 namespace Canoe
@@ -63,5 +64,13 @@ namespace Canoe
             return _thrust;
         }
         public bool IsPaddling() { return _paddling; }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.CompareTag("alligator"))
+            {
+                collision.gameObject.GetComponent<AlligatorScript>().OnHit();
+            }
+        }
     }
 }
