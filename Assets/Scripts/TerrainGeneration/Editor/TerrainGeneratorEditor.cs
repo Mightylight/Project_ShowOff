@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace _Scripts.TerrainGeneration.Editor
+namespace TerrainGeneration.Editor
 {
     [CustomEditor(typeof(TerrainGenerator))]
     public class TerrainGeneratorEditor : UnityEditor.Editor

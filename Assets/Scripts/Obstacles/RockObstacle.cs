@@ -1,16 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using Alligator;
 
-public class RockObstacle : Obstacle
+namespace Obstacles
 {
-    public override void OnAlligatorHit(AlligatorScript pAlligatorScript)
+    public class RockObstacle : Obstacle
     {
-        throw new System.NotImplementedException();
-    }
+        public override void OnAlligatorHit(AlligatorScript pAlligatorScript)
+        {
+            throw new System.NotImplementedException();
+        }
 
-    public override void OnCanoeHit()
-    {
-        throw new System.NotImplementedException();
+        public override void OnCanoeHit()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
