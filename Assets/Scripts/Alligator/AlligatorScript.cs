@@ -17,6 +17,8 @@ namespace Alligator
 
         Rigidbody _rb;
 
+        public bool bounceBack = false;
+
         private void Awake()
         {
             _rb = GetComponent<Rigidbody>();
@@ -45,18 +47,27 @@ namespace Alligator
                 _rb.AddForce(_pushBack);
             }
             
-            
-            //TODO: extra effect? Push alligator back or something
-            //A: pushing away alligator happens anyway, since paddles are kinematic
-            //but its definitely possible to add custom force :D
         }
 
-        private void OnTriggerEnter(Collider pOther)
+        private void OnCollisionEnter(Collision pCollision)
         {
-            if (pOther.CompareTag("Canoe"))
+            if (pCollision.gameObject.CompareTag("Canoe"))
             {
+                
                 //TODO: call canoe hit
-                pOther.GetComponent<CanoeManager>().OnAlligatorHit();
+                pCollision.gameObject.GetComponent<CanoeManager>().OnAlligatorHit();
+            }
+        }
+        private void OnCollisionExit(Collision pCollision)
+        {
+            if (pCollision.gameObject.CompareTag("Canoe"))
+            {
+                if (!bounceBack)
+                {
+                    _rb.velocity = Vector3.zero;
+                    _rb.angularVelocity = Vector3.zero;
+                }
+                
             }
         }
     }
