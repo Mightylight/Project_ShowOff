@@ -550,10 +550,15 @@ PrefabInstance:
       propertyPath: _healthBar
       value: 
       objectReference: {fileID: 7091188}
-    - target: {fileID: 8001988023239212201, guid: 9cb31200bdd8bae4e8474dfbf33e7b8d,
+    - target: {fileID: 7084665533323267826, guid: 9cb31200bdd8bae4e8474dfbf33e7b8d,
         type: 3}
-      propertyPath: m_Mass
-      value: 100
+      propertyPath: _pushBack.x
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7084665533323267826, guid: 9cb31200bdd8bae4e8474dfbf33e7b8d,
+        type: 3}
+      propertyPath: _pushBack.z
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 8788330686797849561, guid: 9cb31200bdd8bae4e8474dfbf33e7b8d,
         type: 3}
@@ -862,6 +867,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861846346010258767, guid: 938291b506570af49958bb0e84a13dce,
+        type: 3}
+      propertyPath: m_Name
+      value: floridaman
       objectReference: {fileID: 0}
     - target: {fileID: 3619552876727888852, guid: 938291b506570af49958bb0e84a13dce,
         type: 3}

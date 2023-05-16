@@ -10,8 +10,17 @@ namespace Alligator
         [SerializeField] private HealthBar _healthBar;
 
         [SerializeField] private float _invincibilityTimer = 0.5f;
+        [SerializeField] private Vector3 _pushBack = Vector3.zero;
+
         private float _timer;
         bool _isInvincible = false;
+
+        Rigidbody _rb;
+
+        private void Awake()
+        {
+            _rb = GetComponent<Rigidbody>();
+        }
 
         private void Update()
         {
@@ -30,10 +39,16 @@ namespace Alligator
                 _healthBar.TakeDamage(1);
                 _isInvincible = true;
                 _timer = _invincibilityTimer;
+                _rb.velocity= Vector3.zero;
+                
+                _pushBack = transform.rotation* _pushBack;
+                _rb.AddForce(_pushBack);
             }
             
             
             //TODO: extra effect? Push alligator back or something
+            //A: pushing away alligator happens anyway, since paddles are kinematic
+            //but its definitely possible to add custom force :D
         }
 
         private void OnTriggerEnter(Collider pOther)
