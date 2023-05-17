@@ -598,6 +598,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: alligator
       objectReference: {fileID: 0}
+    - target: {fileID: 3615913201944705030, guid: 9cb31200bdd8bae4e8474dfbf33e7b8d,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 63
+      objectReference: {fileID: 0}
     - target: {fileID: 5462627698128016822, guid: 9cb31200bdd8bae4e8474dfbf33e7b8d,
         type: 3}
       propertyPath: m_AngularXMotion
