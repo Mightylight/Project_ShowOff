@@ -26,14 +26,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1844583970571050097}
-  m_LocalRotation: {x: -0, y: 0.0010350528, z: -0, w: 0.9999995}
-  m_LocalPosition: {x: -0.01, y: 0.68, z: -1.161}
+  m_LocalRotation: {x: 0.06720753, y: 0.0010327125, z: -0.0000695634, w: 0.99773854}
+  m_LocalPosition: {x: -0.01, y: 1.12, z: -1.015}
   m_LocalScale: {x: 0.40981176, y: 1, z: 0.94352466}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8788330686797849561}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0.119, z: 0}
+  m_LocalEulerAnglesHint: {x: 7.707, y: 0.119, z: 0}
 --- !u!20 &3615913201944705030
 Camera:
   m_ObjectHideFlags: 0
@@ -262,7 +262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 5
   _stamina: 5
-  _healthBar: {fileID: 0}
+  _healthBars: []
   _invincibilityTimer: 1
   _pushBack: {x: -2, y: 0, z: -2}
   bounceBack: 0
