@@ -273,7 +273,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -677,12 +677,12 @@ PrefabInstance:
     - target: {fileID: 50576977445910096, guid: 4006c198683498145af35223ddcd14c3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -308.13
+      value: -315
       objectReference: {fileID: 0}
     - target: {fileID: 50576977445910096, guid: 4006c198683498145af35223ddcd14c3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -116.25
+      value: -130
       objectReference: {fileID: 0}
     - target: {fileID: 50576977445910096, guid: 4006c198683498145af35223ddcd14c3,
         type: 3}
@@ -724,6 +724,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: crocoHUD
       objectReference: {fileID: 0}
+    - target: {fileID: 7730271785111419653, guid: 4006c198683498145af35223ddcd14c3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4006c198683498145af35223ddcd14c3, type: 3}
 --- !u!224 &2374959885910233630 stripped
@@ -743,6 +748,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: playerHUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 138504777328800153, guid: 94afca66a3a4d5c418702049554cdefd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2490161714319703132, guid: 94afca66a3a4d5c418702049554cdefd,
         type: 3}
@@ -842,12 +852,12 @@ PrefabInstance:
     - target: {fileID: 7645088074192600268, guid: 94afca66a3a4d5c418702049554cdefd,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 308.13
+      value: 315
       objectReference: {fileID: 0}
     - target: {fileID: 7645088074192600268, guid: 94afca66a3a4d5c418702049554cdefd,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -116.25
+      value: -130
       objectReference: {fileID: 0}
     - target: {fileID: 7645088074192600268, guid: 94afca66a3a4d5c418702049554cdefd,
         type: 3}
