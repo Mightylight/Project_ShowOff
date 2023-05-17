@@ -23,14 +23,14 @@ namespace Canoe
                 _currentPosition = _paddleTip.position;
                 //Debug.Log(lastPosition - currentPosition);
                 _thrust = -_strength * (_lastPosition - _currentPosition);
-
+                
                 float forceFromDepth = _depthModifier *- _maxDepthForStrength;
                 if(_paddleTip.position.y < _maxDepthForStrength)
                 {
                     forceFromDepth= _depthModifier *-_paddleTip.position.y;
                 }
 
-                _thrust *= forceFromDepth;
+               // _thrust *= forceFromDepth;
                 _thrust.y = 0;
             }
             else

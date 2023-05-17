@@ -265,7 +265,7 @@ MonoBehaviour:
   _healthBars: []
   _invincibilityTimer: 1
   _pushBack: {x: -2, y: 0, z: -2}
-  bounceBack: 0
+  bounceBack: 1
   loss:
     m_PersistentCalls:
       m_Calls: []

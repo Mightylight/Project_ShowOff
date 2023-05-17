@@ -13,6 +13,12 @@ namespace Canoe
         bool _isInvincible = false;
         [SerializeField] private float _invincibilityTimer = 0.5f;
 
+
+        private void Start()
+        {
+            transform.position += new Vector3(0, 0.819999993f, 0);
+        }
+
         private void Update()
         {
             if (_isInvincible)
