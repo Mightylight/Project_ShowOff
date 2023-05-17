@@ -1115,6 +1115,21 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 2325583713628037267, guid: 8400340fd64f19a458c1672f97870dd1,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2325583713628037267, guid: 8400340fd64f19a458c1672f97870dd1,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 2325583713628037267, guid: 8400340fd64f19a458c1672f97870dd1,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 2325583713628037277, guid: 8400340fd64f19a458c1672f97870dd1,
         type: 3}
       propertyPath: m_Name
