@@ -21,6 +21,8 @@ namespace Canoe
                 velocity += p.GetThrust();
             }
 
+            //velocity
+
             _rb.AddForce(velocity);
         }
 
