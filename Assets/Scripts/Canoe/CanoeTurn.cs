@@ -59,11 +59,15 @@ namespace Canoe
                 rightPowerTotal+= 1f;
             }
 
-            turnPowerTotal = leftPowerTotal - rightPowerTotal;
+            turnPowerTotal = rightPowerTotal - leftPowerTotal;
+
+
 
         
             Quaternion deltaRot = Quaternion.Euler(0, turnPowerTotal*turnRate*Time.fixedDeltaTime, 0);
+            _rb.velocity = deltaRot * _rb.velocity;
             _rb.MoveRotation(_rb.rotation * deltaRot);
+
 
             //Debug.Log(deltaRot.ToString());
 

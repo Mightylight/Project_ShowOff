@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -23312,6 +23312,16 @@ PrefabInstance:
       objectReference: {fileID: 1110873549}
     - target: {fileID: 4006191277498856094, guid: 938291b506570af49958bb0e84a13dce,
         type: 3}
+      propertyPath: velocityCap.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4006191277498856094, guid: 938291b506570af49958bb0e84a13dce,
+        type: 3}
+      propertyPath: velocityCap.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4006191277498856094, guid: 938291b506570af49958bb0e84a13dce,
+        type: 3}
       propertyPath: paddles.Array.data[0]
       value: 
       objectReference: {fileID: 1110873546}
@@ -23518,7 +23528,7 @@ PrefabInstance:
     - target: {fileID: 5588656717770616269, guid: 938291b506570af49958bb0e84a13dce,
         type: 3}
       propertyPath: turnRate
-      value: 100
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5588656717770616269, guid: 938291b506570af49958bb0e84a13dce,
         type: 3}
@@ -23549,6 +23559,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mass
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173323702645903417, guid: 938291b506570af49958bb0e84a13dce,
+        type: 3}
+      propertyPath: m_Value
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7937250572680237077, guid: 938291b506570af49958bb0e84a13dce,
         type: 3}
@@ -36743,7 +36758,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1642785344}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f7c3a640a4d4f64d845134bd9ffbfba, type: 3}
   m_Name: 

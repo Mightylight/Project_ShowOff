@@ -22,7 +22,7 @@ namespace Obstacles
 
         private void OnTriggerEnter(Collider pOther)
         {
-            if (pOther.CompareTag("Alligator"))
+            if (pOther.CompareTag("alligator"))
             {
                 OnAlligatorHit(pOther.GetComponent<AlligatorScript>());
             } else if (pOther.CompareTag("Canoe"))
