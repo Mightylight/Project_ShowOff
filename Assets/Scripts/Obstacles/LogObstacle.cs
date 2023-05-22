@@ -1,4 +1,5 @@
 using Alligator;
+using Canoe;
 
 namespace Obstacles
 {
@@ -6,12 +7,12 @@ namespace Obstacles
     {
         public override void OnAlligatorHit(AlligatorScript pAlligatorScript)
         {
-            throw new System.NotImplementedException();
+            pAlligatorScript.OnHit();
         }
 
-        public override void OnCanoeHit()
+        public override void OnCanoeHit(CanoeManager pCanoeManager)
         {
-            throw new System.NotImplementedException();
+            pCanoeManager.OnHit();
         }
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using Alligator;
+using Canoe;
 using UnityEngine;
 
 namespace Obstacles
@@ -13,7 +14,7 @@ namespace Obstacles
     {
         [SerializeField] private float _speed;
         public abstract void OnAlligatorHit(AlligatorScript pAlligatorScript);
-        public abstract void OnCanoeHit();
+        public abstract void OnCanoeHit(CanoeManager pCanoeManager);
 
         private void Update()
         {
@@ -27,7 +28,7 @@ namespace Obstacles
                 OnAlligatorHit(pOther.GetComponent<AlligatorScript>());
             } else if (pOther.CompareTag("Canoe"))
             {
-                OnCanoeHit();
+                OnCanoeHit(pOther.GetComponent<CanoeManager>());
             }
         }
     }

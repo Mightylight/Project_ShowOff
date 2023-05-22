@@ -27,7 +27,7 @@ namespace Canoe
                 if (_timer <= 0) _isInvincible = false;
             }
         }
-        public void OnAlligatorHit()
+        public void OnHit()
         {
             if (!_isInvincible)
             {
@@ -45,5 +45,6 @@ namespace Canoe
                 _timer = _invincibilityTimer;
             }
         }
+        
     }
 }

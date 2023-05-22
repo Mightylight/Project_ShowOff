@@ -67,7 +67,7 @@ namespace Alligator
             {
                 
                 //TODO: call canoe hit
-                pCollision.gameObject.GetComponent<CanoeManager>().OnAlligatorHit();
+                pCollision.gameObject.GetComponent<CanoeManager>().OnHit();
             }
         }
         private void OnCollisionExit(Collision pCollision)
