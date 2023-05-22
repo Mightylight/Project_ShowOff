@@ -23525,6 +23525,11 @@ PrefabInstance:
       propertyPath: rightPaddle
       value: 
       objectReference: {fileID: 1110873546}
+    - target: {fileID: 5588656717770616269, guid: 938291b506570af49958bb0e84a13dce,
+        type: 3}
+      propertyPath: velocityCoefficient
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5940088629141738782, guid: 938291b506570af49958bb0e84a13dce,
         type: 3}
       propertyPath: m_IsActive
@@ -23544,6 +23549,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mass
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6717589736699591898, guid: 938291b506570af49958bb0e84a13dce,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7173323702645903417, guid: 938291b506570af49958bb0e84a13dce,
         type: 3}
