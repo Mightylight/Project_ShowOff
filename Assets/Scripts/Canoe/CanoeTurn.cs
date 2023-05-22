@@ -19,6 +19,7 @@ namespace Canoe
         private readonly List<Vector3> _positionList= new List<Vector3>();
 
         public float turnRate = 100f;
+        [SerializeField] float velocityCoefficient = 0.9f;
         [SerializeField] private Rigidbody _rb;
 
         public bool motionTurnEnabled = false;
@@ -62,10 +63,10 @@ namespace Canoe
             turnPowerTotal = rightPowerTotal - leftPowerTotal;
 
 
-
+            
         
             Quaternion deltaRot = Quaternion.Euler(0, turnPowerTotal*turnRate*Time.fixedDeltaTime, 0);
-            _rb.velocity = deltaRot * _rb.velocity;
+            //_rb.velocity = deltaRot * _rb.velocity*velocityCoefficient;
             _rb.MoveRotation(_rb.rotation * deltaRot);
 
 
