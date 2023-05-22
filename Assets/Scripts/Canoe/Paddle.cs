@@ -21,6 +21,7 @@ namespace Canoe
             {
                 _lastPosition = _currentPosition;
                 _currentPosition = _paddleTip.position;
+                //_currentPosition = transform.root.rotation*_currentPosition;
                 //Debug.Log(lastPosition - currentPosition);
                 _thrust = -_strength * (_lastPosition - _currentPosition);
                 

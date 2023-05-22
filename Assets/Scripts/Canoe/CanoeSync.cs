@@ -15,7 +15,7 @@ namespace Canoe
             if(!_synced)
             {
                 transform.localPosition = new Vector3(_vrCam.position.x, _vrCam.position.y + _yLocation, _vrCam.position.z);
-                transform.localRotation = Quaternion.Euler(0, _vrCam.localEulerAngles.y, 0); //vrCam.localEulerAngles
+                //transform.localRotation = Quaternion.Euler(0, _vrCam.localEulerAngles.y, 0); //vrCam.localEulerAngles
                 //transform.localRotation = vrCam.localRotation;
 
                 //Quaternion.EulerAngles

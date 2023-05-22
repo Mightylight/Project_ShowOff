@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -23240,11 +23240,6 @@ PrefabInstance:
       propertyPath: yLocation
       value: -0.85
       objectReference: {fileID: 0}
-    - target: {fileID: 1114584903658694732, guid: 938291b506570af49958bb0e84a13dce,
-        type: 3}
-      propertyPath: _yLocation
-      value: -1.6
-      objectReference: {fileID: 0}
     - target: {fileID: 1119244960887694474, guid: 938291b506570af49958bb0e84a13dce,
         type: 3}
       propertyPath: m_Layer
@@ -23518,7 +23513,7 @@ PrefabInstance:
     - target: {fileID: 5588656717770616269, guid: 938291b506570af49958bb0e84a13dce,
         type: 3}
       propertyPath: turnRate
-      value: 100
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5588656717770616269, guid: 938291b506570af49958bb0e84a13dce,
         type: 3}
@@ -23550,6 +23545,11 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7173323702645903417, guid: 938291b506570af49958bb0e84a13dce,
+        type: 3}
+      propertyPath: m_Value
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7937250572680237077, guid: 938291b506570af49958bb0e84a13dce,
         type: 3}
       propertyPath: m_Layer
@@ -23570,6 +23570,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 8216991834843955219, guid: 938291b506570af49958bb0e84a13dce,
+        type: 3}
+      propertyPath: _strength
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 8911242703756815698, guid: 938291b506570af49958bb0e84a13dce,
         type: 3}
       propertyPath: m_IsActive
@@ -23579,11 +23584,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 9198073121882706136, guid: 938291b506570af49958bb0e84a13dce,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4451261063252130490, guid: 938291b506570af49958bb0e84a13dce, type: 3}

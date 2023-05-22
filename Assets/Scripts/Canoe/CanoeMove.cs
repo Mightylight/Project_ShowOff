@@ -6,6 +6,7 @@ namespace Canoe
     {
         public Paddle[] _paddles;
         [SerializeField] Rigidbody _rb;
+        [SerializeField] Vector3 velocityCap;
   
 
         private void Awake()
@@ -21,9 +22,11 @@ namespace Canoe
                 velocity += p.GetThrust();
             }
 
-            //velocity
+            velocity = transform.rotation * velocity;
 
             _rb.AddForce(velocity);
+            Mathf.Clamp(_rb.velocity.x, -velocityCap.x, velocityCap.x);
+            Mathf.Clamp(_rb.velocity.z, -velocityCap.z, velocityCap.z);
         }
 
 
