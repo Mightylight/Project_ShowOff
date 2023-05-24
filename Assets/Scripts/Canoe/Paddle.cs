@@ -13,6 +13,7 @@ namespace Canoe
         [SerializeField] private float _strength = 1000;
         [SerializeField] private float _depthModifier = 0.5f;
         [Range(-10, 0)][SerializeField] private float _maxDepthForStrength = -1;
+        private float paddlingTime = 0f;
 
 
         private void FixedUpdate()

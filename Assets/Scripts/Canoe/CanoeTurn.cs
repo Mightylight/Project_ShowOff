@@ -24,6 +24,8 @@ namespace Canoe
 
         public bool motionTurnEnabled = false;
 
+        float test;
+
         private void Awake()
         {
         
@@ -32,7 +34,24 @@ namespace Canoe
         private void FixedUpdate()
         {
             if (motionTurnEnabled) motionTurn();
-            else simpleTurn();
+            //else simpleTurn();
+
+            Vector3 temp = Quaternion.Euler(0, -transform.rotation.eulerAngles.y, 0) * _leftPaddle.GetThrust();
+
+            if (_leftPaddle.GetThrust().magnitude != 0) Debug.Log(temp);
+
+           
+
+            
+
+            //if (_leftPaddle.IsPaddling())
+            //{
+            //    test += 0.01f;
+            //    Quaternion deltaRot = Quaternion.Euler(0, test * turnRate * Time.fixedDeltaTime, 0);
+            //    _rb.MoveRotation(_rb.rotation * deltaRot);
+            //}
+            //else test = 0;
+           
         }
 
         void simpleTurn()
@@ -44,6 +63,12 @@ namespace Canoe
         private void OnTriggerEnter(Collider other)
         {
         
+        }
+
+        float turnPower()
+        {
+
+            return 0;
         }
 
         void motionTurn()

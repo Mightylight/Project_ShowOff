@@ -58,6 +58,7 @@ MonoBehaviour:
   _leftPaddle: {fileID: 8216991834843955219}
   _rightPaddle: {fileID: 6614918883361634399}
   turnRate: 10
+  velocityCoefficient: 0.9
   _rb: {fileID: 6717589736699591898}
   motionTurnEnabled: 1
 --- !u!114 &4006191277498856094
@@ -77,6 +78,7 @@ MonoBehaviour:
   - {fileID: 6614918883361634399}
   _rb: {fileID: 6717589736699591898}
   velocityCap: {x: 5, y: 0, z: 5}
+  veloCap: 5
 --- !u!54 &6717589736699591898
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -532,7 +534,7 @@ PrefabInstance:
     - target: {fileID: 324088388160479388, guid: 7c23da46cb8e85449bee241956a792df,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 324088388160479388, guid: 7c23da46cb8e85449bee241956a792df,
         type: 3}
@@ -1112,7 +1114,7 @@ PrefabInstance:
     - target: {fileID: 324088388160479388, guid: 7c23da46cb8e85449bee241956a792df,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 324088388160479388, guid: 7c23da46cb8e85449bee241956a792df,
         type: 3}

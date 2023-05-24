@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
 
 namespace Canoe
 {
@@ -12,6 +13,7 @@ namespace Canoe
         private float _timer;
         bool _isInvincible = false;
         [SerializeField] private float _invincibilityTimer = 0.5f;
+        [SerializeField] TextMeshProUGUI timerText;
 
 
         private void Start()
@@ -24,7 +26,12 @@ namespace Canoe
             if (_isInvincible)
             {
                 _timer -= Time.deltaTime;
-                if (_timer <= 0) _isInvincible = false;
+                timerText.text = "Next bite in " + _timer.ToString();
+                if (_timer <= 0) 
+                {
+                    _isInvincible = false;
+                    timerText.text = "Bite ready.";
+                } 
             }
         }
         public void OnHit()

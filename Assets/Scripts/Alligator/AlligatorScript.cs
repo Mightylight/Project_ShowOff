@@ -40,10 +40,10 @@ namespace Alligator
             
             if (!_isInvincible)
             {
-                _health--;
+                //_health--;
                 foreach (HealthBar healthBar in _healthBars)
                 {
-                    healthBar.TakeDamage(1);
+                   // healthBar.TakeDamage(1);
                 }
                 
                 _isInvincible = true;
