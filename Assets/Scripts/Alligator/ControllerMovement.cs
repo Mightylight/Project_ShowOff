@@ -28,7 +28,8 @@ namespace Alligator
 
         private void Move()
         {
-            Vector3 movement = new Vector3(_inputs.x, 0.0f, _inputs.z);
+            Vector3 movement = new Vector3(_inputs.x, 0.0f, Mathf.Abs(_inputs.z));
+            
             transform.Translate(movement * _speed * Time.deltaTime);
         }
 
@@ -37,15 +38,14 @@ namespace Alligator
             _inputs = Vector3.zero;
             _inputs.x = Input.GetAxis("Horizontal2");
             _inputs.z = Input.GetAxis("Vertical2");
+            Debug.Log(_inputs);
         
-            if(_inputs.z < 0)
-            {
-                _inputs.z = 0;
-            }
+         
 
             if(_inputs != Vector3.zero)
             {
-                transform.forward = _inputs;
+                // transform.forward = _inputs;
+                transform.rotation = Quaternion.LookRotation(_inputs);
             }
 
 

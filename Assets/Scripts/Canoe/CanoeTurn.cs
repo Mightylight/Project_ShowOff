@@ -33,12 +33,19 @@ namespace Canoe
 
         private void FixedUpdate()
         {
-            if (motionTurnEnabled) motionTurn();
+           // if (motionTurnEnabled) motionTurn();
             //else simpleTurn();
 
-            Vector3 temp = Quaternion.Euler(0, -transform.rotation.eulerAngles.y, 0) * _leftPaddle.GetThrust();
+            Vector3 temp = Quaternion.Euler(0, -transform.rotation.eulerAngles.y, 0) * (_leftPaddle.GetThrust() - _rightPaddle.GetThrust());
 
-            if (_leftPaddle.GetThrust().magnitude != 0) Debug.Log(temp);
+            temp /= 10;
+            Quaternion deltaRot =Quaternion.Euler(0, temp.z * turnRate * Time.fixedDeltaTime, 0) ;
+
+            Debug.Log(temp.z * turnRate * Time.fixedDeltaTime);
+
+            Vector3.ClampMagnitude(_rb.angularVelocity, 0);
+            _rb.MoveRotation(_rb.rotation * deltaRot);
+            //if (_leftPaddle.GetThrust().magnitude != 0) Debug.Log(temp);
 
            
 

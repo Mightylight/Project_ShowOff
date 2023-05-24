@@ -23,9 +23,10 @@ namespace Canoe
                 velocity += p.GetThrust();
             }
 
-           velocity = transform.rotation * velocity;
-
-            _rb.AddForce(velocity);
+            //velocity = transform.rotation * velocity;
+            _rb.velocity = Vector3.ClampMagnitude(_rb.velocity, veloCap);
+            _rb.AddForce(transform.forward * velocity.z*2);
+            //_rb.AddForce(velocity);
             _rb.velocity = Vector3.ClampMagnitude(_rb.velocity, veloCap);
             //Mathf.Clamp(_rb.velocity.x, -velocityCap.x, velocityCap.x);
             //Mathf.Clamp(_rb.velocity.z, -velocityCap.z, velocityCap.z);
