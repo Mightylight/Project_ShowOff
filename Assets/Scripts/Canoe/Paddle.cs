@@ -7,10 +7,10 @@ namespace Canoe
     {
         [SerializeField] private Transform _paddleTip;
         private bool _paddling = false;
-        private Vector3 _lastPosition = Vector3.zero;
+       // private Vector3 _lastPosition = Vector3.zero;
         private Vector3 _currentPosition = Vector3.zero;
         private Vector3 _thrust;
-        [SerializeField] private float _strength = 1000;
+        [SerializeField] public float _strength = 1000;
         [SerializeField] private float _depthModifier = 0.5f;
         [Range(-10, 0)][SerializeField] private float _maxDepthForStrength = -1;
         private float paddlingTime = 0f;
@@ -20,25 +20,25 @@ namespace Canoe
         {
             if(_paddling) 
             {
-                _lastPosition = _currentPosition;
-                _currentPosition = _paddleTip.position;
+                Vector3 lastPosition = _currentPosition;
+                _currentPosition = _paddleTip.position;// transform.parent.localPosition;
                 //_currentPosition = transform.root.rotation*_currentPosition;
                 //Debug.Log(lastPosition - currentPosition);
-                _thrust = -_strength * (_lastPosition - _currentPosition);
+                if(lastPosition != new Vector3(999, 9999, 99)) _thrust = _strength * (lastPosition - _currentPosition);
                 
-                float forceFromDepth = _depthModifier *- _maxDepthForStrength;
-                if(_paddleTip.position.y < _maxDepthForStrength)
-                {
-                    forceFromDepth= _depthModifier *-_paddleTip.position.y;
-                }
+                //float forceFromDepth = _depthModifier *- _maxDepthForStrength;
+                //if(_paddleTip.position.y < _maxDepthForStrength)
+                //{
+                //    forceFromDepth= _depthModifier *-_paddleTip.position.y;
+                //}
 
                // _thrust *= forceFromDepth;
                 _thrust.y = 0;
             }
             else
             {
-                _lastPosition = Vector3.zero;
-                _currentPosition = Vector3.zero;
+                //_lastPosition = Vector3.zero;
+                _currentPosition = new Vector3(999, 9999, 99);
             }
         }
 
