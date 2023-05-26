@@ -17,34 +17,17 @@ namespace Alligator
 
         private void Update()
         {
-            //if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0) Debug.Log("Joystick1");
-            //if (Input.GetAxis("HorizontalXbox") != 0 || Input.GetAxis("VerticalXbox") != 0) Debug.Log("Joystick2");
-            //Debug.Log(Input.GetAxis("HorizontalPS") + ", " + Input.GetAxis("VerticalPS"));
-
-            //Turn();
+            Turn();
         }
 
         private void FixedUpdate()
         {
-            newMove();
-        }
-
-        void newMove()
-        {
-            _inputs.x = Input.GetAxis("Horizontal");
-            _inputs.z = Input.GetAxis("Vertical");
-            Vector3 movement = new Vector3(_inputs.x, 0.0f, _inputs.z);
-            transform.Translate(movement * _speed * Time.deltaTime);
-        }
-
-        void cameraMove()
-        {
-
+            //Move();
+            Move();
         }
 
         private void Move()
         {
-            //_inputs
             Vector3 movement = new Vector3(_inputs.x, 0.0f, _inputs.z);
             transform.Translate(movement * _speed * Time.deltaTime);
         }
