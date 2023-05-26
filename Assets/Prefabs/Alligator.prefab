@@ -132,8 +132,6 @@ GameObject:
   - component: {fileID: 1702233308198654999}
   - component: {fileID: 8001988023239212201}
   - component: {fileID: 7084665533323267826}
-  - component: {fileID: 2617745319414014767}
-  - component: {fileID: 1331917246777085006}
   m_Layer: 0
   m_Name: Alligator
   m_TagString: Untagged
