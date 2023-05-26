@@ -29,7 +29,7 @@ namespace TerrainGeneration
         [Header("Generation Objects")]
         //TODO: add weights to the tiles
         //[SerializeField] private TerrainPiece[] _terrainTiles;
-        [SerializeField] private TerrainPiece[] _tiles;
+        [SerializeField] private TerrainTiles[] _tiles;
         [SerializeField] private Transform _tileParent;
 
 
@@ -132,8 +132,33 @@ namespace TerrainGeneration
         private void GenerateNewTerrainPiece(Vector3 pNewPos)
         {
             TerrainPiece newTile =
-                Instantiate(_tiles[Random.Range(0, _tiles.Length)], pNewPos, Quaternion.identity, _tileParent);
+                Instantiate(GetRandomWeightedTile(), pNewPos, Quaternion.identity, _tileParent);
             _terrain.Add(newTile);
         }
+
+        private TerrainPiece GetRandomWeightedTile()
+        {
+            int totalWeight = _tiles.Sum(x => x.weight);
+            int randomWeight = Random.Range(0, totalWeight);
+            int currentWeight = 0;
+            foreach (TerrainTiles tile in _tiles)
+            {
+                currentWeight += tile.weight;
+                if (currentWeight > randomWeight)
+                {
+                    return tile.tile;
+                }
+            }
+
+            return null;
+        }
+
+
+    }
+    [Serializable]
+    public class TerrainTiles
+    {
+        public TerrainPiece tile;
+        public int weight;
     }
 }
