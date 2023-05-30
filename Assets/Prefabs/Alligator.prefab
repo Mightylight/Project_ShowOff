@@ -220,6 +220,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b7249963c8b8b4d9ef7b012c12da8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 1
+  _cameraPivot: {fileID: 626147656536560701}
   _speed: 5
   _model: {fileID: 2353903770835777747}
 --- !u!54 &8001988023239212201
@@ -371,6 +373,7 @@ MonoBehaviour:
   minPitch: -75
   maxPitch: 75
   pitchSpeed: 1
+  _type: 0
   yawSpeed: 1
 --- !u!1001 &962131897005756947
 PrefabInstance:
