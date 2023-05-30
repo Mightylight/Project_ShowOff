@@ -10,7 +10,7 @@ namespace Canoe
         private Vector3 _lastPosition = Vector3.zero;
         private Vector3 _currentPosition = Vector3.zero;
         private Vector3 _thrust;
-        [SerializeField] private float _strength = 1000;
+        [SerializeField] public float _strength = 1000;
         [SerializeField] private float _depthModifier = 0.5f;
         [Range(-10, 0)][SerializeField] private float _maxDepthForStrength = -1;
         private float paddlingTime = 0f;

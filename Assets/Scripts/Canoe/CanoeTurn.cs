@@ -16,9 +16,9 @@ namespace Canoe
         //public SteamVR_Action_Boolean leftDraw;
         private bool _isMoving = false;
 
-        private readonly List<Vector3> _positionList= new List<Vector3>();
+        private readonly List<Vector3> _positionList = new List<Vector3>();
 
-        public float turnRate = 100f;
+        public float turnRate = 1f;
         [SerializeField] float velocityCoefficient = 0.9f;
         [SerializeField] private Rigidbody _rb;
 
@@ -28,21 +28,29 @@ namespace Canoe
 
         private void Awake()
         {
-        
+
         }
 
         private void FixedUpdate()
         {
-            if (motionTurnEnabled) motionTurn();
-            //else simpleTurn();
+            //// if (motionTurnEnabled) motionTurn();
+            // //else simpleTurn();
 
-            Vector3 temp = Quaternion.Euler(0, -transform.rotation.eulerAngles.y, 0) * _leftPaddle.GetThrust();
+            // Vector3 temp =  (_leftPaddle.GetThrust() - _rightPaddle.GetThrust());
 
-            if (_leftPaddle.GetThrust().magnitude != 0) Debug.Log(temp);
+            // //temp /= 10;
+            // Quaternion deltaRot =Quaternion.Euler(0, temp.z * turnRate * Time.fixedDeltaTime, 0) ;
 
-           
+            // Debug.Log(temp.z * turnRate * Time.fixedDeltaTime);
 
-            
+            // Vector3.ClampMagnitude(_rb.angularVelocity, 0);
+            // _rb.MoveRotation(_rb.rotation * deltaRot);
+            // temp = Vector3.zero;
+            // //if (_leftPaddle.GetThrust().magnitude != 0) Debug.Log(temp);
+
+
+
+
 
             //if (_leftPaddle.IsPaddling())
             //{
@@ -51,18 +59,37 @@ namespace Canoe
             //    _rb.MoveRotation(_rb.rotation * deltaRot);
             //}
             //else test = 0;
-           
+
+            float leftPowerTotal = 0;
+            float rightPowerTotal = 0;
+            if (_leftPaddle.IsPaddling())
+            {
+                leftPowerTotal++;
+                leftPowerTotal += _leftPaddle.GetThrust().z / _leftPaddle._strength;
+            }
+            if (_rightPaddle.IsPaddling())
+            {
+                rightPowerTotal++;
+                rightPowerTotal += _rightPaddle.GetThrust().z / _leftPaddle._strength;
+            }
+
+            float turnPowerTotal = rightPowerTotal - leftPowerTotal;
+            Debug.Log(turnPowerTotal);
+
+            Quaternion deltaRot = Quaternion.Euler(0, turnPowerTotal * turnRate * Time.fixedDeltaTime, 0);
+            _rb.MoveRotation(_rb.rotation * deltaRot);
         }
 
         void simpleTurn()
         {
             Quaternion deltaRot = Quaternion.Euler(0, (_leftInput.axis.y - _rightInput.axis.y) * turnRate * Time.fixedDeltaTime, 0);
             _rb.MoveRotation(_rb.rotation * deltaRot);
+
         }
 
         private void OnTriggerEnter(Collider other)
         {
-        
+
         }
 
         float turnPower()
@@ -82,15 +109,15 @@ namespace Canoe
             }
             if (_rightPaddle.IsPaddling())
             {
-                rightPowerTotal+= 1f;
+                rightPowerTotal += 1f;
             }
 
             turnPowerTotal = rightPowerTotal - leftPowerTotal;
 
 
-            
-        
-            Quaternion deltaRot = Quaternion.Euler(0, turnPowerTotal*turnRate*Time.fixedDeltaTime, 0);
+
+
+            Quaternion deltaRot = Quaternion.Euler(0, turnPowerTotal * turnRate * Time.fixedDeltaTime, 0);
             //_rb.velocity = deltaRot * _rb.velocity*velocityCoefficient;
             _rb.MoveRotation(_rb.rotation * deltaRot);
 
