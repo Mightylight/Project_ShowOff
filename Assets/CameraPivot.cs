@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Alligator;
 using UnityEngine;
 
 public class CameraPivot : MonoBehaviour
@@ -8,6 +9,8 @@ public class CameraPivot : MonoBehaviour
     [SerializeField] float maxPitch;
     [SerializeField] float pitchSpeed;
     float currentPitch;
+    [SerializeField] public ControllerMovement.ControllerType _type;
+    
 
     [SerializeField] float yawSpeed;
 
@@ -25,12 +28,25 @@ public class CameraPivot : MonoBehaviour
 
     void Update()
     {
-        currentPitch = currentPitch + Input.GetAxis("VerticalXbox") * pitchSpeed;
-        currentPitch = Mathf.Clamp(currentPitch, minPitch, maxPitch);
+        if(_type == ControllerMovement.ControllerType.Xbox)
+        {
+            currentPitch = currentPitch + Input.GetAxis("VerticalXbox") * pitchSpeed;
+            currentPitch = Mathf.Clamp(currentPitch, minPitch, maxPitch);
 
-        float yaw = transform.eulerAngles.y + Input.GetAxis("HorizontalXbox") * yawSpeed;
+            float yaw = transform.eulerAngles.y + Input.GetAxis("HorizontalXbox") * yawSpeed;
 
-        transform.rotation = Quaternion.Euler(currentPitch, yaw, 0);
+            transform.rotation = Quaternion.Euler(currentPitch, yaw, 0);
+        }
+        else if(_type == ControllerMovement.ControllerType.Ps)
+        {
+            currentPitch = currentPitch + Input.GetAxis("VerticalPS") * pitchSpeed;
+            currentPitch = Mathf.Clamp(currentPitch, minPitch, maxPitch);
+
+            float yaw = transform.eulerAngles.y + Input.GetAxis("HorizontalPS") * yawSpeed;
+
+            transform.rotation = Quaternion.Euler(currentPitch, yaw, 0);
+        }
+        
     }
 
 }

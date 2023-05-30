@@ -8,6 +8,10 @@ namespace Alligator
     public class ControllerMovement : MonoBehaviour
     {
         private Rigidbody _rb;
+        [SerializeField] private ControllerType _type = ControllerType.Xbox;
+        [SerializeField] private CameraPivot _cameraPivot;
+        
+        
         [SerializeField] private float _speed = 5;
         private Vector3 _inputs = Vector3.zero;
         [SerializeField] Transform _model;
@@ -15,6 +19,7 @@ namespace Alligator
 
         private void Awake()
         {
+            _cameraPivot._type = _type;
             _rb = GetComponent<Rigidbody>();
         }
 
@@ -64,9 +69,18 @@ namespace Alligator
         private void Turn()
         {
             _inputs = Vector3.zero;
-            _inputs.x = Input.GetAxis("Horizontal2");
-            _inputs.z = Input.GetAxis("Vertical2");
-        
+
+            if (_type is ControllerType.Ps)
+            {
+                _inputs.x = Input.GetAxis("HorizontalPS");
+                _inputs.z = Input.GetAxis("VerticalPS");
+            }
+            else
+            {
+                _inputs.x = Input.GetAxis("HorizontalXbox");
+                _inputs.z = Input.GetAxis("VerticalXbox");
+            }
+
             if(_inputs.z < 0)
             {
                 _inputs.z = 0;
@@ -79,10 +93,16 @@ namespace Alligator
 
 
         }
+        public enum ControllerType
+        {
+            Ps,Xbox
+        }
 
         // private void Move()
         // {
         //     _rb.MovePosition(_rb.position + _inputs * _speed * Time.fixedDeltaTime);
         // }
     }
+    
+    
 }
