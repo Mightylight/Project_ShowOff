@@ -15,6 +15,8 @@ namespace Alligator
         [SerializeField] private float _speed = 5;
         private Vector3 _inputs = Vector3.zero;
         [SerializeField] Transform _model;
+        
+        private bool _isMoving = true;
         float oldAngle = 0;
 
         private void Awake()
@@ -32,8 +34,19 @@ namespace Alligator
             //Turn();
         }
 
+        public void DisableMovement()
+        {
+            _isMoving = false;
+        }
+
+        public void EnableMovement()
+        {
+            _isMoving = true;
+        }
+
         private void FixedUpdate()
         {
+            if (!_isMoving) return;
             newMove();
         }
 
