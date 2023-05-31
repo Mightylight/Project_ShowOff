@@ -79,13 +79,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 275696fdd16832f4a8813221bd82ba7c,
         type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 275696fdd16832f4a8813221bd82ba7c,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b9944fd0b38ea4f4e8e29a47a393a3aa, type: 2}
     - target: {fileID: 919132149155446097, guid: 275696fdd16832f4a8813221bd82ba7c,
         type: 3}
       propertyPath: m_Name
-      value: Lillypad_noF (131)
+      value: Lillypad_Big_Dark (131)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 275696fdd16832f4a8813221bd82ba7c,
         type: 3}
