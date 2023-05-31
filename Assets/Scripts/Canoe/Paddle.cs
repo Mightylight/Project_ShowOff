@@ -13,13 +13,13 @@ namespace Canoe
         private Vector3 _currentPosition = Vector3.zero;
         private Vector3 _thrust;
         [SerializeField] public float _strength = 1000;
-        [SerializeField] private float _depthModifier = 0.5f;
-        [Range(-10, 0)][SerializeField] private float _maxDepthForStrength = -1;
-        private float paddlingTime = 0f;
+       // [SerializeField] private float _depthModifier = 0.5f;
+       // [Range(-10, 0)][SerializeField] private float _maxDepthForStrength = -1;
+        //private float paddlingTime = 0f;
 
         private void Update()
         {
-            HeldBy();
+            //HeldBy();
         }
 
         private void FixedUpdate()
@@ -37,10 +37,11 @@ namespace Canoe
         void Paddling()
         {
             _lastPosition = _currentPosition;
-            _currentPosition = _paddleTip.position;
+            _currentPosition = _paddleTip.localPosition; //translate to the
             if(_lastFramePaddling) _thrust = -_strength * (_lastPosition - _currentPosition); //ignore if last frame not paddling
             _thrust.y = 0f;
             _lastFramePaddling = true;
+            Debug.Log(_thrust.ToString());
         }
 
         private void OnTriggerEnter(Collider pOther)
@@ -76,11 +77,11 @@ namespace Canoe
             }
         }
 
-        private void HeldBy()
-        {
-            transform.parent.position = _heldBy.position;
-            transform.parent.rotation = _heldBy.rotation;
-        }
+        //private void HeldBy()
+        //{
+        //    transform.parent.position = _heldBy.position;
+        //    transform.parent.rotation = _heldBy.rotation;
+        //}
     }
 }
 

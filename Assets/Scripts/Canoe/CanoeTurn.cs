@@ -13,18 +13,12 @@ namespace Canoe
         public Paddle _rightPaddle;
 
 
-        //public SteamVR_Action_Boolean leftDraw;
-        private bool _isMoving = false;
-
-        private readonly List<Vector3> _positionList = new List<Vector3>();
-
         public float turnRate = 1f;
         [SerializeField] float baseTurnPower = 0.5f;
         [SerializeField] private Rigidbody _rb;
+        [SerializeField] private float _strengthModifier;
 
-        public bool motionTurnEnabled = false;
-
-        float test;
+       // public bool motionTurnEnabled = false;
 
         private void Awake()
         {
@@ -33,51 +27,7 @@ namespace Canoe
 
         private void FixedUpdate()
         {
-            //// if (motionTurnEnabled) motionTurn();
-            // //else simpleTurn();
-
-            // Vector3 temp =  (_leftPaddle.GetThrust() - _rightPaddle.GetThrust());
-
-            // //temp /= 10;
-            // Quaternion deltaRot =Quaternion.Euler(0, temp.z * turnRate * Time.fixedDeltaTime, 0) ;
-
-            // Debug.Log(temp.z * turnRate * Time.fixedDeltaTime);
-
-            // Vector3.ClampMagnitude(_rb.angularVelocity, 0);
-            // _rb.MoveRotation(_rb.rotation * deltaRot);
-            // temp = Vector3.zero;
-            // //if (_leftPaddle.GetThrust().magnitude != 0) Debug.Log(temp);
-
-
-
-
-
-            //if (_leftPaddle.IsPaddling())
-            //{
-            //    test += 0.01f;
-            //    Quaternion deltaRot = Quaternion.Euler(0, test * turnRate * Time.fixedDeltaTime, 0);
-            //    _rb.MoveRotation(_rb.rotation * deltaRot);
-            //}
-            //else test = 0;
-
-            float leftPowerTotal = 0;
-            float rightPowerTotal = 0;
-            if (_leftPaddle.IsPaddling())
-            {
-                leftPowerTotal += 0.5f;
-                leftPowerTotal += _leftPaddle.GetThrust().z / _leftPaddle._strength;
-            }
-            if (_rightPaddle.IsPaddling())
-            {
-                rightPowerTotal += 0.5f;
-                rightPowerTotal += _rightPaddle.GetThrust().z / _leftPaddle._strength;
-            }
-
-            float turnPowerTotal = rightPowerTotal - leftPowerTotal;
-           //Debug.Log(turnPowerTotal);
-
-            Quaternion deltaRot = Quaternion.Euler(0, turnPowerTotal * turnRate * Time.fixedDeltaTime, 0);
-            _rb.MoveRotation(_rb.rotation * deltaRot);
+            complexMotionTurn();
         }
 
         void simpleTurn()
@@ -85,76 +35,49 @@ namespace Canoe
             Quaternion deltaRot = Quaternion.Euler(0, (_leftInput.axis.y - _rightInput.axis.y) * turnRate * Time.fixedDeltaTime, 0);
             _rb.MoveRotation(_rb.rotation * deltaRot);
 
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-
-        }
-
-        float turnPower()
-        {
-
-            return 0;
-        }
-
-        void motionTurn()
+        }        
+        void simpleMotionTurn()
         {
             float turnPowerTotal = 0;
             float leftPowerTotal = 0;
             float rightPowerTotal = 0;
             if (_leftPaddle.IsPaddling())
             {
-                leftPowerTotal += baseTurnPower;
+                leftPowerTotal++;
             }
             if (_rightPaddle.IsPaddling())
             {
-                rightPowerTotal += baseTurnPower;
+                rightPowerTotal++;
             }
 
             turnPowerTotal = rightPowerTotal - leftPowerTotal;
 
-
-
-
             Quaternion deltaRot = Quaternion.Euler(0, turnPowerTotal * turnRate * Time.fixedDeltaTime, 0);
-            //_rb.velocity = deltaRot * _rb.velocity*velocityCoefficient;
             _rb.MoveRotation(_rb.rotation * deltaRot);
 
-
-            //Debug.Log(deltaRot.ToString());
-
-
-            //if (!isMoving && leftDraw.state == true)
-            //{
-            //    StartMovement();
-            //}
-            //else if (isMoving && leftDraw.state == true)
-            //{
-            //    UpdateMovement();
-            //}
-            //else if (isMoving && leftDraw.state == false)
-            //{
-            //    EndMovement();
-            //}
         }
-
-        void StartMovement()
+        void complexMotionTurn()
         {
-            Debug.Log("start move");
-            _isMoving = true;
-            _positionList.Clear();
-        }
+            float strMod = _leftPaddle._strength / _strengthModifier;
+            float leftPowerTotal = 0;
+            float rightPowerTotal = 0;
+            if (_leftPaddle.IsPaddling())
+            {
+                leftPowerTotal += baseTurnPower;
+                leftPowerTotal -= _leftPaddle.GetThrust().z / strMod;
+                Debug.Log(_leftPaddle.GetThrust());
+            }
+            if (_rightPaddle.IsPaddling())
+            {
+                rightPowerTotal += baseTurnPower;
+                rightPowerTotal -= _rightPaddle.GetThrust().z / strMod;
+            }
 
-        void EndMovement()
-        {
-            Debug.Log("end move");
-            _isMoving = false;
-        }
+            float turnPowerTotal = rightPowerTotal - leftPowerTotal;
+            //Debug.Log(turnPowerTotal);
 
-        void UpdateMovement()
-        {
-            Debug.Log("update move");
+            Quaternion deltaRot = Quaternion.Euler(0, turnPowerTotal * turnRate * Time.fixedDeltaTime, 0);
+            _rb.MoveRotation(_rb.rotation * deltaRot);
         }
     }
 }
