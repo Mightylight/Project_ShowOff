@@ -6,6 +6,7 @@ namespace Canoe
     public class Paddle : MonoBehaviour
     {
         [SerializeField] private Transform _paddleTip;
+        [SerializeField] private Transform _heldBy;
         private bool _paddling = false;
         private Vector3 _lastPosition = Vector3.zero;
         private Vector3 _currentPosition = Vector3.zero;
@@ -73,6 +74,11 @@ namespace Canoe
             {
                 collision.gameObject.GetComponent<AlligatorScript>().OnHit();
             }
+        }
+
+        private void HeldBy()
+        {
+            transform.position = _heldBy.position;
         }
     }
 }

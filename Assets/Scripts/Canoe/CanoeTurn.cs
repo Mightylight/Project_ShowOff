@@ -19,7 +19,7 @@ namespace Canoe
         private readonly List<Vector3> _positionList = new List<Vector3>();
 
         public float turnRate = 1f;
-        [SerializeField] float velocityCoefficient = 0.9f;
+        [SerializeField] float baseTurnPower = 0.5f;
         [SerializeField] private Rigidbody _rb;
 
         public bool motionTurnEnabled = false;
@@ -64,12 +64,12 @@ namespace Canoe
             float rightPowerTotal = 0;
             if (_leftPaddle.IsPaddling())
             {
-                leftPowerTotal++;
+                leftPowerTotal += 0.5f;
                 leftPowerTotal += _leftPaddle.GetThrust().z / _leftPaddle._strength;
             }
             if (_rightPaddle.IsPaddling())
             {
-                rightPowerTotal++;
+                rightPowerTotal += 0.5f;
                 rightPowerTotal += _rightPaddle.GetThrust().z / _leftPaddle._strength;
             }
 
@@ -105,11 +105,11 @@ namespace Canoe
             float rightPowerTotal = 0;
             if (_leftPaddle.IsPaddling())
             {
-                leftPowerTotal += 1f;
+                leftPowerTotal += baseTurnPower;
             }
             if (_rightPaddle.IsPaddling())
             {
-                rightPowerTotal += 1f;
+                rightPowerTotal += baseTurnPower;
             }
 
             turnPowerTotal = rightPowerTotal - leftPowerTotal;
