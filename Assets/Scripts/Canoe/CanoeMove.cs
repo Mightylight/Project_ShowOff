@@ -27,21 +27,6 @@ namespace Canoe
             _rb.AddForce(transform.forward * velocity.magnitude);
             _rb.velocity = Vector3.ClampMagnitude(_rb.velocity, veloCap);
 
-
-            //_rb.AddForce(velocity);
-
-            // //velocity = transform.rotation * velocity;
-            // //
-            // 
-            // //_rb.AddForce(velocity);
-            //// _rb.velocity = Quaternion.Euler(rotDiff) * _rb.velocity;
-            // _rb.velocity = Vector3.ClampMagnitude(_rb.velocity, veloCap);
-            // _rb.velocity = new Vector3(_rb.velocity.x, 0, _rb.velocity.z);
-            // //Mathf.Clamp(_rb.velocity.x, -velocityCap.x, velocityCap.x);
-            // //Mathf.Clamp(_rb.velocity.z, -velocityCap.z, velocityCap.z);
-
-            // //_rb.velocity *= 0.95f;
-            // lastRotation = transform.rotation.eulerAngles;
         }
 
 

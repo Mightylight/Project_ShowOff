@@ -18,7 +18,7 @@ namespace Canoe
 
         private void Start()
         {
-            transform.position += new Vector3(0, 0.819999993f, 0);
+           // transform.position += new Vector3(0, 0.35f, 0);
         }
 
         private void Update()
