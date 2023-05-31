@@ -74,7 +74,7 @@ namespace Canoe
             }
 
             float turnPowerTotal = rightPowerTotal - leftPowerTotal;
-            Debug.Log(turnPowerTotal);
+           //Debug.Log(turnPowerTotal);
 
             Quaternion deltaRot = Quaternion.Euler(0, turnPowerTotal * turnRate * Time.fixedDeltaTime, 0);
             _rb.MoveRotation(_rb.rotation * deltaRot);

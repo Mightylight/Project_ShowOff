@@ -9,8 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3255642799319911785}
-  - component: {fileID: 8891235229164507030}
-  m_Layer: 26
+  m_Layer: 3
   m_Name: rightpaddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,22 +32,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8891235229164507030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3974754478688650687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41736c41884e4ba4db815f0785dd195e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _paddleTip: {fileID: 2179405511598528721}
-  _strength: 100
-  _depthModifier: 1
-  _maxDepthForStrength: -1
 --- !u!1001 &9222283999933334098
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -121,15 +104,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1152132537255070892, guid: c5c8a9830cafc464fbf33d08222b3b87, type: 3}
+    - target: {fileID: 3624928236880973482, guid: c5c8a9830cafc464fbf33d08222b3b87,
+        type: 3}
+      propertyPath: m_Name
+      value: paddleTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383017602634915266, guid: c5c8a9830cafc464fbf33d08222b3b87,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5c8a9830cafc464fbf33d08222b3b87, type: 3}
---- !u!4 &2179405511598528721 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7044456287657024131, guid: c5c8a9830cafc464fbf33d08222b3b87,
-    type: 3}
-  m_PrefabInstance: {fileID: 9222283999933334098}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8764733370674848700 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 459003221761696238, guid: c5c8a9830cafc464fbf33d08222b3b87,

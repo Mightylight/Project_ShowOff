@@ -8,6 +8,7 @@ namespace Canoe
         [SerializeField] private Transform _paddleTip;
         [SerializeField] private Transform _heldBy;
         private bool _paddling = false;
+        private bool _lastFramePaddling = false;
         private Vector3 _lastPosition = Vector3.zero;
         private Vector3 _currentPosition = Vector3.zero;
         private Vector3 _thrust;
@@ -16,31 +17,30 @@ namespace Canoe
         [Range(-10, 0)][SerializeField] private float _maxDepthForStrength = -1;
         private float paddlingTime = 0f;
 
+        private void Update()
+        {
+            HeldBy();
+        }
 
         private void FixedUpdate()
         {
-            if(_paddling) 
+            if(_paddling)
             {
-                _lastPosition = _currentPosition;
-                _currentPosition = _paddleTip.position;
-                //_currentPosition = transform.root.rotation*_currentPosition;
-                //Debug.Log(lastPosition - currentPosition);
-                _thrust = -_strength * (_lastPosition - _currentPosition);
-                
-                float forceFromDepth = _depthModifier *- _maxDepthForStrength;
-                if(_paddleTip.position.y < _maxDepthForStrength)
-                {
-                    forceFromDepth= _depthModifier *-_paddleTip.position.y;
-                }
-
-               // _thrust *= forceFromDepth;
-                _thrust.y = 0;
+                Paddling();
             }
             else
             {
-                _lastPosition = Vector3.zero;
-                _currentPosition = Vector3.zero;
-            }
+                _lastFramePaddling = false; //last frame not paddling
+            } 
+        }
+
+        void Paddling()
+        {
+            _lastPosition = _currentPosition;
+            _currentPosition = _paddleTip.position;
+            if(_lastFramePaddling) _thrust = -_strength * (_lastPosition - _currentPosition); //ignore if last frame not paddling
+            _thrust.y = 0f;
+            _lastFramePaddling = true;
         }
 
         private void OnTriggerEnter(Collider pOther)
@@ -78,7 +78,31 @@ namespace Canoe
 
         private void HeldBy()
         {
-            transform.position = _heldBy.position;
+            transform.parent.position = _heldBy.position;
+            transform.parent.rotation = _heldBy.rotation;
         }
     }
 }
+
+//if(_paddling) 
+//{
+//    _lastPosition = _currentPosition;
+//    _currentPosition = _paddleTip.position;
+//    //_currentPosition = transform.root.rotation*_currentPosition;
+//    //Debug.Log(lastPosition - currentPosition);
+//    _thrust = -_strength * (_lastPosition - _currentPosition);
+
+//    float forceFromDepth = _depthModifier *- _maxDepthForStrength;
+//    if(_paddleTip.position.y < _maxDepthForStrength)
+//    {
+//        forceFromDepth= _depthModifier *-_paddleTip.position.y;
+//    }
+
+//   // _thrust *= forceFromDepth;
+//    _thrust.y = 0;
+//}
+//else
+//{
+//    _lastPosition = Vector3.zero;
+//    _currentPosition = Vector3.zero;
+//}

@@ -113,6 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _paddleTip: {fileID: 7044456287657024131}
+  _heldBy: {fileID: 0}
   _strength: 100
   _depthModifier: 1
   _maxDepthForStrength: -1
