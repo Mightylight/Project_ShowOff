@@ -36,6 +36,7 @@ namespace Canoe
 
         void Paddling()
         {
+            AudioManager.instance.Play("Paddle 1");
             _lastPosition = _currentPosition;
             _currentPosition = _paddleTip.localPosition; //translate to the
             if(_lastFramePaddling) _thrust = -_strength * (_lastPosition - _currentPosition); //ignore if last frame not paddling
