@@ -26,11 +26,11 @@ namespace Canoe
             if (_isInvincible)
             {
                 _timer -= Time.deltaTime;
-                timerText.text = "Next bite in " + _timer.ToString();
+                //timerText.text = "Next bite in " + _timer.ToString();
                 if (_timer <= 0) 
                 {
                     _isInvincible = false;
-                    timerText.text = "Bite ready.";
+                    //timerText.text = "Bite ready.";
                 } 
             }
         }

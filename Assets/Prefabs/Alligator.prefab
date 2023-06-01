@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b7249963c8b8b4d9ef7b012c12da8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 1
+  _type: 0
   _cameraPivot: {fileID: 626147656536560701}
   _speed: 5
   _model: {fileID: 2353903770835777747}
@@ -259,7 +259,10 @@ MonoBehaviour:
   - {fileID: 0}
   _invincibilityTimer: 1
   _pushBack: {x: -2, y: 0, z: -2}
-  bounceBack: 1
+  _canoe: {fileID: 0}
+  _controllerMovement: {fileID: 1702233308198654999}
+  _biteInterval: 2
+  bounceBack: 0
   loss:
     m_PersistentCalls:
       m_Calls:
