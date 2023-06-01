@@ -25,11 +25,6 @@ namespace Alligator
 
         private void Update()
         {
-            //if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0) Debug.Log("Joystick1");
-            //if (Input.GetAxis("HorizontalXbox") != 0 || Input.GetAxis("VerticalXbox") != 0) Debug.Log("Joystick2");
-            //Debug.Log(Input.GetAxis("HorizontalPS") + ", " + Input.GetAxis("VerticalPS"));
-
-            //Turn();
         }
 
         private void FixedUpdate()
