@@ -42,14 +42,19 @@ namespace Canoe
             if(_lastFramePaddling) _thrust = -_strength * (_lastPosition - _currentPosition); //ignore if last frame not paddling
             _thrust.y = 0f;
             _lastFramePaddling = true;
-            Debug.Log(_thrust.ToString());
+            //Debug.Log(_thrust.ToString());
         }
 
         private void OnTriggerEnter(Collider pOther)
         {
-            if (pOther.CompareTag("paddleZone"))
+            if (pOther.gameObject.CompareTag("alligator"))
             {
-                Debug.Log("paddlin");
+                Debug.Log("hit alligator");
+                pOther.gameObject.GetComponent<AlligatorScript>().OnHit();
+            }
+            else if (pOther.CompareTag("paddleZone"))
+            {
+                //Debug.Log("paddlin");
                 _paddling= true;
 
                 /*
@@ -58,13 +63,15 @@ namespace Canoe
                 */
 
             }
+            
+            
         }
 
         private void OnTriggerExit(Collider pOther)
         {
             if (pOther.CompareTag("paddleZone"))
             {
-                Debug.Log("nope to paddlin");
+                //Debug.Log("nope to paddlin");
                 _paddling = false;
             }
         }
@@ -78,10 +85,11 @@ namespace Canoe
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (collision.gameObject.CompareTag("alligator"))
-            {
-                collision.gameObject.GetComponent<AlligatorScript>().OnHit();
-            }
+            // if (collision.gameObject.CompareTag("alligator"))
+            // {
+            //     Debug.Log("hit alligator");
+            //     collision.gameObject.GetComponent<AlligatorScript>().OnHit();
+            // }
         }
 
         //private void HeldBy()

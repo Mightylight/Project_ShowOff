@@ -17,6 +17,8 @@ namespace Alligator
         [SerializeField] private CanoeManager _canoe;
         [SerializeField] private ControllerMovement _controllerMovement;
         [SerializeField] private float _biteInterval = 0.5f;
+        [SerializeField] private Transform _parent;
+        
         
         
         private JoystickControls _joystickControls;
@@ -70,6 +72,7 @@ namespace Alligator
 
         public void OnHit()
         {
+            Debug.Log("Hit");
             
             if (!_isInvincible)
             {
@@ -88,7 +91,7 @@ namespace Alligator
                 
                 _isAttached = false;
                 _controllerMovement.EnableMovement();
-                transform.SetParent(null);
+                transform.SetParent(_parent);
 
                 if(_health <= 0)
                 {
@@ -111,9 +114,10 @@ namespace Alligator
 
         private void OnCollisionEnter(Collision pCollision)
         {
+            Debug.Log(pCollision.gameObject.name);
             if (pCollision.gameObject.CompareTag("Canoe"))
             {
-                
+                Debug.Log("Hey");
                 _isInRange = true;
             }
         }

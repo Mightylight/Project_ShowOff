@@ -5,6 +5,8 @@ using UnityEngine;
 public class SyncPosition : MonoBehaviour
 {
     [SerializeField] Transform _syncTo;
+    [SerializeField] private bool _isRotating = true;
+    
 
     private void Update()
     {
@@ -13,6 +15,9 @@ public class SyncPosition : MonoBehaviour
     void Sync()
     {
         transform.position = _syncTo.position;
-        transform.rotation = _syncTo.rotation;
+        if (_isRotating)
+        {
+            transform.rotation = _syncTo.rotation;
+        }
     }
 }

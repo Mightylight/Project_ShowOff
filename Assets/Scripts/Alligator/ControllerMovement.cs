@@ -41,6 +41,7 @@ namespace Alligator
             if (_inputs.magnitude >= 0.1f)
             {
                 Vector3 movement = new Vector3(_inputs.x, 0.0f, _inputs.z);
+                //movement *= transform.forward;
                 float angle = Mathf.Atan2(_inputs.x, _inputs.z) * Mathf.Rad2Deg;
                 _model.eulerAngles = new Vector3(0, angle, 0);
                 transform.Translate(movement * _speed * Time.deltaTime);
