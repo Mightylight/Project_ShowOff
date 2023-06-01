@@ -1,6 +1,7 @@
 using Canoe;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 namespace Alligator
 {
@@ -16,6 +17,10 @@ namespace Alligator
         [SerializeField] private CanoeManager _canoe;
         [SerializeField] private ControllerMovement _controllerMovement;
         [SerializeField] private float _biteInterval = 0.5f;
+        
+        
+        private JoystickControls _joystickControls;
+        
 
         private float _timer;
         private float _biteTimer;
@@ -24,15 +29,19 @@ namespace Alligator
         
 
         Rigidbody _rb;
-
         
         
         public bool bounceBack = false;
         public UnityEvent loss;
+        private bool _isInRange;
 
         private void Awake()
         {
+            _joystickControls = new JoystickControls();
             _rb = GetComponent<Rigidbody>();
+            
+            _joystickControls.Alligator.Bite.performed += pCtx => Bite();
+            _joystickControls.Alligator.Enable();
         }
 
         private void Update()
@@ -89,16 +98,23 @@ namespace Alligator
             
         }
 
+        private void Bite()
+        {
+            if (_isInRange)
+            {
+                _canoe.OnHit();
+                _isAttached = true;
+                _controllerMovement.DisableMovement();
+                transform.SetParent(_canoe.transform);
+            }
+        }
+
         private void OnCollisionEnter(Collision pCollision)
         {
             if (pCollision.gameObject.CompareTag("Canoe"))
             {
                 
-                //TODO: call canoe hit
-                pCollision.gameObject.GetComponent<CanoeManager>().OnHit();
-                _isAttached = true;
-                _controllerMovement.DisableMovement();
-                transform.SetParent(_canoe.transform);
+                _isInRange = true;
             }
         }
         private void OnCollisionExit(Collision pCollision)
@@ -110,6 +126,7 @@ namespace Alligator
                     _rb.velocity = Vector3.zero;
                     _rb.angularVelocity = Vector3.zero;
                 }
+                _isInRange = false;
                 
             }
         }
