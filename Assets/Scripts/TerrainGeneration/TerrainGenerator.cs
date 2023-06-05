@@ -11,14 +11,17 @@ namespace TerrainGeneration
     {
         [Header("Generation Settings")] 
         
-        [Range(1,50)]
-        [SerializeField] private int _riverWidth = 1;
+        // [Range(1,50)]
+        // [SerializeField] private int _riverWidth = 1;
+        //
+        // [Range(1,50)]
+        // [SerializeField] private int _terrainWidth = 1;
         
-        [Range(1,50)]
-        [SerializeField] private int _terrainWidth = 1;
-        
-        [Range(1, 50)] 
+        [Range(1, 200)] 
         [SerializeField] private int _terrainLength = 1;
+
+        [SerializeField] private int _initialStartingTerrain = 1;
+        
         
         [SerializeField] private float _tileSize;
         [SerializeField] private float _speed;
@@ -27,14 +30,12 @@ namespace TerrainGeneration
         
         [FormerlySerializedAs("_riverTiles")]
         [Header("Generation Objects")]
-        //TODO: add weights to the tiles
-        //[SerializeField] private TerrainPiece[] _terrainTiles;
         [SerializeField] private TerrainTiles[] _tiles;
         [SerializeField] private Transform _tileParent;
 
 
         private readonly List<TerrainPiece> _terrain = new List<TerrainPiece>();
-        private readonly List<TerrainPiece> _recycledTerrainTiles = new List<TerrainPiece>();
+        private readonly List<TerrainPiece> _inactiveTerrainPieces = new List<TerrainPiece>();
 
 
 
@@ -42,12 +43,6 @@ namespace TerrainGeneration
         {
             GenerateStartingTerrain();
         }
-
-        private void Update()
-        {
-            MoveTerrain();
-        }
-        
 
         private void MoveTerrain()
         {
@@ -65,44 +60,9 @@ namespace TerrainGeneration
             //Generate the middle river row
             for (int j = -1; j < _terrainLength; j++)
             {
-                // int index = Random.Range(0, _tiles.Length);
-                // Instantiate(_tiles[index], new Vector3(0, 0, j * _tileSize) + _tileParent.position, Quaternion.identity,_tileParent);
                 Vector3 pos = new Vector3(0, 0, j * _tileSize) + _tileParent.position;
                 GenerateNewTerrainPiece(pos);
             }
-
-            // //Generate the rest of the river
-            // for (int i = 1; i < _riverWidth; i++)
-            // {
-            //     for (int j = -1; j < _terrainLength; j++)
-            //     {
-            //         int index = Random.Range(0, _tiles.Length);
-            //         TerrainPiece riverTile = Instantiate(_tiles[index], new Vector3(i * _tileSize, 0, j * _tileSize)+ _tileParent.position,
-            //             Quaternion.identity, _tileParent);
-            //         _terrain.Add(riverTile);
-            //         index = Random.Range(0, _tiles.Length);
-            //         TerrainPiece riverTile2 = Instantiate(_tiles[index], new Vector3(-i * _tileSize, 0, j * _tileSize)+ _tileParent.position,
-            //             Quaternion.identity, _tileParent);
-            //         _terrain.Add(riverTile2);
-            //     }
-            // }
-
-
-            //Generate the terrain around the river
-            // for (int i = _riverWidth; i < _riverWidth + _terrainWidth; i++)
-            // {
-            //     for (int j = -1; j < _terrainLength; j++)
-            //     {
-            //         int index = Random.Range(0, _terrainTiles.Length);
-            //         TerrainPiece terrainTile = Instantiate(_terrainTiles[index], 
-            //             new Vector3(i * _tileSize, 0, j * _tileSize) + _tileParent.position, Quaternion.identity,_tileParent);
-            //         _terrain.Add(terrainTile); 
-            //         index = Random.Range(0, _terrainTiles.Length);
-            //         TerrainPiece terrainTile2 = Instantiate(_terrainTiles[index], 
-            //             new Vector3(-i * _tileSize, 0, j * _tileSize) + _tileParent.position, Quaternion.identity,_tileParent);
-            //         _terrain.Add(terrainTile2);
-            //     }
-            // }
         }
         
         public void GenerateNextSegment()
@@ -110,6 +70,16 @@ namespace TerrainGeneration
             GameObject lastTile = _terrain.Last().gameObject;
             Vector3 newPos = lastTile.transform.position + Vector3.forward * _tileSize;
             GenerateNewTerrainPiece(newPos);
+        }
+
+        public void EnableNextSegment()
+        {
+            GameObject tileToBeActivated = _inactiveTerrainPieces.First().gameObject;
+            tileToBeActivated.SetActive(true);
+            _inactiveTerrainPieces.Remove(tileToBeActivated.GetComponent<TerrainPiece>());
+            GameObject tileToBeDeactivated = _terrain.First().gameObject;
+            _terrain.Remove(tileToBeDeactivated.GetComponent<TerrainPiece>());
+            tileToBeDeactivated.SetActive(false);
         }
 
         public void ClearChildren()
@@ -124,9 +94,9 @@ namespace TerrainGeneration
 
         public void RemoveTerrainSegment(TerrainPiece pTileToRemove)
         {
-            _terrain.Remove(pTileToRemove);
-            pTileToRemove.gameObject.SetActive(false);
-            _recycledTerrainTiles.Add(pTileToRemove);
+            // _terrain.Remove(pTileToRemove);
+            // pTileToRemove.gameObject.SetActive(false);
+            // _recycledTerrainTiles.Add(pTileToRemove);
         }
 
         private void GenerateNewTerrainPiece(Vector3 pNewPos)
