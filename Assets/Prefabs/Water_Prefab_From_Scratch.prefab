@@ -1277,6 +1277,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8647026082257483831}
   - component: {fileID: 2191536969924560349}
+  - component: {fileID: 4025898226915617011}
+  - component: {fileID: 6147370001256290860}
   m_Layer: 0
   m_Name: Water_Prefab_From_Scratch
   m_TagString: Untagged
@@ -1447,6 +1449,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6c5f1b8dda6898409c219f5ee906c4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4025898226915617011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8647026082257483828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1656980b97649b5489a7737bb7dcb031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _terrainGenerator: {fileID: 0}
+--- !u!65 &6147370001256290860
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8647026082257483828}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 29.585087, y: 11.868696, z: 4.1217575}
+  m_Center: {x: -1.282999, y: 5.434348, z: 24.675083}
 --- !u!1 &8663182782889559395
 GameObject:
   m_ObjectHideFlags: 0
