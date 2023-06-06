@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
 
 namespace Canoe
 {
@@ -12,11 +13,12 @@ namespace Canoe
         private float _timer;
         bool _isInvincible = false;
         [SerializeField] private float _invincibilityTimer = 0.5f;
+        [SerializeField] TextMeshProUGUI timerText;
 
 
         private void Start()
         {
-            transform.position += new Vector3(0, 0.819999993f, 0);
+           // transform.position += new Vector3(0, 0.35f, 0);
         }
 
         private void Update()
@@ -24,10 +26,15 @@ namespace Canoe
             if (_isInvincible)
             {
                 _timer -= Time.deltaTime;
-                if (_timer <= 0) _isInvincible = false;
+                //timerText.text = "Next bite in " + _timer.ToString();
+                if (_timer <= 0) 
+                {
+                    _isInvincible = false;
+                    //timerText.text = "Bite ready.";
+                } 
             }
         }
-        public void OnAlligatorHit()
+        public void OnHit()
         {
             if (!_isInvincible)
             {
@@ -45,5 +52,6 @@ namespace Canoe
                 _timer = _invincibilityTimer;
             }
         }
+        
     }
 }

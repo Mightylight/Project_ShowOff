@@ -1,0 +1,34 @@
+{
+    "name": "JoystickControls",
+    "maps": [
+        {
+            "name": "Alligator",
+            "id": "aacb8334-df8a-4d73-b338-b0fe1e6b429c",
+            "actions": [
+                {
+                    "name": "Bite",
+                    "type": "Button",
+                    "id": "1cdee587-6bcf-4ac5-b65c-1d09dab4196e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "78a011c7-098a-4344-9f0b-b8f461c3e299",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Bite",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
