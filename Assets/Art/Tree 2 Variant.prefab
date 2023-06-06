@@ -122,6 +122,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree 2 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: af2844d4cd4d89e49bf39df340dd80dd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1170970068873931921, guid: af2844d4cd4d89e49bf39df340dd80dd,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
