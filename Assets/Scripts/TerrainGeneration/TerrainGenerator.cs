@@ -9,18 +9,12 @@ namespace TerrainGeneration
 {
     public class TerrainGenerator : MonoBehaviour
     {
-        [Header("Generation Settings")] 
-        
-        // [Range(1,50)]
-        // [SerializeField] private int _riverWidth = 1;
-        //
-        // [Range(1,50)]
-        // [SerializeField] private int _terrainWidth = 1;
-        
+        [Header("Generation Settings")]
+
         [Range(1, 200)] 
         [SerializeField] private int _terrainLength = 1;
 
-        [SerializeField] private int _initialStartingTerrain = 1;
+        [SerializeField] private int _initialStartingTerrainLength = 1;
         
         
         [SerializeField] private float _tileSize;
@@ -63,6 +57,11 @@ namespace TerrainGeneration
                 Vector3 pos = new Vector3(0, 0, j * _tileSize) + _tileParent.position;
                 GenerateNewTerrainPiece(pos);
             }
+
+            for (int i = 0; i < _initialStartingTerrainLength; i++)
+            {
+                EnableNextSegment();
+            }
         }
         
         public void GenerateNextSegment()
@@ -99,11 +98,20 @@ namespace TerrainGeneration
             // _recycledTerrainTiles.Add(pTileToRemove);
         }
 
-        private void GenerateNewTerrainPiece(Vector3 pNewPos)
+        private void GenerateNewTerrainPiece(Vector3 pNewPos, bool isActive = false)
         {
             TerrainPiece newTile =
                 Instantiate(GetRandomWeightedTile(), pNewPos, Quaternion.identity, _tileParent);
-            _terrain.Add(newTile);
+            if (isActive)
+            {
+                newTile.gameObject.SetActive(true);
+                _terrain.Add(newTile);
+            }
+            else
+            {
+                _inactiveTerrainPieces.Add(newTile);
+                newTile.gameObject.SetActive(false);
+            }
         }
 
         private TerrainPiece GetRandomWeightedTile()
