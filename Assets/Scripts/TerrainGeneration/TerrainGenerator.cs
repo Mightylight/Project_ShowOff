@@ -60,8 +60,11 @@ namespace TerrainGeneration
 
             for (int i = 0; i < _initialStartingTerrainLength; i++)
             {
-                EnableNextSegment();
+                EnableNextSegment(false);
             }
+            
+            TerrainPiece firstTile = _terrain.First();
+            firstTile.GetComponent<TerrainTrigger>()._hasBeenActivated = true;
         }
         
         public void GenerateNextSegment()
@@ -71,11 +74,14 @@ namespace TerrainGeneration
             GenerateNewTerrainPiece(newPos);
         }
 
-        public void EnableNextSegment()
+        public void EnableNextSegment(bool pDeleteSegments = true)
         {
             GameObject tileToBeActivated = _inactiveTerrainPieces.First().gameObject;
             tileToBeActivated.SetActive(true);
+            _terrain.Add(tileToBeActivated.GetComponent<TerrainPiece>());
             _inactiveTerrainPieces.Remove(tileToBeActivated.GetComponent<TerrainPiece>());
+            if (_terrain.Count <= 1) return;
+            if (!pDeleteSegments) return;
             GameObject tileToBeDeactivated = _terrain.First().gameObject;
             _terrain.Remove(tileToBeDeactivated.GetComponent<TerrainPiece>());
             tileToBeDeactivated.SetActive(false);
@@ -89,6 +95,7 @@ namespace TerrainGeneration
                 DestroyImmediate(_tileParent.GetChild(i).gameObject);
             }
             _terrain.Clear();
+            _inactiveTerrainPieces.Clear();
         }
 
         public void RemoveTerrainSegment(TerrainPiece pTileToRemove)
@@ -98,11 +105,11 @@ namespace TerrainGeneration
             // _recycledTerrainTiles.Add(pTileToRemove);
         }
 
-        private void GenerateNewTerrainPiece(Vector3 pNewPos, bool isActive = false)
+        private void GenerateNewTerrainPiece(Vector3 pNewPos, bool pIsActive = false)
         {
             TerrainPiece newTile =
                 Instantiate(GetRandomWeightedTile(), pNewPos, Quaternion.identity, _tileParent);
-            if (isActive)
+            if (pIsActive)
             {
                 newTile.gameObject.SetActive(true);
                 _terrain.Add(newTile);

@@ -5,6 +5,7 @@ namespace TerrainGeneration
     public class TerrainTrigger : MonoBehaviour
     {
         [SerializeField] private TerrainGenerator _terrainGenerator;
+        public bool _hasBeenActivated = false;
 
         private void Awake()
         {
@@ -16,7 +17,11 @@ namespace TerrainGeneration
 
         private void OnTriggerEnter(Collider pOther)
         {
-            _terrainGenerator.EnableNextSegment();
+            if(pOther.CompareTag("Canoe") || pOther.CompareTag("alligator") && !_hasBeenActivated)
+            {
+                _terrainGenerator.EnableNextSegment();
+                _hasBeenActivated = true;
+            }
         }
     
     }
