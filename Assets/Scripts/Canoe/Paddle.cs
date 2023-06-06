@@ -79,7 +79,8 @@ namespace Canoe
         public Vector3 GetThrust()
         {
             //Debug.Log(thrust.ToString());
-            return _thrust;
+            if (_thrust.magnitude > 0.5f) return _thrust;
+            else return Vector3.zero;
         }
         public bool IsPaddling() { return _paddling; }
 

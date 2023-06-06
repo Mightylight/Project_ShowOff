@@ -66,7 +66,7 @@ namespace Canoe
             {
                 leftPowerTotal += baseTurnPower;
                 leftPowerTotal -= _leftPaddle.GetThrust().z / strMod;
-                Debug.Log(_leftPaddle.GetThrust());
+                //Debug.Log(_leftPaddle.GetThrust());
             }
             if (_rightPaddle.IsPaddling())
             {
@@ -80,7 +80,7 @@ namespace Canoe
             Quaternion deltaRot = Quaternion.Euler(0, turnPowerTotal * turnRate * Time.fixedDeltaTime, 0);
             _rb.MoveRotation(_rb.rotation * deltaRot);
 
-            if(turnPowerTotal != 0) _rb.velocity *= velocityLoss; 
+            //if(turnPowerTotal != 0) _rb.velocity *= velocityLoss; 
         }
     }
 }
