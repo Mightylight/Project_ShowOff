@@ -15,10 +15,14 @@ namespace Canoe
         [SerializeField] private float _invincibilityTimer = 0.5f;
         [SerializeField] TextMeshProUGUI timerText;
 
+        [SerializeField] private AudioClip _boatDamage;
+        private AudioSource _audio;
+
 
         private void Start()
         {
            // transform.position += new Vector3(0, 0.35f, 0);
+           _audio.GetComponent<AudioSource>();
         }
 
         private void Update()
@@ -42,6 +46,9 @@ namespace Canoe
                 foreach(HealthBar healthBar in _healthBars)
                 {
                     healthBar.TakeDamage(1);
+                    _audio.PlayOneShot(_boatDamage, 0.5f);
+
+
                 }
              
                 if (_health <= 0)

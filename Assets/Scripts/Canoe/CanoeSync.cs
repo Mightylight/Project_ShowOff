@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Canoe
@@ -8,9 +9,26 @@ namespace Canoe
         [SerializeField] float _yLocation = -0.5f;
         public bool _synced = false;
         [SerializeField] float _timeLeft = 1.0f;
+
+        [SerializeField]List<MonoBehaviour> toEnable = new List<MonoBehaviour>();
+
+        private void Awake()
+        {
+            toEnable.Add( GetComponentInParent<CanoeTurn>());
+            toEnable.Add( GetComponentInParent<CanoeMove>());
+            //toEnable.Add( transform.parent.GetComponentInParent<Current>());
+        }
         private void Update()
         {
-            if (_timeLeft < 0) _synced = true;
+            if (_timeLeft < 0)
+            {
+                _synced = true;
+
+                foreach(MonoBehaviour behaviour in toEnable)
+                {
+                    behaviour.enabled = true;
+                }
+            }
             else _timeLeft -= Time.fixedDeltaTime;
             if (!_synced)
             {

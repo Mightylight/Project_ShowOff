@@ -130,10 +130,6 @@ GameObject:
   - component: {fileID: 6651533509215667869}
   - component: {fileID: 8553790200308404538}
   - component: {fileID: 1702233308198654999}
-  - component: {fileID: 8001988023239212201}
-  - component: {fileID: 7084665533323267826}
-  - component: {fileID: 2617745319414014767}
-  - component: {fileID: 1331917246777085006}
   m_Layer: 0
   m_Name: Alligator
   m_TagString: alligator
@@ -150,7 +146,7 @@ Transform:
   m_GameObject: {fileID: 3418243383689878941}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8951163043834286565}
@@ -220,114 +216,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b7249963c8b8b4d9ef7b012c12da8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rb: {fileID: 0}
   _type: 0
-  _cameraPivot: {fileID: 626147656536560701}
+  _cameraPivot: {fileID: 0}
   _speed: 5
   _model: {fileID: 2353903770835777747}
---- !u!54 &8001988023239212201
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3418243383689878941}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 84
-  m_CollisionDetection: 0
---- !u!114 &7084665533323267826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3418243383689878941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5838787b8cf79384ebd2addfeebb1dac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: 5
-  _stamina: 5
-  _healthBars:
-  - {fileID: 0}
-  - {fileID: 0}
-  _invincibilityTimer: 1
-  _pushBack: {x: -2, y: 0, z: -2}
-  _canoe: {fileID: 0}
-  _controllerMovement: {fileID: 1702233308198654999}
-  _biteInterval: 2
-  bounceBack: 0
-  loss:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetGameOver
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
---- !u!65 &2617745319414014767
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3418243383689878941}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.475747, y: 0.81462145, z: 1.096959}
-  m_Center: {x: -0.5995517, y: 0.62410545, z: -0.9780169}
---- !u!65 &1331917246777085006
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3418243383689878941}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.2453108, y: 0.81462145, z: 3.3438852}
-  m_Center: {x: 0.015666604, y: 0.62410545, z: 1.2420176}
 --- !u!1 &7715264363799806672
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,7 +237,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8951163043834286565
 Transform:
   m_ObjectHideFlags: 0
@@ -385,10 +278,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8788330686797849561}
     m_Modifications:
+    - target: {fileID: 2701946272416475815, guid: 753eff293a9c5d64790032db36db1fb6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e186c322e9eb84145a58dc9799c1400b, type: 2}
     - target: {fileID: 2790897452934754426, guid: 753eff293a9c5d64790032db36db1fb6,
         type: 3}
       propertyPath: m_Name
       value: Model
+      objectReference: {fileID: 0}
+    - target: {fileID: 2790897452934754426, guid: 753eff293a9c5d64790032db36db1fb6,
+        type: 3}
+      propertyPath: m_TagString
+      value: alligator
       objectReference: {fileID: 0}
     - target: {fileID: 3310307211720764096, guid: 753eff293a9c5d64790032db36db1fb6,
         type: 3}
@@ -468,3 +371,116 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 962131897005756947}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3161931208832459369 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2790897452934754426, guid: 753eff293a9c5d64790032db36db1fb6,
+    type: 3}
+  m_PrefabInstance: {fileID: 962131897005756947}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &699974069
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3161931208832459369}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 84
+  m_CollisionDetection: 0
+--- !u!65 &699974070
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3161931208832459369}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.051616836, y: 0.043499053, z: 0.18696825}
+  m_Center: {x: -0.00053832086, y: 0.024019642, z: 0.028133}
+--- !u!114 &699974068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3161931208832459369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5838787b8cf79384ebd2addfeebb1dac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 5
+  _stamina: 5
+  _healthBars:
+  - {fileID: 0}
+  - {fileID: 0}
+  _invincibilityTimer: 1
+  _pushBack: {x: -2, y: 0, z: -2}
+  _canoe: {fileID: 0}
+  _controllerMovement: {fileID: 1702233308198654999}
+  _biteInterval: 2
+  _parent: {fileID: 8788330686797849561}
+  _bonkSound: {fileID: 8300000, guid: 858f34f1ac517934f8f77b7ba2b34067, type: 3}
+  bounceBack: 0
+  loss:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: SetGameOver
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &1689926080667637358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3161931208832459369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32257ce7f8bd67e409d1c896f0bcc96b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rb: {fileID: 699974069}
+  _current: {x: 0, y: 0, z: 2}
