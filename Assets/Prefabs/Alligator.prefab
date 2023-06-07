@@ -220,6 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b7249963c8b8b4d9ef7b012c12da8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rb: {fileID: 0}
   _type: 0
   _cameraPivot: {fileID: 626147656536560701}
   _speed: 5
@@ -262,6 +263,7 @@ MonoBehaviour:
   _canoe: {fileID: 0}
   _controllerMovement: {fileID: 1702233308198654999}
   _biteInterval: 2
+  _parent: {fileID: 0}
   bounceBack: 0
   loss:
     m_PersistentCalls:
@@ -468,3 +470,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 962131897005756947}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3161931208832459369 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2790897452934754426, guid: 753eff293a9c5d64790032db36db1fb6,
+    type: 3}
+  m_PrefabInstance: {fileID: 962131897005756947}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &7647770753060469634
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3161931208832459369}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 84
+  m_CollisionDetection: 0
