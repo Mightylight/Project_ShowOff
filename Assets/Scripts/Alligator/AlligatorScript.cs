@@ -18,7 +18,9 @@ namespace Alligator
         [SerializeField] private ControllerMovement _controllerMovement;
         [SerializeField] private float _biteInterval = 0.5f;
         [SerializeField] private Transform _parent;
-        
+
+        [SerializeField] private AudioClip _bonkSound;
+        private AudioSource _audio;
         
         
         private JoystickControls _joystickControls;
@@ -44,6 +46,9 @@ namespace Alligator
             
             _joystickControls.Alligator.Bite.performed += pCtx => Bite();
             _joystickControls.Alligator.Enable();
+
+            _audio.GetComponent<AudioSource>();
+
         }
 
         private void Update()
@@ -88,6 +93,7 @@ namespace Alligator
                 
                 _pushBack = transform.rotation* _pushBack;
                 _rb.AddForce(_pushBack);
+                _audio.PlayOneShot(_bonkSound, 0.5f);
                 
                 _isAttached = false;
                 _controllerMovement.EnableMovement();
