@@ -18,6 +18,7 @@ Shader "Custom/SkyboxBlend" {
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
+            #pragma multi_compile_instancing
             #include "UnityCG.cginc"
             
             struct appdata {
@@ -27,7 +28,8 @@ Shader "Custom/SkyboxBlend" {
             struct v2f {
                 float4 vertex : SV_POSITION;
                 float3 viewDir : TEXCOORD0;
-                float3 rotatedDir : TEXCOORD1; // New variable to hold rotated direction
+                float3 rotatedDir : TEXCOORD1;
+                UNITY_VERTEX_INPUT_INSTANCE_ID
             };
             
             sampler2D _SkyboxTexA;
@@ -35,14 +37,15 @@ Shader "Custom/SkyboxBlend" {
             float _BlendAmount;
             float _HueShift;
             float _Rotation;
-            float _Exposure; // New exposure property
+            float _Exposure;
             
-            v2f vert(appdata v) {
+            v2f vert(appdata v)
+            {
                 v2f o;
+                UNITY_SETUP_INSTANCE_ID(v);
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.viewDir = normalize(mul(unity_ObjectToWorld, v.vertex).xyz - _WorldSpaceCameraPos.xyz);
                 
-                // Rotate the view direction
                 float rot = _Rotation * 3.14159 / 180;
                 float3x3 rotationMatrix = float3x3(
                     cos(rot), 0, sin(rot),
@@ -55,18 +58,19 @@ Shader "Custom/SkyboxBlend" {
             }
             
             fixed4 frag(v2f i) : SV_Target {
-                float3 dir = normalize(i.rotatedDir); // Use the rotated direction
+                float3 dir = normalize(i.rotatedDir);
                 float3 sphereCoords = float3(
                     atan2(dir.x, dir.z) / (2 * 3.14159) + 0.5,
                     acos(dir.y) / 3.14159,
                     0
                 );
-                sphereCoords.y = 1 - sphereCoords.y; // Flip the Y coordinate
+                sphereCoords.y = 1 - sphereCoords.y;
+                
+                UNITY_SETUP_INSTANCE_ID(i);
                 fixed4 skyboxColorA = tex2D(_SkyboxTexA, sphereCoords.xy);
                 fixed4 skyboxColorB = tex2D(_SkyboxTexB, sphereCoords.xy);
                 fixed4 finalColor = lerp(skyboxColorA, skyboxColorB, _BlendAmount);
 
-                // Apply the hue to the skybox
                 float hueRot = _HueShift * 3.14159 / 180;
                 float3x3 hueRotationMatrix = float3x3(
                     cos(hueRot), 0, sin(hueRot),
@@ -75,7 +79,6 @@ Shader "Custom/SkyboxBlend" {
                 );
                 finalColor.rgb = mul(hueRotationMatrix, finalColor.rgb);
 
-                // Adjust exposure
                 finalColor.rgb *= _Exposure;
 
                 return finalColor;
