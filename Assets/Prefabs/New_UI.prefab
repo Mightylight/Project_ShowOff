@@ -1090,7 +1090,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: STAMINA
+  m_text: HEALTH
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a53b3355e43e4db4ca98e7c3e784c0bd, type: 2}
   m_sharedMaterial: {fileID: -5400414683084520660, guid: a53b3355e43e4db4ca98e7c3e784c0bd,
