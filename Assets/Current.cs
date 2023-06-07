@@ -1,21 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Current : MonoBehaviour
 {
-    Vector3 current = new Vector3(0, 0, 2);
-    Rigidbody rb;
-
-
-    private void Start()
+    [SerializeField] Rigidbody _rb;
+    [SerializeField] Vector3 _current = new Vector3(0, 0, 2);
+    // Start is called before the first frame update
+    void Start()
     {
-        rb= GetComponent<Rigidbody>();
+        
     }
 
-    private void Update()
+    // Update is called once per frame
+    void FixedUpdate()
     {
-        rb.MovePosition(transform.position + current);
+        
+        _rb.MovePosition(transform.position + _current * Time.fixedDeltaTime);
     }
 }

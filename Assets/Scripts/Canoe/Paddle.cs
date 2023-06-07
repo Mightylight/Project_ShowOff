@@ -30,6 +30,7 @@ namespace Canoe
             }
             else
             {
+                _thrust = Vector3.zero;
                 _lastFramePaddling = false; //last frame not paddling
             } 
         }
