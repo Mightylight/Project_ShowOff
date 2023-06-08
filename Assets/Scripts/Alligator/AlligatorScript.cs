@@ -47,7 +47,7 @@ namespace Alligator
             _joystickControls.Alligator.Bite.performed += pCtx => Bite();
             _joystickControls.Alligator.Enable();
 
-            _audio.GetComponent<AudioSource>();
+            _audio = GetComponent<AudioSource>();
 
         }
 

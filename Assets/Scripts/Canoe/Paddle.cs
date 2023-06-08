@@ -58,10 +58,10 @@ namespace Canoe
                 //Debug.Log("paddlin");
                 _paddling= true;
 
-                /*
+                
                 var paddleNum = Random.Range(1,4);
                 AudioManager.instance.Play("Paddle " + paddleNum);
-                */
+                
 
             }
             

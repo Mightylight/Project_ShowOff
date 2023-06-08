@@ -11,11 +11,13 @@ namespace Canoe
         [SerializeField] float _timeLeft = 1.0f;
 
         [SerializeField]List<MonoBehaviour> toEnable = new List<MonoBehaviour>();
+        [SerializeField] GameObject _gator;
 
         private void Awake()
         {
             toEnable.Add( GetComponentInParent<CanoeTurn>());
             toEnable.Add( GetComponentInParent<CanoeMove>());
+            toEnable.Add(_gator.GetComponent<Current>());
             //toEnable.Add( transform.parent.GetComponentInParent<Current>());
         }
         private void Update()

@@ -22,7 +22,7 @@ namespace Canoe
         private void Start()
         {
            // transform.position += new Vector3(0, 0.35f, 0);
-           _audio.GetComponent<AudioSource>();
+           _audio = GetComponent<AudioSource>();
         }
 
         private void Update()
