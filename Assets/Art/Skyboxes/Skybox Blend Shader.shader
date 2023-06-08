@@ -9,27 +9,29 @@ Shader "Custom/SkyboxBlend" {
     }
     
     SubShader {
-        Tags { "RenderType"="Background" }
-        Lighting Off
-        Blend SrcAlpha OneMinusSrcAlpha
-        ZWrite Off
+        Tags { "Queue"="Background" "RenderType"="Background" "PreviewType"="Skybox" }
+        Cull Off ZWrite Off
         
         Pass {
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-            #pragma multi_compile_instancing
+            #pragma target 2.0
+            #pragma multi_compile_local __ _MAPPING_6_FRAMES_LAYOUT
+
             #include "UnityCG.cginc"
             
             struct appdata {
                 float4 vertex : POSITION;
+                UNITY_VERTEX_INPUT_INSTANCE_ID
             };
             
             struct v2f {
                 float4 vertex : SV_POSITION;
                 float3 viewDir : TEXCOORD0;
                 float3 rotatedDir : TEXCOORD1;
-                UNITY_VERTEX_INPUT_INSTANCE_ID
+
+                UNITY_VERTEX_OUTPUT_STEREO
             };
             
             sampler2D _SkyboxTexA;
@@ -43,6 +45,7 @@ Shader "Custom/SkyboxBlend" {
             {
                 v2f o;
                 UNITY_SETUP_INSTANCE_ID(v);
+                UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.viewDir = normalize(mul(unity_ObjectToWorld, v.vertex).xyz - _WorldSpaceCameraPos.xyz);
                 
@@ -66,7 +69,6 @@ Shader "Custom/SkyboxBlend" {
                 );
                 sphereCoords.y = 1 - sphereCoords.y;
                 
-                UNITY_SETUP_INSTANCE_ID(i);
                 fixed4 skyboxColorA = tex2D(_SkyboxTexA, sphereCoords.xy);
                 fixed4 skyboxColorB = tex2D(_SkyboxTexB, sphereCoords.xy);
                 fixed4 finalColor = lerp(skyboxColorA, skyboxColorB, _BlendAmount);
@@ -86,4 +88,7 @@ Shader "Custom/SkyboxBlend" {
             ENDCG
         }
     }
+
+Fallback Off
+
 }
