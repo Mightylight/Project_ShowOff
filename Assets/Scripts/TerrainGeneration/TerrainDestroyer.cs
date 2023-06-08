@@ -16,7 +16,7 @@ namespace TerrainGeneration
             Destroy(pOther.gameObject);
             //Debug.Log("Destroyed");
             _terrainGenerator.RemoveTerrainSegment(pOther.GetComponent<TerrainPiece>());
-            _terrainGenerator.GenerateNextSegment();
+            //_terrainGenerator.GenerateNextSegment();
         }
     }
 }

@@ -24,7 +24,8 @@ namespace TerrainGeneration
         
         [FormerlySerializedAs("_riverTiles")]
         [Header("Generation Objects")]
-        [SerializeField] private TerrainTiles[] _tiles;
+        [SerializeField] private Segment[] _segments;
+        //[SerializeField] private TerrainTiles[] _tiles;
         [SerializeField] private Transform _tileParent;
 
 
@@ -51,12 +52,29 @@ namespace TerrainGeneration
         public void GenerateStartingTerrain()
         {
             ClearChildren();
-            //Generate the middle river row
-            for (int j = -1; j < _terrainLength; j++)
+
+            int amountOfSegments = _segments.Length;
+            int posIndex = -1;
+
+            foreach (Segment segment in _segments)
             {
-                Vector3 pos = new Vector3(0, 0, j * _tileSize) + _tileParent.position;
-                GenerateNewTerrainPiece(pos);
+                int segmentLength = Mathf.FloorToInt(_terrainLength / amountOfSegments);
+                for (int i = 0; i < segmentLength ; i++)
+                {
+                    Vector3 pos = new Vector3(0, 0, (i + posIndex) * _tileSize) + _tileParent.position;
+                    GenerateNewTerrainPiece(pos,segment);
+                }
+
+                posIndex += segmentLength;
             }
+            
+            
+            
+            // for (int j = -1; j < _terrainLength; j++)
+            // {
+            //     Vector3 pos = new Vector3(0, 0, j * _tileSize) + _tileParent.position;
+            //     GenerateNewTerrainPiece(pos);
+            // }
 
             for (int i = 0; i < _initialStartingTerrainLength; i++)
             {
@@ -64,15 +82,16 @@ namespace TerrainGeneration
             }
             
             TerrainPiece firstTile = _terrain.First();
+            if(firstTile.GetComponent<TerrainTrigger>() == null) return;
             firstTile.GetComponent<TerrainTrigger>()._hasBeenActivated = true;
         }
         
-        public void GenerateNextSegment()
-        {
-            GameObject lastTile = _terrain.Last().gameObject;
-            Vector3 newPos = lastTile.transform.position + Vector3.forward * _tileSize;
-            GenerateNewTerrainPiece(newPos);
-        }
+        // public void GenerateNextSegment()
+        // {
+        //     GameObject lastTile = _terrain.Last().gameObject;
+        //     Vector3 newPos = lastTile.transform.position + Vector3.forward * _tileSize;
+        //     GenerateNewTerrainPiece(newPos);
+        // }
 
         public void EnableNextSegment(bool pDeleteSegments = true)
         {
@@ -105,10 +124,10 @@ namespace TerrainGeneration
             // _recycledTerrainTiles.Add(pTileToRemove);
         }
 
-        private void GenerateNewTerrainPiece(Vector3 pNewPos, bool pIsActive = false)
+        private void GenerateNewTerrainPiece(Vector3 pNewPos,Segment pSegment, bool pIsActive = false)
         {
             TerrainPiece newTile =
-                Instantiate(GetRandomWeightedTile(), pNewPos, Quaternion.identity, _tileParent);
+                Instantiate(GetRandomWeightedTile(pSegment.terrainTiles), pNewPos, Quaternion.identity, _tileParent);
             if (pIsActive)
             {
                 newTile.gameObject.SetActive(true);
@@ -121,12 +140,12 @@ namespace TerrainGeneration
             }
         }
 
-        private TerrainPiece GetRandomWeightedTile()
+        private TerrainPiece GetRandomWeightedTile(TerrainTiles[] pTiles)
         {
-            int totalWeight = _tiles.Sum(x => x.weight);
+            int totalWeight = pTiles.Sum(x => x.weight);
             int randomWeight = Random.Range(0, totalWeight);
             int currentWeight = 0;
-            foreach (TerrainTiles tile in _tiles)
+            foreach (TerrainTiles tile in pTiles)
             {
                 currentWeight += tile.weight;
                 if (currentWeight > randomWeight)
@@ -145,5 +164,12 @@ namespace TerrainGeneration
     {
         public TerrainPiece tile;
         public int weight;
+    }
+    
+    [Serializable]
+    public class Segment
+    {
+        public string name;
+        public TerrainTiles[] terrainTiles;
     }
 }
