@@ -107,6 +107,11 @@ namespace Alligator
             
         }
 
+        public void Slow(int pSlowAmount)
+        {
+            _controllerMovement._speed -= pSlowAmount;
+        }
+
         private void Bite()
         {
             if (_isInRange)

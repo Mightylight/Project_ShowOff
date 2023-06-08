@@ -12,7 +12,7 @@ namespace Alligator
         [SerializeField] private CameraPivot _cameraPivot;
         
         
-        [SerializeField] private float _speed = 5;
+        [SerializeField] public float _speed = 5;
         private Vector3 _inputs = Vector3.zero;
         [SerializeField] Transform _model;
         float oldAngle = 0;
