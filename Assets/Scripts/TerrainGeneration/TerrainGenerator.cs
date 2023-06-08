@@ -13,6 +13,9 @@ namespace TerrainGeneration
 
         [Range(1, 200)] 
         [SerializeField] private int _terrainLength = 1;
+        [Tooltip("If true, the length of each segment will be used instead of the terrain length.")]
+        [SerializeField] private bool _useSegmentLengths = false;
+        
 
         [SerializeField] private int _initialStartingTerrainLength = 1;
         
@@ -59,6 +62,10 @@ namespace TerrainGeneration
             foreach (Segment segment in _segments)
             {
                 int segmentLength = Mathf.FloorToInt(_terrainLength / amountOfSegments);
+                if (_useSegmentLengths)
+                {
+                    segmentLength = segment.length;
+                }
                 for (int i = 0; i < segmentLength ; i++)
                 {
                     Vector3 pos = new Vector3(0, 0, (i + posIndex) * _tileSize) + _tileParent.position;
@@ -68,13 +75,6 @@ namespace TerrainGeneration
                 posIndex += segmentLength;
             }
             
-            
-            
-            // for (int j = -1; j < _terrainLength; j++)
-            // {
-            //     Vector3 pos = new Vector3(0, 0, j * _tileSize) + _tileParent.position;
-            //     GenerateNewTerrainPiece(pos);
-            // }
 
             for (int i = 0; i < _initialStartingTerrainLength; i++)
             {
@@ -86,13 +86,6 @@ namespace TerrainGeneration
             firstTile.GetComponent<TerrainTrigger>()._hasBeenActivated = true;
         }
         
-        // public void GenerateNextSegment()
-        // {
-        //     GameObject lastTile = _terrain.Last().gameObject;
-        //     Vector3 newPos = lastTile.transform.position + Vector3.forward * _tileSize;
-        //     GenerateNewTerrainPiece(newPos);
-        // }
-
         public void EnableNextSegment(bool pDeleteSegments = true)
         {
             GameObject tileToBeActivated = _inactiveTerrainPieces.First().gameObject;
@@ -115,13 +108,6 @@ namespace TerrainGeneration
             }
             _terrain.Clear();
             _inactiveTerrainPieces.Clear();
-        }
-
-        public void RemoveTerrainSegment(TerrainPiece pTileToRemove)
-        {
-            // _terrain.Remove(pTileToRemove);
-            // pTileToRemove.gameObject.SetActive(false);
-            // _recycledTerrainTiles.Add(pTileToRemove);
         }
 
         private void GenerateNewTerrainPiece(Vector3 pNewPos,Segment pSegment, bool pIsActive = false)
@@ -170,6 +156,7 @@ namespace TerrainGeneration
     public class Segment
     {
         public string name;
+        public int length;
         public TerrainTiles[] terrainTiles;
     }
 }
