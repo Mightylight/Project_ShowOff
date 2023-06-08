@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
@@ -15,11 +16,13 @@ namespace TerrainGeneration
         [SerializeField] private int _terrainLength = 1;
         [Tooltip("If true, the length of each segment will be used instead of the terrain length.")]
         [SerializeField] private bool _useSegmentLengths = false;
-        
+
 
         [SerializeField] private int _initialStartingTerrainLength = 1;
+        [SerializeField] private int _terrainPiecesBehindPlayer = 1;
         
-        
+
+
         [SerializeField] private float _tileSize;
         [SerializeField] private float _speed;
         
@@ -31,7 +34,9 @@ namespace TerrainGeneration
         //[SerializeField] private TerrainTiles[] _tiles;
         [SerializeField] private Transform _tileParent;
 
-
+        [SerializeField] public UnityEvent OnSegmentChange;
+        
+        
         private readonly List<TerrainPiece> _terrain = new List<TerrainPiece>();
         private readonly List<TerrainPiece> _inactiveTerrainPieces = new List<TerrainPiece>();
 
@@ -57,7 +62,7 @@ namespace TerrainGeneration
             ClearChildren();
 
             int amountOfSegments = _segments.Length;
-            int posIndex = -1;
+            int posIndex = -_terrainPiecesBehindPlayer;
 
             foreach (Segment segment in _segments)
             {
@@ -71,6 +76,8 @@ namespace TerrainGeneration
                     Vector3 pos = new Vector3(0, 0, (i + posIndex) * _tileSize) + _tileParent.position;
                     GenerateNewTerrainPiece(pos,segment);
                 }
+                TerrainPiece lastOfSegment = _terrain.Last();
+                lastOfSegment.GetComponent<TerrainTrigger>()._isLastOfSegment = true;
 
                 posIndex += segmentLength;
             }
