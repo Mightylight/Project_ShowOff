@@ -76,8 +76,13 @@ namespace TerrainGeneration
                     Vector3 pos = new Vector3(0, 0, (i + posIndex) * _tileSize) + _tileParent.position;
                     GenerateNewTerrainPiece(pos,segment);
                 }
-                TerrainPiece lastOfSegment = _terrain.Last();
-                lastOfSegment.GetComponent<TerrainTrigger>()._isLastOfSegment = true;
+
+                if (_inactiveTerrainPieces.Last() != null)
+                {
+                    TerrainPiece lastOfSegment = _inactiveTerrainPieces.Last();
+                    lastOfSegment.GetComponent<TerrainTrigger>()._isLastOfSegment = true;
+                    Debug.Log("Last of segment: " + lastOfSegment.name);
+                }
 
                 posIndex += segmentLength;
             }
