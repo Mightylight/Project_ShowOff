@@ -1404,6 +1404,7 @@ GameObject:
   - component: {fileID: 1710601605}
   - component: {fileID: 1710601606}
   - component: {fileID: 542490278388564778}
+  - component: {fileID: 947894901836924318}
   m_Layer: 3
   m_Name: CanoeV2
   m_TagString: Canoe
@@ -1693,6 +1694,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &947894901836924318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4451261061722039381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be14edf34a5403249a29928b6a45ad24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4451261062641524002
 GameObject:
   m_ObjectHideFlags: 0
