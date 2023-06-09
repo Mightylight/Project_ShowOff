@@ -986,7 +986,7 @@ GameObject:
   - component: {fileID: 8647026081283057899}
   - component: {fileID: 8647026081283057896}
   - component: {fileID: 8647026081283057897}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: River1 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1463,6 +1463,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _terrainGenerator: {fileID: 0}
   _hasBeenActivated: 0
+  _isLastOfSegment: 0
 --- !u!65 &6147370001256290860
 BoxCollider:
   m_ObjectHideFlags: 0
