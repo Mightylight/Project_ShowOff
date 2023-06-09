@@ -8,7 +8,7 @@ public class HealthBar : MonoBehaviour
     //public Slider healthSlider;
     public Image healthFill;
 
-    private int maxHealth;
+    [SerializeField] private int maxHealth = 5;
 
     private void Awake()
     {

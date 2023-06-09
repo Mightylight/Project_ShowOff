@@ -20,7 +20,7 @@ namespace Canoe
             foreach (Paddle p in _paddles)
             {
                 paddleForce += p.GetThrust();
-                Debug.Log(p.GetThrust());
+                //Debug.Log(p.GetThrust());
             }
             
             //vel += transform.forward * velocity.magnitude;

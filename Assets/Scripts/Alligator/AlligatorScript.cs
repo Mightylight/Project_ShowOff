@@ -120,6 +120,7 @@ namespace Alligator
                 _isAttached = true;
                 _controllerMovement.DisableMovement();
                 transform.SetParent(_canoe.transform);
+                //Destroy(GetComponent<Rigidbody>());
             }
         }
 
