@@ -14,7 +14,10 @@ namespace Canoe
 
 
         public float turnRate = 1f;
+        float _turnPowerTotal = 0;
+        [SerializeField] float _turnTreshold = 0.05f;
         [Range (0,1)][SerializeField] float _velocityLossOnTurn = 0.95f;
+        [Range(0, 1)][SerializeField] float _turnMomentum = 0.75f;
         [SerializeField] float baseTurnPower = 0.5f;
         [SerializeField] private Rigidbody _rb;
         [SerializeField] private float _strengthModifier;
@@ -75,9 +78,14 @@ namespace Canoe
             }
 
             float turnPowerTotal = rightPowerTotal - leftPowerTotal;
+            if (Mathf.Abs(turnPowerTotal) > _turnTreshold)
+            {
+                _turnPowerTotal = turnPowerTotal;
+            }
+            else _turnPowerTotal *= _turnMomentum;
             //Debug.Log(turnPowerTotal);
 
-            Quaternion deltaRot = Quaternion.Euler(0, turnPowerTotal * turnRate * Time.fixedDeltaTime, 0);
+            Quaternion deltaRot = Quaternion.Euler(0, _turnPowerTotal * turnRate * Time.fixedDeltaTime, 0);
             _rb.MoveRotation(_rb.rotation * deltaRot);
 
             if(turnPowerTotal != 0) _rb.velocity *= _velocityLossOnTurn; 

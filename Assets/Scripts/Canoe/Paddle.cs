@@ -13,6 +13,7 @@ namespace Canoe
         private Vector3 _currentPosition = Vector3.zero;
         private Vector3 _thrust;
         [SerializeField] public float _strength = 1000;
+        [SerializeField] float _thrustThreshold = 0.1f;
        // [SerializeField] private float _depthModifier = 0.5f;
        // [Range(-10, 0)][SerializeField] private float _maxDepthForStrength = -1;
         //private float paddlingTime = 0f;
@@ -80,7 +81,7 @@ namespace Canoe
         public Vector3 GetThrust()
         {
             //Debug.Log(thrust.ToString());
-            if (_thrust.magnitude > 0.5f) return _thrust;
+            if (_thrust.magnitude > _thrustThreshold) return _thrust;
             else return Vector3.zero;
         }
         public bool IsPaddling() { return _paddling; }
