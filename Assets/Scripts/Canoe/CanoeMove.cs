@@ -29,9 +29,9 @@ namespace Canoe
            //Debug.Log(vel + " and " +vel*0.00001f);//*0.95f);
             
             //Debug.Log(vel);
-            _rb.AddForce(transform.forward * paddleForce.magnitude);
+            _rb.AddForce(transform.forward * paddleForce.z);
             _rb.velocity = Vector3.ClampMagnitude(_rb.velocity, veloCap);
-            _rb.velocity *= _friction;
+            if(paddleForce.z == 0) _rb.velocity *= _friction;
             Debug.DrawRay(transform.position, transform.forward * paddleForce.magnitude  * 100, Color.red);
 
         }
