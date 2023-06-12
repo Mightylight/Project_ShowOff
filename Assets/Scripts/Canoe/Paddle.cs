@@ -14,7 +14,8 @@ namespace Canoe
         private Vector3 _thrust;
         [SerializeField] public float _strength = 1000;
         [SerializeField] float _thrustThreshold = 0.1f;
-       // [SerializeField] private float _depthModifier = 0.5f;
+        [SerializeField] float _waterThreshold;
+       //S [SerializeField] private float _depthModifier = 0.5f;
        // [Range(-10, 0)][SerializeField] private float _maxDepthForStrength = -1;
         //private float paddlingTime = 0f;
 
@@ -41,10 +42,17 @@ namespace Canoe
             
             _lastPosition = _currentPosition;
             _currentPosition = _paddleTip.localPosition; //translate to the
-            if(_lastFramePaddling) _thrust = -_strength * (_lastPosition - _currentPosition); //ignore if last frame not paddling
+            if (_lastFramePaddling) 
+            {
+                _thrust = -_strength * (_currentPosition - _lastPosition);
+                Debug.Log(GetPosZ());
+            } 
+            //else Debug.Log(_currentPosition.y);//ignore if last frame not paddling
+                                               // Debug.Log(_thrust.y);
             _thrust.y = 0f;
             _lastFramePaddling = true;
             //Debug.Log(_thrust.ToString());
+            
         }
 
         private void OnTriggerEnter(Collider pOther)
@@ -83,6 +91,15 @@ namespace Canoe
             //Debug.Log(thrust.ToString());
             if (_thrust.magnitude > _thrustThreshold) return _thrust;
             else return Vector3.zero;
+        }
+
+        public float GetPosZ()
+        {
+            return _currentPosition.z;
+        }
+        public float GetDepth()
+        {
+            return _currentPosition.y;
         }
         public bool IsPaddling() { return _paddling; }
 

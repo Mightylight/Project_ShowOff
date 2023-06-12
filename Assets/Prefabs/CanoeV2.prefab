@@ -604,6 +604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthFill: {fileID: 4043200668212535010}
+  maxHealth: 5
 --- !u!1 &4043200668267983068
 GameObject:
   m_ObjectHideFlags: 0
@@ -1388,6 +1389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthFill: {fileID: 4043200670160594163}
+  maxHealth: 5
 --- !u!1 &4451261061722039381
 GameObject:
   m_ObjectHideFlags: 0
@@ -1440,7 +1442,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4451261061722039381}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b392437432bb5b84ebdcff04bde6d152, type: 3}
   m_Name: 
@@ -1454,7 +1456,9 @@ MonoBehaviour:
   _leftPaddle: {fileID: 9099935678082973204}
   _rightPaddle: {fileID: 8643340812150505739}
   turnRate: 30
+  _turnTreshold: 0.05
   _velocityLossOnTurn: 0.95
+  _turnMomentum: 0.98
   baseTurnPower: 0.5
   _rb: {fileID: 6717589736699591898}
   _strengthModifier: 100
