@@ -77,18 +77,21 @@ namespace Canoe
                 rightPowerTotal -= _rightPaddle.GetThrust().z / strMod;
             }
 
-            float turnPowerTotal = rightPowerTotal - leftPowerTotal;
-            if (Mathf.Abs(turnPowerTotal) > _turnTreshold)
+            if (!(rightPowerTotal > 0 && leftPowerTotal > 0) || !(rightPowerTotal < 0 && leftPowerTotal < 0))
             {
-                _turnPowerTotal = turnPowerTotal;
-            }
-            else _turnPowerTotal *= _turnMomentum;
-            //Debug.Log(turnPowerTotal);
+                float turnPowerTotal = rightPowerTotal - leftPowerTotal;
+                if (Mathf.Abs(turnPowerTotal) > _turnTreshold)
+                {
+                    _turnPowerTotal = turnPowerTotal;
+                }
+                else _turnPowerTotal *= _turnMomentum;
+                Debug.Log(_turnPowerTotal);
 
-            Quaternion deltaRot = Quaternion.Euler(0, _turnPowerTotal * turnRate * Time.fixedDeltaTime, 0);
-            _rb.MoveRotation(_rb.rotation * deltaRot);
+                Quaternion deltaRot = Quaternion.Euler(0, _turnPowerTotal * turnRate * Time.fixedDeltaTime, 0);
+                _rb.MoveRotation(_rb.rotation * deltaRot);
 
-            if(turnPowerTotal != 0) _rb.velocity *= _velocityLossOnTurn; 
+                if (turnPowerTotal == 0) _rb.velocity *= _velocityLossOnTurn;
+            }            
         }
     }
 }
