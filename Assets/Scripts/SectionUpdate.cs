@@ -10,14 +10,14 @@ public class SectionUpdate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        skyboxMaterial.SetFloat("_BlendAmount", 0f);
     }
 
     // Update is called once per frame
     void Update()
     {
         // If J key is pressed
-        
+
         // if (Input.GetKeyDown(KeyCode.J))
         // {
         //     // Start coroutine
