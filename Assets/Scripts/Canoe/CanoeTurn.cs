@@ -68,6 +68,7 @@ namespace Canoe
             float strMod = _leftPaddle._strength / _strengthModifier;
             float leftPowerTotal = 0;
             float rightPowerTotal = 0;
+            float turnPowerTotal = 0;
 
             PaddlingValue leftValue = PaddlingValue.None;
             PaddlingValue rightValue = PaddlingValue.None;
@@ -77,29 +78,29 @@ namespace Canoe
                 leftPowerTotal += _leftPaddle.GetThrust().z / strMod;
                 Debug.Log(leftPowerTotal);
 
-                if (leftPowerTotal < 0) leftValue = PaddlingValue.Positive;
-                else leftValue = PaddlingValue.Negative;
+                if (leftPowerTotal < 0) leftValue = PaddlingValue.Negative;
+                else leftValue = PaddlingValue.Positive;
+                leftPowerTotal += baseTurnPower;
 
                 if ((reverseTurn && leftValue == PaddlingValue.Negative) || leftValue == PaddlingValue.Positive)
                 {
-                    leftPowerTotal += baseTurnPower;
+                    turnPowerTotal -= leftPowerTotal;
                 }
                 //Debug.Log(_leftPaddle.GetThrust());
             }
             if (_rightPaddle.IsPaddling() && _rightPaddle.GetPosZ() > -0.5)
             {
                 rightPowerTotal += _rightPaddle.GetThrust().z / strMod;
-                if (rightPowerTotal < 0) rightValue = PaddlingValue.Positive;
-                else rightValue = PaddlingValue.Negative;
+                if (rightPowerTotal < 0) rightValue = PaddlingValue.Negative;
+                else rightValue = PaddlingValue.Positive;
+                rightPowerTotal += baseTurnPower;
 
-                if((reverseTurn && rightValue == PaddlingValue.Negative) || rightValue == PaddlingValue.Positive)
+                if ((reverseTurn && rightValue == PaddlingValue.Negative) || rightValue == PaddlingValue.Positive)
                 {
-                    rightPowerTotal += baseTurnPower;
+                    turnPowerTotal += rightPowerTotal;
                 }
             }
 
-            
-            float turnPowerTotal = rightPowerTotal - leftPowerTotal;
 
             if (rightValue != leftValue || rightValue == PaddlingValue.None || leftValue == PaddlingValue.None)
             {
