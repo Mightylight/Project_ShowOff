@@ -74,7 +74,8 @@ namespace Canoe
 
             if (_leftPaddle.IsPaddling() && _leftPaddle.GetPosZ() > -0.5) //&& _leftPaddle.GetDepth() < -0.2)
             {               
-                leftPowerTotal -= _leftPaddle.GetThrust().z / strMod;
+                leftPowerTotal += _leftPaddle.GetThrust().z / strMod;
+                Debug.Log(leftPowerTotal);
 
                 if (leftPowerTotal < 0) leftValue = PaddlingValue.Positive;
                 else leftValue = PaddlingValue.Negative;
@@ -87,7 +88,7 @@ namespace Canoe
             }
             if (_rightPaddle.IsPaddling() && _rightPaddle.GetPosZ() > -0.5)
             {
-                rightPowerTotal -= _rightPaddle.GetThrust().z / strMod;
+                rightPowerTotal += _rightPaddle.GetThrust().z / strMod;
                 if (rightPowerTotal < 0) rightValue = PaddlingValue.Positive;
                 else rightValue = PaddlingValue.Negative;
 
