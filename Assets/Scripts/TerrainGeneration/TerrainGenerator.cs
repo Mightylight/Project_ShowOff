@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
+using Valve.Newtonsoft.Json.Utilities;
 using Random = UnityEngine.Random;
 
 namespace TerrainGeneration
@@ -34,7 +35,8 @@ namespace TerrainGeneration
         //[SerializeField] private TerrainTiles[] _tiles;
         [SerializeField] private Transform _tileParent;
 
-        [SerializeField] public UnityEvent OnSegmentChange;
+        [SerializeField] public UnityEvent OnSegmentMidChange;
+        [SerializeField] public UnityEvent OnSegmentLastChange;
         
         
         private readonly List<TerrainPiece> _terrain = new List<TerrainPiece>();
@@ -63,6 +65,7 @@ namespace TerrainGeneration
 
             int amountOfSegments = _segments.Length;
             int posIndex = -_terrainPiecesBehindPlayer;
+            int segmentIndex = 0;
 
             foreach (Segment segment in _segments)
             {
@@ -81,10 +84,18 @@ namespace TerrainGeneration
                 {
                     TerrainPiece lastOfSegment = _inactiveTerrainPieces.Last();
                     lastOfSegment.GetComponent<TerrainTrigger>()._isLastOfSegment = true;
+                    if (segmentIndex == 1)
+                    {
+                        lastOfSegment.GetComponent<TerrainTrigger>()._segmentIndex = segmentIndex;
+                    }
                     Debug.Log("Last of segment: " + lastOfSegment.name);
                 }
 
+                
+                
+
                 posIndex += segmentLength;
+                segmentIndex++;
             }
             
 

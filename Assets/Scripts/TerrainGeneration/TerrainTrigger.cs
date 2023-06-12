@@ -7,6 +7,7 @@ namespace TerrainGeneration
         [SerializeField] private TerrainGenerator _terrainGenerator;
         public bool _hasBeenActivated = false;
         public bool _isLastOfSegment = false;
+        public int _segmentIndex = -1;
 
         private void Awake()
         {
@@ -24,7 +25,15 @@ namespace TerrainGeneration
                 _hasBeenActivated = true;
                 if (_isLastOfSegment)
                 {
-                    _terrainGenerator.OnSegmentChange?.Invoke();
+                    if (_segmentIndex == 1)
+                    {
+                        _terrainGenerator.OnSegmentLastChange?.Invoke();
+                    }
+                    else if(_segmentIndex == 0)
+                    {
+                        _terrainGenerator.OnSegmentMidChange?.Invoke();
+                    }
+                    
                 }
             }
         }
