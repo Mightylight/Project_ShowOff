@@ -45,7 +45,7 @@ namespace Canoe
             if (_lastFramePaddling) 
             {
                 _thrust = -_strength * (_currentPosition - _lastPosition);
-                Debug.Log(GetPosZ());
+                //Debug.Log(GetPosZ());
             } 
             //else Debug.Log(_currentPosition.y);//ignore if last frame not paddling
                                                // Debug.Log(_thrust.y);

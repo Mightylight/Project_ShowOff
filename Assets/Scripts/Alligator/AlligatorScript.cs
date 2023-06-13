@@ -1,4 +1,5 @@
 using Canoe;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -20,6 +21,8 @@ namespace Alligator
         [SerializeField] private Transform _parent;
 
         [SerializeField] private AudioClip _bonkSound;
+        [SerializeField] private Current _current;
+        
         private AudioSource _audio;
         
         
@@ -67,6 +70,11 @@ namespace Alligator
                     BiteCanoe();
                 }
             }
+            
+            if(Input.GetKeyDown(KeyCode.A))
+            {
+                OnHit();
+            }
         }
 
         private void BiteCanoe()
@@ -89,16 +97,27 @@ namespace Alligator
                 
                 _isInvincible = true;
                 _timer = _invincibilityTimer;
-                _rb.velocity= Vector3.zero;
+                if (_rb != null)
+                {
+                    _rb.velocity= Vector3.zero;
+                    _rb.AddForce(_pushBack);
+                }
+                
                 
                 _pushBack = transform.rotation* _pushBack;
-                _rb.AddForce(_pushBack);
+                
                 _audio.PlayOneShot(_bonkSound, 0.5f);
                 
                 _isAttached = false;
                 _controllerMovement.EnableMovement();
                 transform.SetParent(_parent);
-
+                _rb = gameObject.AddComponent<Rigidbody>();
+                _rb.isKinematic = true;
+                RigidbodyConstraints constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY;
+                _rb.constraints = constraints;
+                _rb.useGravity = false;
+                _current._rb = _rb;
+                
                 if(_health <= 0)
                 {
                     loss?.Invoke();
@@ -119,8 +138,9 @@ namespace Alligator
                 _canoe.OnHit();
                 _isAttached = true;
                 _controllerMovement.DisableMovement();
+                Destroy(GetComponent<Rigidbody>());
                 transform.SetParent(_canoe.transform);
-                //Destroy(GetComponent<Rigidbody>());
+                
             }
         }
 
