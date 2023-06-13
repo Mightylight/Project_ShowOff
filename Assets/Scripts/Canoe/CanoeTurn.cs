@@ -34,7 +34,8 @@ namespace Canoe
 
         private void FixedUpdate()
         {
-            complexMotionTurn();
+            //complexMotionTurn();
+            constantBasedMotionTurn();
         }
 
         void simpleTurn()
@@ -63,6 +64,53 @@ namespace Canoe
             _rb.MoveRotation(_rb.rotation * deltaRot);
 
         }
+        void constantBasedMotionTurn()
+        {
+            float leftPowerTotal = 0;
+            float rightPowerTotal = 0;
+            float turnPowerTotal = 0;
+
+            if (_leftPaddle.IsPaddling())
+            {
+                leftPowerTotal = -baseTurnPower;
+
+                //if is moving
+                if(_leftPaddle.GetThrust().z > 0)
+                {
+                    leftPowerTotal = 1;
+                }
+                else if (_leftPaddle.GetThrust().z < 0)
+                {
+                    leftPowerTotal = -1;
+                }
+            }
+
+            if (_rightPaddle.IsPaddling())
+            {
+                rightPowerTotal = -baseTurnPower;
+
+                //if is moving
+                if (_rightPaddle.GetThrust().z > 0)
+                {
+                    rightPowerTotal = 1;
+                }
+                else if (_rightPaddle.GetThrust().z < 0)
+                {
+                    rightPowerTotal = -1;
+                }
+            }
+
+            turnPowerTotal = leftPowerTotal - rightPowerTotal;
+            if (Mathf.Abs(turnPowerTotal) > _turnTreshold)
+            {
+                _turnPowerTotal = turnPowerTotal;
+            }
+            else _turnPowerTotal *= _turnMomentum;
+            //Debug.Log(_turnPowerTotal);
+
+            Quaternion deltaRot = Quaternion.Euler(0, _turnPowerTotal * turnRate * Time.fixedDeltaTime, 0);
+            _rb.MoveRotation(_rb.rotation * deltaRot);
+        }
         void complexMotionTurn()
         {
             float strMod = _leftPaddle._strength / _strengthModifier;
@@ -80,11 +128,11 @@ namespace Canoe
 
                 if (leftPowerTotal < 0) leftValue = PaddlingValue.Negative;
                 else leftValue = PaddlingValue.Positive;
-                leftPowerTotal += baseTurnPower;
+                leftPowerTotal -= baseTurnPower;
 
                 if ((reverseTurn && leftValue == PaddlingValue.Negative) || leftValue == PaddlingValue.Positive)
                 {
-                    turnPowerTotal -= leftPowerTotal;
+                    turnPowerTotal += leftPowerTotal;
                 }
                 //Debug.Log(_leftPaddle.GetThrust());
             }
@@ -93,11 +141,11 @@ namespace Canoe
                 rightPowerTotal += _rightPaddle.GetThrust().z / strMod;
                 if (rightPowerTotal < 0) rightValue = PaddlingValue.Negative;
                 else rightValue = PaddlingValue.Positive;
-                rightPowerTotal += baseTurnPower;
+                rightPowerTotal -= baseTurnPower;
 
                 if ((reverseTurn && rightValue == PaddlingValue.Negative) || rightValue == PaddlingValue.Positive)
                 {
-                    turnPowerTotal += rightPowerTotal;
+                    turnPowerTotal -= rightPowerTotal;
                 }
             }
 
@@ -120,5 +168,6 @@ namespace Canoe
             else Debug.Log("paddlin, not turnin");
             
         }
+
     }
 }
