@@ -1,4 +1,5 @@
 using Alligator;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Canoe
@@ -14,9 +15,9 @@ namespace Canoe
         private Vector3 _thrust;
         [SerializeField] public float _strength = 1000;
         [SerializeField] float _thrustThreshold = 0.1f;
-        [SerializeField] float _waterThreshold;
-       //S [SerializeField] private float _depthModifier = 0.5f;
-       // [Range(-10, 0)][SerializeField] private float _maxDepthForStrength = -1;
+        [SerializeField] float _waterLevel = 0;
+        [SerializeField] private float _depthModifier = 2f;
+        [Range(-10, 0)][SerializeField] private float _maxDepthForStrength = -1;
         //private float paddlingTime = 0f;
 
         private void Update()
@@ -46,9 +47,21 @@ namespace Canoe
             {
                 _thrust = -_strength * (_currentPosition - _lastPosition);
                 //Debug.Log(GetPosZ());
-            } 
+            }
             //else Debug.Log(_currentPosition.y);//ignore if last frame not paddling
-                                               // Debug.Log(_thrust.y);
+            // Debug.Log(_thrust.y);
+
+            float depth = 0;
+
+           if(_currentPosition.y < _maxDepthForStrength)
+           {
+               depth = _maxDepthForStrength;
+           }
+           else depth = - _currentPosition.y;
+
+            //modify by depth
+            _thrust *= _depthModifier * depth;
+
             _thrust.y = 0f;
             _lastFramePaddling = true;
             //Debug.Log(_thrust.ToString());
