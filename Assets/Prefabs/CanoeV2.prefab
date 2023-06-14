@@ -340,7 +340,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2385490199553046622}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1455,12 +1455,12 @@ MonoBehaviour:
     needsReinit: 0
   _leftPaddle: {fileID: 9099935678082973204}
   _rightPaddle: {fileID: 8643340812150505739}
-  turnRate: 30
-  _turnPowerTotal: 0
+  turnRate: 100
+  _turnPower: 0
   _turnTreshold: 0.05
   _velocityLossOnTurn: 1
   _turnMomentum: 0.98
-  baseTurnPower: 0.5
+  baseTurnPower: 1
   _rb: {fileID: 6717589736699591898}
   _strengthModifier: 25
   _maxTurnSpeed: 5
@@ -1499,7 +1499,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 84
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &202177672557741634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2125,6 +2125,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7918909419213105814, guid: 5b388aadeea683f498d0f79fd49cefa6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8070749734979604222, guid: 5b388aadeea683f498d0f79fd49cefa6,
         type: 3}
@@ -2870,7 +2875,7 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!114 &7010313427156110109
+--- !u!114 &6195568314591749514
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2903,7 +2908,7 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!114 &6195568314591749514
+--- !u!114 &7010313427156110109
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3342,11 +3347,6 @@ PrefabInstance:
       propertyPath: _paddleTip
       value: 
       objectReference: {fileID: 4910639822671284762}
-    - target: {fileID: 39855768087957312, guid: e634616dd371b034ea632993536c3bce,
-        type: 3}
-      propertyPath: _thrustThreshold
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 661499264735486465, guid: e634616dd371b034ea632993536c3bce,
         type: 3}
       propertyPath: m_Name
@@ -3357,6 +3357,11 @@ PrefabInstance:
       propertyPath: _heldBy
       value: 
       objectReference: {fileID: 2861846346010594713}
+    - target: {fileID: 2119250021992540968, guid: e634616dd371b034ea632993536c3bce,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3930016714959857945, guid: e634616dd371b034ea632993536c3bce,
         type: 3}
       propertyPath: _syncTo

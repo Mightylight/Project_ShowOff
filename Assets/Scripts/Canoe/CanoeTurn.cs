@@ -15,11 +15,11 @@ namespace Canoe
         private enum PaddlingValue  {Positive, Negative, None }
 
         public float turnRate = 1f;
-        [SerializeField] float _turnPowerTotal = 0;
+        [SerializeField] float _turnPower = 0;
         [SerializeField] float _turnTreshold = 0.5f;
         [Range (0,1)][SerializeField] float _velocityLossOnTurn = 0.95f;
         [Range(0, 1)][SerializeField] float _turnMomentum = 0.75f;
-        [SerializeField] float baseTurnPower = 0.5f;
+        [SerializeField] float baseTurnPower = 3f;
         [SerializeField] private Rigidbody _rb;
         [SerializeField] private float _strengthModifier;
         [SerializeField] float _maxTurnSpeed = 5;
@@ -69,46 +69,50 @@ namespace Canoe
             float leftPowerTotal = 0;
             float rightPowerTotal = 0;
             float turnPowerTotal = 0;
+            bool left = false;
+            bool right = false;
 
             if (_leftPaddle.IsPaddling())
             {
-                leftPowerTotal = -baseTurnPower;
-
+                //leftPowerTotal = -baseTurnPower;
+                left = true;
                 //if is moving
                 if(_leftPaddle.GetThrust().z > 0)
                 {
-                    leftPowerTotal = 1;
+                    leftPowerTotal = baseTurnPower;
                 }
                 else if (_leftPaddle.GetThrust().z < 0)
                 {
-                    leftPowerTotal = -1;
+                    leftPowerTotal = -baseTurnPower;
                 }
             }
 
             if (_rightPaddle.IsPaddling())
             {
-                rightPowerTotal = -baseTurnPower;
-
+                //rightPowerTotal = -baseTurnPower;
+                right = true;
                 //if is moving
                 if (_rightPaddle.GetThrust().z > 0)
                 {
-                    rightPowerTotal = 1;
+                    rightPowerTotal = baseTurnPower;
                 }
                 else if (_rightPaddle.GetThrust().z < 0)
                 {
-                    rightPowerTotal = -1;
+                    rightPowerTotal = -baseTurnPower;
                 }
             }
 
+
+
             turnPowerTotal = leftPowerTotal - rightPowerTotal;
-            if (Mathf.Abs(turnPowerTotal) > _turnTreshold)
+            if (left!=right)
             {
-                _turnPowerTotal = turnPowerTotal;
+                _turnPower = turnPowerTotal*turnRate;
             }
-            else _turnPowerTotal *= _turnMomentum;
+            else if(!(right && left)) _turnPower *= _turnMomentum;
             //Debug.Log(_turnPowerTotal);
 
-            Quaternion deltaRot = Quaternion.Euler(0, _turnPowerTotal * turnRate * Time.fixedDeltaTime, 0);
+            Quaternion deltaRot = Quaternion.Euler(0, _turnPower * Time.fixedDeltaTime, 0);
             _rb.MoveRotation(_rb.rotation * deltaRot);
         }
         void complexMotionTurn()
@@ -155,15 +159,15 @@ namespace Canoe
                 
                 if (Mathf.Abs(turnPowerTotal) > _turnTreshold)
                 {
-                    _turnPowerTotal = turnPowerTotal;
+                    _turnPower = turnPowerTotal;
                 }
-                else _turnPowerTotal *= _turnMomentum;
+                else _turnPower *= _turnMomentum;
                 //Debug.Log(_turnPowerTotal);
 
-                Quaternion deltaRot = Quaternion.Euler(0, _turnPowerTotal * turnRate * Time.fixedDeltaTime, 0);
+                Quaternion deltaRot = Quaternion.Euler(0, _turnPower * turnRate * Time.fixedDeltaTime, 0);
                 _rb.MoveRotation(_rb.rotation * deltaRot);
 
-                if (_turnPowerTotal != 0) _rb.velocity *= _velocityLossOnTurn;
+                if (_turnPower != 0) _rb.velocity *= _velocityLossOnTurn;
             }
             else Debug.Log("paddlin, not turnin");
             
