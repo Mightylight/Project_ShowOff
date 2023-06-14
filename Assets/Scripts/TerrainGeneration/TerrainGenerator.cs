@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
@@ -90,9 +91,9 @@ namespace TerrainGeneration
                     }
                     Debug.Log("Last of segment: " + lastOfSegment.name);
                 }
+                
 
-                
-                
+
 
                 posIndex += segmentLength;
                 segmentIndex++;
@@ -103,10 +104,15 @@ namespace TerrainGeneration
             {
                 EnableNextSegment(false);
             }
+
+            foreach (TerrainPiece terrainPiece in _terrain)
+            {
+                terrainPiece.GetComponent<TerrainTrigger>()._hasBeenActivated = true;
+            }
             
-            TerrainPiece firstTile = _terrain.First();
-            if(firstTile.GetComponent<TerrainTrigger>() == null) return;
-            firstTile.GetComponent<TerrainTrigger>()._hasBeenActivated = true;
+            // TerrainPiece firstTile = _terrain.First();
+            // if(firstTile.GetComponent<TerrainTrigger>() == null) return;
+            // firstTile.GetComponent<TerrainTrigger>()._hasBeenActivated = true;
         }
         
         public void EnableNextSegment(bool pDeleteSegments = true)
