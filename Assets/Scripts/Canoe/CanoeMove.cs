@@ -39,7 +39,7 @@ namespace Canoe
 
         private void OnCollisionEnter(Collision pCollision)
         {
-            Debug.Log(pCollision.gameObject.name);
+           // Debug.Log(pCollision.gameObject.name);
         }
     }
 }

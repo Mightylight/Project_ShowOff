@@ -99,8 +99,8 @@ namespace Alligator
                 _timer = _invincibilityTimer;
                 if (_rb != null)
                 {
-                    _rb.velocity= Vector3.zero;
-                    _rb.AddForce(_pushBack);
+                    
+                    transform.parent.Translate(_pushBack);
                 }
                 
                 

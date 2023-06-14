@@ -532,6 +532,7 @@ MonoBehaviour:
   _biteInterval: 2
   _parent: {fileID: 8788330686797849561}
   _bonkSound: {fileID: 8300000, guid: 858f34f1ac517934f8f77b7ba2b34067, type: 3}
+  _current: {fileID: 0}
   bounceBack: 0
   loss:
     m_PersistentCalls:
@@ -668,6 +669,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alby_withAnimator
       objectReference: {fileID: 0}
+    - target: {fileID: 7873420353516881211, guid: 757ecd70db562d341be07bb5a6b7b7fb,
+        type: 3}
+      propertyPath: m_TagString
+      value: alligator
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 757ecd70db562d341be07bb5a6b7b7fb, type: 3}
 --- !u!4 &5800205433981686488 stripped
@@ -711,84 +717,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.051616836, y: 0.043499053, z: 0.18696825}
   m_Center: {x: -0.00053832086, y: 0.024019642, z: 0.028133}
---- !u!114 &7172855172077850619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6572344705595770978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5838787b8cf79384ebd2addfeebb1dac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: 5
-  _stamina: 5
-  _healthBars:
-  - {fileID: 0}
-  - {fileID: 0}
-  _invincibilityTimer: 1
-  _pushBack: {x: -2, y: 0, z: -2}
-  _canoe: {fileID: 0}
-  _controllerMovement: {fileID: 1702233308198654999}
-  _biteInterval: 2
-  _parent: {fileID: 8788330686797849561}
-  _bonkSound: {fileID: 8300000, guid: 858f34f1ac517934f8f77b7ba2b34067, type: 3}
-  bounceBack: 0
-  loss:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetGameOver
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
---- !u!114 &8715414674445219285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6572344705595770978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32257ce7f8bd67e409d1c896f0bcc96b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rb: {fileID: 699974069}
-  _current: {x: 0, y: 0, z: 2}
 --- !u!82 &3040378764812031448
 AudioSource:
   m_ObjectHideFlags: 0
@@ -885,3 +813,82 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7172855172077850619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6572344705595770978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5838787b8cf79384ebd2addfeebb1dac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 5
+  _stamina: 5
+  _healthBars:
+  - {fileID: 0}
+  - {fileID: 0}
+  _invincibilityTimer: 1
+  _pushBack: {x: -2, y: 0, z: -2}
+  _canoe: {fileID: 0}
+  _controllerMovement: {fileID: 1702233308198654999}
+  _biteInterval: 2
+  _parent: {fileID: 8788330686797849561}
+  _bonkSound: {fileID: 8300000, guid: 858f34f1ac517934f8f77b7ba2b34067, type: 3}
+  _current: {fileID: 0}
+  bounceBack: 0
+  loss:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: SetGameOver
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &8715414674445219285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6572344705595770978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32257ce7f8bd67e409d1c896f0bcc96b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rb: {fileID: 699974069}
+  _current: {x: 0, y: 0, z: 2}
