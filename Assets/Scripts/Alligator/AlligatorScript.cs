@@ -97,14 +97,10 @@ namespace Alligator
                 
                 _isInvincible = true;
                 _timer = _invincibilityTimer;
-                if (_rb != null)
-                {
-                    
-                    transform.parent.Translate(_pushBack);
-                }
                 
                 
-                _pushBack = transform.rotation* _pushBack;
+                
+                Vector3 pushBack = Quaternion.Euler(0, transform.rotation.y, 0)* _pushBack;
                 
                 _audio.PlayOneShot(_bonkSound, 0.5f);
                 
@@ -117,8 +113,14 @@ namespace Alligator
                 _rb.constraints = constraints;
                 _rb.useGravity = false;
                 _current._rb = _rb;
-                
-                if(_health <= 0)
+
+                if (_rb != null)
+                {
+                    transform.parent.Translate(pushBack);
+
+                }
+
+                if (_health <= 0)
                 {
                     loss?.Invoke();
                 }
@@ -133,12 +135,12 @@ namespace Alligator
 
         private void Bite()
         {
-            if (_isInRange)
+            if (_isInRange && !_isAttached)
             {
+                _controllerMovement.DisableMovement();
                 _canoe.OnHit();
                 _isAttached = true;
-                _controllerMovement.DisableMovement();
-                Destroy(GetComponent<Rigidbody>());
+                if(_rb != null) Destroy(GetComponent<Rigidbody>());
                 transform.SetParent(_canoe.transform);
                 
             }
@@ -157,11 +159,7 @@ namespace Alligator
         {
             if (pCollision.gameObject.CompareTag("Canoe"))
             {
-                if (!bounceBack)
-                {
-                    _rb.velocity = Vector3.zero;
-                    _rb.angularVelocity = Vector3.zero;
-                }
+                
                 _isInRange = false;
                 
             }
