@@ -10,7 +10,7 @@ namespace Canoe
         public bool _synced = false;
         [SerializeField] float _timeLeft = 1.0f;
 
-        [SerializeField]List<MonoBehaviour> toEnable = new List<MonoBehaviour>();
+        [SerializeField]List<MonoBehaviour> toEnable = new();
         [SerializeField] GameObject _gator;
 
         private void Awake()

@@ -1,8 +1,6 @@
 using Canoe;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
 
 namespace Alligator
 {
@@ -13,7 +11,10 @@ namespace Alligator
         [SerializeField] private HealthBar[] _healthBars;
 
         [SerializeField] private float _invincibilityTimer = 0.5f;
-        [SerializeField] private Vector3 _pushBack = Vector3.zero;
+        [SerializeField] private float _pushBack = 0;
+        private float _pushTimer = 0;
+
+        [SerializeField] private Vector3 _pushDirection= Vector3.zero;
         
         [SerializeField] private CanoeManager _canoe;
         [SerializeField] private ControllerMovement _controllerMovement;
@@ -33,7 +34,8 @@ namespace Alligator
         private float _biteTimer;
         bool _isInvincible = false;
         private bool _isAttached = false;
-        
+        private bool _beingPushedBack = false;
+        [SerializeField] private float _pushTime;
 
         Rigidbody _rb;
         
@@ -75,6 +77,20 @@ namespace Alligator
             {
                 OnHit();
             }
+
+            if(_beingPushedBack)
+            {
+                Debug.Log("bruh");
+                
+                _pushTimer -= Time.deltaTime;
+                if (_pushTimer <= 0)
+                {
+                    _beingPushedBack = false;
+                    _controllerMovement.EnableMovement();
+                }
+                else _parent.Translate(_pushDirection);              
+
+            }
         }
 
         private void BiteCanoe()
@@ -100,12 +116,15 @@ namespace Alligator
                 
                 
                 
-                Vector3 pushBack = Quaternion.Euler(0, transform.rotation.y, 0)* _pushBack;
+                _pushDirection = -transform.forward * _pushBack;
+      
                 
                 _audio.PlayOneShot(_bonkSound, 0.5f);
-                
+
+                if (_rb == null)
+                {
                 _isAttached = false;
-                _controllerMovement.EnableMovement();
+                //_controllerMovement.EnableMovement();
                 transform.SetParent(_parent);
                 _rb = gameObject.AddComponent<Rigidbody>();
                 _rb.isKinematic = true;
@@ -113,11 +132,13 @@ namespace Alligator
                 _rb.constraints = constraints;
                 _rb.useGravity = false;
                 _current._rb = _rb;
+                }
+               
 
                 if (_rb != null)
                 {
-                    transform.parent.Translate(pushBack);
-
+                    _beingPushedBack = true;
+                    _pushTimer = _pushTime; //transform.parent.Translate(_pushDirection);
                 }
 
                 if (_health <= 0)
@@ -127,6 +148,7 @@ namespace Alligator
             }
             
         }
+
 
         public void Slow(int pSlowAmount)
         {
@@ -159,7 +181,8 @@ namespace Alligator
         {
             if (pCollision.gameObject.CompareTag("Canoe"))
             {
-                
+                _rb.velocity= Vector3.zero;
+                _rb.angularVelocity= Vector3.zero;
                 _isInRange = false;
                 
             }

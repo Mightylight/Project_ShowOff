@@ -31,12 +31,13 @@ namespace Alligator
 
         private void Update()
         {
+            if (!_isMoving) return;
+            newMove();
         }
 
         private void FixedUpdate()
         {
-            if (!_isMoving) return;
-            newMove();
+           
             Vector3 current = new(0, 0, 2);
             //_rb.MovePosition(transform.position + current * Time.fixedDeltaTime);
             //moveRB();
