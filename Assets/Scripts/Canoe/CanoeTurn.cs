@@ -77,7 +77,7 @@ namespace Canoe
                 //leftPowerTotal = -baseTurnPower;
                 left = true;
                 //if is moving
-                if(_leftPaddle.GetThrust().z > 0)
+                if (_leftPaddle.GetThrust().z > 0 && _leftPaddle.GetDepth() < 0.2f)
                 {
                     leftPowerTotal = baseTurnPower;
                 }
@@ -92,7 +92,7 @@ namespace Canoe
                 //rightPowerTotal = -baseTurnPower;
                 right = true;
                 //if is moving
-                if (_rightPaddle.GetThrust().z > 0)
+                if (_rightPaddle.GetThrust().z > 0 && _rightPaddle.GetDepth() < 0.2f)
                 {
                     rightPowerTotal = baseTurnPower;
                 }
@@ -101,8 +101,6 @@ namespace Canoe
                     rightPowerTotal = -baseTurnPower;
                 }
             }
-
-
 
             turnPowerTotal = leftPowerTotal - rightPowerTotal;
             if (left!=right)

@@ -1,8 +1,6 @@
 using Canoe;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
 
 namespace Alligator
 {
@@ -13,7 +11,10 @@ namespace Alligator
         [SerializeField] private HealthBar[] _healthBars;
 
         [SerializeField] private float _invincibilityTimer = 0.5f;
-        [SerializeField] private Vector3 _pushBack = Vector3.zero;
+        [SerializeField] private float _pushBack = 0;
+        private float _pushTimer = 0;
+
+        [SerializeField] private Vector3 _pushDirection= Vector3.zero;
         
         [SerializeField] private CanoeManager _canoe;
         [SerializeField] private ControllerMovement _controllerMovement;
@@ -33,7 +34,8 @@ namespace Alligator
         private float _biteTimer;
         bool _isInvincible = false;
         private bool _isAttached = false;
-        
+        private bool _beingPushedBack = false;
+        [SerializeField] private float _pushTime;
 
         Rigidbody _rb;
         
@@ -75,6 +77,20 @@ namespace Alligator
             {
                 OnHit();
             }
+
+            if(_beingPushedBack)
+            {
+                Debug.Log("bruh");
+                
+                _pushTimer -= Time.deltaTime;
+                if (_pushTimer <= 0)
+                {
+                    _beingPushedBack = false;
+                    _controllerMovement.EnableMovement();
+                }
+                else _parent.Translate(_pushDirection);              
+
+            }
         }
 
         private void BiteCanoe()
@@ -97,19 +113,18 @@ namespace Alligator
                 
                 _isInvincible = true;
                 _timer = _invincibilityTimer;
-                if (_rb != null)
-                {
-                    _rb.velocity= Vector3.zero;
-                    _rb.AddForce(_pushBack);
-                }
                 
                 
-                _pushBack = transform.rotation* _pushBack;
+                
+                _pushDirection = -transform.forward * _pushBack;
+      
                 
                 _audio.PlayOneShot(_bonkSound, 0.5f);
-                
+
+                if (_rb == null)
+                {
                 _isAttached = false;
-                _controllerMovement.EnableMovement();
+                //_controllerMovement.EnableMovement();
                 transform.SetParent(_parent);
                 _rb = gameObject.AddComponent<Rigidbody>();
                 _rb.isKinematic = true;
@@ -117,14 +132,23 @@ namespace Alligator
                 _rb.constraints = constraints;
                 _rb.useGravity = false;
                 _current._rb = _rb;
-                
-                if(_health <= 0)
+                }
+               
+
+                if (_rb != null)
+                {
+                    _beingPushedBack = true;
+                    _pushTimer = _pushTime; //transform.parent.Translate(_pushDirection);
+                }
+
+                if (_health <= 0)
                 {
                     loss?.Invoke();
                 }
             }
             
         }
+
 
         public void Slow(int pSlowAmount)
         {
@@ -133,12 +157,12 @@ namespace Alligator
 
         private void Bite()
         {
-            if (_isInRange)
+            if (_isInRange && !_isAttached)
             {
+                _controllerMovement.DisableMovement();
                 _canoe.OnHit();
                 _isAttached = true;
-                _controllerMovement.DisableMovement();
-                Destroy(GetComponent<Rigidbody>());
+                if(_rb != null) Destroy(GetComponent<Rigidbody>());
                 transform.SetParent(_canoe.transform);
                 
             }
@@ -157,11 +181,8 @@ namespace Alligator
         {
             if (pCollision.gameObject.CompareTag("Canoe"))
             {
-                if (!bounceBack)
-                {
-                    _rb.velocity = Vector3.zero;
-                    _rb.angularVelocity = Vector3.zero;
-                }
+                _rb.velocity= Vector3.zero;
+                _rb.angularVelocity= Vector3.zero;
                 _isInRange = false;
                 
             }
