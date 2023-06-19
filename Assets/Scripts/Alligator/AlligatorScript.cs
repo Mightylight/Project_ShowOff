@@ -1,3 +1,4 @@
+using System.Collections;
 using Canoe;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -129,6 +130,13 @@ namespace Alligator
         public void Slow(int pSlowAmount)
         {
             _controllerMovement._speed -= pSlowAmount;
+            StartCoroutine(DisableSlow(pSlowAmount));
+        }
+
+        private IEnumerator DisableSlow(int pSlowAmount)
+        {
+            yield return new WaitForSeconds(5);
+            _controllerMovement._speed += pSlowAmount;
         }
 
         private void Bite()
