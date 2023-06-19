@@ -22,7 +22,7 @@ namespace Canoe
         }
         private void Update()
         {
-            if (_timeLeft < 0)
+            if (_timeLeft < 0 && !_synced)
             {
                 _synced = true;
 
