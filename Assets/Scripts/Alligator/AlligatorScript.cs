@@ -44,6 +44,8 @@ namespace Alligator
         public UnityEvent loss;
         private bool _isInRange;
 
+        private Collider _collider;
+
         private void Awake()
         {
             _joystickControls = new JoystickControls();
@@ -53,6 +55,7 @@ namespace Alligator
             _joystickControls.Alligator.Enable();
 
             _audio = GetComponent<AudioSource>();
+            _collider = GetComponent<Collider>();
 
         }
 
@@ -133,6 +136,8 @@ namespace Alligator
                 _rb.useGravity = false;
                 _current._rb = _rb;
                 }
+
+                _collider.isTrigger = false;
                
 
                 if (_rb != null)
@@ -159,6 +164,7 @@ namespace Alligator
         {
             if (_isInRange && !_isAttached)
             {
+                _collider.isTrigger = true;
                 _controllerMovement.DisableMovement();
                 _canoe.OnHit();
                 _isAttached = true;
@@ -175,6 +181,7 @@ namespace Alligator
             {
                 Debug.Log("Hey");
                 _isInRange = true;
+
             }
         }
         private void OnCollisionExit(Collision pCollision)
