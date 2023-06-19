@@ -270,7 +270,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &558177093542466460
 Transform:
   m_ObjectHideFlags: 0
@@ -1494,7 +1494,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2334003392292785321
 Transform:
   m_ObjectHideFlags: 0
@@ -2186,6 +2186,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -2363,6 +2368,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
@@ -2948,6 +2958,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
@@ -3606,6 +3621,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -3898,6 +3918,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
@@ -5641,6 +5666,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -6571,6 +6601,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -6668,6 +6703,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
@@ -7568,6 +7608,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
@@ -11136,6 +11181,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -11473,6 +11523,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
@@ -11973,6 +12028,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
@@ -18716,6 +18776,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -19158,6 +19223,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
@@ -19738,6 +19808,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
@@ -20996,6 +21071,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -21253,6 +21333,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
@@ -23096,6 +23181,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -23996,6 +24086,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -24501,6 +24596,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -24713,6 +24813,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
@@ -26491,6 +26596,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -27076,6 +27186,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -27498,6 +27613,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
@@ -29076,6 +29196,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -29493,6 +29618,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
@@ -30106,6 +30236,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -30313,6 +30448,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
@@ -33921,6 +34061,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -34666,6 +34811,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -34926,6 +35076,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -35023,6 +35178,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
@@ -36441,6 +36601,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -37616,6 +37781,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -37713,6 +37883,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
@@ -39841,6 +40016,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -41186,6 +41366,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -41473,6 +41658,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
@@ -42373,6 +42563,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
@@ -43353,6 +43548,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
@@ -46221,6 +46421,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -46646,6 +46851,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -46743,6 +46953,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
@@ -47371,6 +47586,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -47868,6 +48088,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
@@ -48496,6 +48721,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -49078,6 +49308,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
@@ -50331,6 +50566,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -51546,6 +51786,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -51643,6 +51888,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2193111254225278394, guid: 94b73aa62b680c144be69727cc46f9c1,
         type: 3}
