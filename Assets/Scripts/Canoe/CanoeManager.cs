@@ -9,7 +9,9 @@ namespace Canoe
         [SerializeField] private int _health;
         [SerializeField] private HealthBar[] _healthBars;
 
+        public UnityEvent end;
         public UnityEvent loss;
+        public UnityEvent win;
         private float _timer;
         bool _isInvincible = false;
         [SerializeField] private float _invincibilityTimer = 0.5f;
@@ -53,12 +55,21 @@ namespace Canoe
              
                 if (_health <= 0)
                 {
+                    end?.Invoke();
                     loss?.Invoke();
                 }
                 _isInvincible = true;
                 _timer = _invincibilityTimer;
             }
         }
-        
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("PlayerGoal"))
+            {
+                end?.Invoke();
+                win?.Invoke();
+            }
+        }
     }
 }

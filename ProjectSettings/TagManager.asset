@@ -10,6 +10,7 @@ TagManager:
   - Canoe
   - Obstacle
   - alligator
+  - PlayerGoal
   layers:
   - Default
   - TransparentFX
