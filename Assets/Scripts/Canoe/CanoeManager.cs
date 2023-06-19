@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
@@ -6,17 +7,22 @@ namespace Canoe
 {
     public class CanoeManager : MonoBehaviour
     {
+        [SerializeField] private CanoeMove _canoeMove;
+        
+        
         [SerializeField] private int _health;
         [SerializeField] private HealthBar[] _healthBars;
 
+        
+        [SerializeField] private float _invincibilityTimer = 0.5f;
+        [SerializeField] TextMeshProUGUI timerText;
+        
+        [SerializeField] private AudioClip _boatDamage;
+        
+        private AudioSource _audio;
         public UnityEvent loss;
         private float _timer;
         bool _isInvincible = false;
-        [SerializeField] private float _invincibilityTimer = 0.5f;
-        [SerializeField] TextMeshProUGUI timerText;
-
-        [SerializeField] private AudioClip _boatDamage;
-        private AudioSource _audio;
 
 
         private void Start()
@@ -59,6 +65,18 @@ namespace Canoe
                 _timer = _invincibilityTimer;
             }
         }
-        
+
+        public void Slow()
+        {
+            float originalMass = _canoeMove._rb.mass;
+           _canoeMove._rb.mass = 100;
+           StartCoroutine(DisableSlow(originalMass));
+        }
+
+        private IEnumerator DisableSlow(float pOriginalMass)
+        {
+            yield return new WaitForSeconds(2f);
+            _canoeMove._rb.mass = pOriginalMass;
+        }
     }
 }

@@ -5,7 +5,7 @@ namespace Canoe
     public class CanoeMove : MonoBehaviour
     {
         public Paddle[] _paddles;
-        [SerializeField] Rigidbody _rb;
+        [SerializeField] public Rigidbody _rb;
         [SerializeField] float veloCap;
         [SerializeField] Vector3 current;
         [SerializeField][Range(0, 1)] private float _friction;
