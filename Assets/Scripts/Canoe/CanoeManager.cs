@@ -13,14 +13,16 @@ namespace Canoe
         [SerializeField] private int _health;
         [SerializeField] private HealthBar[] _healthBars;
 
-        
+        public UnityEvent end;
+        public UnityEvent win;
+        public UnityEvent loss;
+
         [SerializeField] private float _invincibilityTimer = 0.5f;
         [SerializeField] TextMeshProUGUI timerText;
         
         [SerializeField] private AudioClip _boatDamage;
         
         private AudioSource _audio;
-        public UnityEvent loss;
         private float _timer;
         bool _isInvincible = false;
 
@@ -59,6 +61,7 @@ namespace Canoe
              
                 if (_health <= 0)
                 {
+                    end?.Invoke();
                     loss?.Invoke();
                 }
                 _isInvincible = true;
@@ -77,6 +80,15 @@ namespace Canoe
         {
             yield return new WaitForSeconds(2f);
             _canoeMove._rb.mass = pOriginalMass;
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("PlayerGoal"))
+            {
+                end?.Invoke();
+                win?.Invoke();
+            }
         }
     }
 }

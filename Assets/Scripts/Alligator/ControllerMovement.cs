@@ -55,7 +55,7 @@ namespace Alligator
                 float angle = Mathf.Atan2(_inputs.x, _inputs.z) * Mathf.Rad2Deg + _cameraPivot.transform.rotation.eulerAngles.y;
                 _model.eulerAngles = new Vector3(0, angle, 0);
                 movement = Quaternion.Euler(0, _cameraPivot.transform.rotation.eulerAngles.y, 0) * movement;
-                transform.Translate(movement * _speed * Time.fixedDeltaTime);
+                transform.Translate(movement * _speed * Time.deltaTime);
 
             }
             else
