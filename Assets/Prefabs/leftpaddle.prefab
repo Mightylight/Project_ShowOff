@@ -67,6 +67,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: leftpaddle
       objectReference: {fileID: 0}
+    - target: {fileID: 8070749734979604222, guid: 5b388aadeea683f498d0f79fd49cefa6,
+        type: 3}
+      propertyPath: _isLeft
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8764733370674848700, guid: 5b388aadeea683f498d0f79fd49cefa6,
         type: 3}
       propertyPath: m_LocalPosition.x

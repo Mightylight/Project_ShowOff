@@ -1459,7 +1459,7 @@ MonoBehaviour:
     needsReinit: 0
   _leftPaddle: {fileID: 9099935678082973204}
   _rightPaddle: {fileID: 8643340812150505739}
-  turnRate: 100
+  turnRate: 75
   _turnPower: 0
   _turnTreshold: 0.05
   _velocityLossOnTurn: 1
@@ -1496,13 +1496,13 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4451261061722039381}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 10000
+  m_Mass: 10
+  m_Drag: 1
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 84
+  m_Constraints: 80
   m_CollisionDetection: 1
 --- !u!114 &202177672557741634
 MonoBehaviour:
@@ -1516,6 +1516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e6c7a88e0e332b4d8d9626b0d2d90be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _canoeMove: {fileID: 0}
   _health: 5
   _healthBars:
   - {fileID: 0}
@@ -1595,7 +1596,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  loss:
+  win:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
@@ -1622,7 +1623,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  win:
+  loss:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
@@ -1693,7 +1694,7 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  floatStrength: 2
+  floatStrength: 1
   floaters:
   - {fileID: 1335417201372150625}
   - {fileID: 9101199893224630542}
@@ -1802,7 +1803,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4451261061722039381}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be14edf34a5403249a29928b6a45ad24, type: 3}
   m_Name: 
@@ -1925,7 +1926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _vrCam: {fileID: 2861846346010707239}
-  _yLocation: -1
+  _yLocation: -0.3
   _synced: 0
   _timeLeft: 0.5
   toEnable: []
@@ -2232,6 +2233,11 @@ PrefabInstance:
       objectReference: {fileID: 2861846346010599535}
     - target: {fileID: 8070749734979604222, guid: 5b388aadeea683f498d0f79fd49cefa6,
         type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 2861846346000743483}
+    - target: {fileID: 8070749734979604222, guid: 5b388aadeea683f498d0f79fd49cefa6,
+        type: 3}
       propertyPath: _paddleTip
       value: 
       objectReference: {fileID: 380530696777973694}
@@ -2310,7 +2316,7 @@ PrefabInstance:
     - target: {fileID: 138504777328800153, guid: 94afca66a3a4d5c418702049554cdefd,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 138504777328800153, guid: 94afca66a3a4d5c418702049554cdefd,
         type: 3}
@@ -2335,12 +2341,12 @@ PrefabInstance:
     - target: {fileID: 7400380459601072110, guid: 94afca66a3a4d5c418702049554cdefd,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7400380460783589901, guid: 94afca66a3a4d5c418702049554cdefd,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7645088074192600268, guid: 94afca66a3a4d5c418702049554cdefd,
         type: 3}
@@ -2545,7 +2551,7 @@ PrefabInstance:
     - target: {fileID: 559390503490940532, guid: 7c23da46cb8e85449bee241956a792df,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8420801793986397593, guid: 7c23da46cb8e85449bee241956a792df,
         type: 3}
@@ -2829,6 +2835,18 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5475726, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+--- !u!114 &2861846346000743483 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 11465950, guid: dc06161b6d97feb419f45f03b62e14b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 2861846346010282213}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861846346010258767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a6e24b48d1684398409c47161adcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2861846346010240233 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 125964, guid: dc06161b6d97feb419f45f03b62e14b9,
@@ -3199,12 +3217,12 @@ PrefabInstance:
     - target: {fileID: 871462705392338290, guid: 4006c198683498145af35223ddcd14c3,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 871462706418651281, guid: 4006c198683498145af35223ddcd14c3,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5198759830674175680, guid: 4006c198683498145af35223ddcd14c3,
         type: 3}
@@ -3219,7 +3237,7 @@ PrefabInstance:
     - target: {fileID: 7730271785111419653, guid: 4006c198683498145af35223ddcd14c3,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7730271785111419653, guid: 4006c198683498145af35223ddcd14c3,
         type: 3}
@@ -3314,7 +3332,7 @@ PrefabInstance:
     - target: {fileID: 559390503490940532, guid: 7c23da46cb8e85449bee241956a792df,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8420801793986397593, guid: 7c23da46cb8e85449bee241956a792df,
         type: 3}
@@ -3436,6 +3454,11 @@ PrefabInstance:
       propertyPath: _heldBy
       value: 
       objectReference: {fileID: 2861846346010594713}
+    - target: {fileID: 39855768087957312, guid: e634616dd371b034ea632993536c3bce,
+        type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 2861846346000743483}
     - target: {fileID: 39855768087957312, guid: e634616dd371b034ea632993536c3bce,
         type: 3}
       propertyPath: _paddleTip

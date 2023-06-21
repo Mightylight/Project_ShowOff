@@ -114,11 +114,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _paddleTip: {fileID: 0}
   _heldBy: {fileID: 0}
-  _strength: 1000
+  _strength: 10000
   _thrustThreshold: 0.25
   _waterLevel: 0
   _depthModifier: 2
   _maxDepthForStrength: -1
+  _player: {fileID: 0}
+  _isLeft: 0
+  _hapticPulseTimePaddle: 2
+  _hapticPulseTimeBonk: 10
 --- !u!54 &167673584604011623
 Rigidbody:
   m_ObjectHideFlags: 0
