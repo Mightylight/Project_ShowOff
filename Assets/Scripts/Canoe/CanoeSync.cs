@@ -18,6 +18,7 @@ namespace Canoe
             toEnable.Add( GetComponentInParent<CanoeTurn>());
             toEnable.Add( GetComponentInParent<CanoeMove>());
             toEnable.Add(_gator.GetComponent<Current>());
+            //transform.parent.GetComponent
             //toEnable.Add( transform.parent.GetComponentInParent<Current>());
         }
         private void Update()
@@ -30,12 +31,13 @@ namespace Canoe
                 {
                     behaviour.enabled = true;
                 }
+                transform.parent.GetComponentInParent<Rigidbody>().useGravity = true;
             }
-            else _timeLeft -= Time.fixedDeltaTime;
+            else if (!_synced) _timeLeft -= Time.fixedDeltaTime;
             if (!_synced)
             {
-                transform.localPosition = new Vector3(_vrCam.position.x, -0.3f, _vrCam.position.z);
-                _vrCam.position = new Vector3(_vrCam.position.x, 1.2f, _vrCam.position.z);
+                transform.localPosition = new Vector3(_vrCam.position.x, _yLocation, _vrCam.position.z);
+                //_vrCam.position = new Vector3(_vrCam.position.x, 1.2f, _vrCam.position.z);
 
             }
         }
