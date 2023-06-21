@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
+using UnityEngine.Serialization;
 
 namespace Canoe
 {
@@ -22,9 +23,14 @@ namespace Canoe
         
         [SerializeField] private AudioClip _boatDamage;
         
+        
         private AudioSource _audio;
         private float _timer;
         bool _isInvincible = false;
+        
+        //Alligator bite variables
+        [SerializeField] private Transform[] _bitePoints;
+        
 
 
         private void Start()
@@ -89,6 +95,24 @@ namespace Canoe
                 end?.Invoke();
                 win?.Invoke();
             }
+        }
+
+        public Transform GetClosestBitePoint(Transform pTransform)
+        {
+            Transform bestTarget = null;
+            float closestDistanceSqr = Mathf.Infinity;
+            Vector3 currentPosition = pTransform.position;
+            foreach (Transform potentialTarget in _bitePoints)
+            {
+                Vector3 directionToTarget = potentialTarget.position - currentPosition;
+                float dSqrToTarget = directionToTarget.sqrMagnitude;
+                if (!(dSqrToTarget < closestDistanceSqr)) continue;
+                
+                closestDistanceSqr = dSqrToTarget;
+                bestTarget = potentialTarget;
+            }
+            
+            return bestTarget;
         }
     }
 }

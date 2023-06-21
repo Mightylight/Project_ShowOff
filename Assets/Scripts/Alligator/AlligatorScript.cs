@@ -84,7 +84,7 @@ namespace Alligator
 
             if(_beingPushedBack)
             {
-                Debug.Log("bruh");
+                //Debug.Log("bruh");
                 
                 _pushTimer -= Time.deltaTime;
                 if (_pushTimer <= 0)
@@ -105,7 +105,7 @@ namespace Alligator
 
         public void OnHit()
         {
-            Debug.Log("Hit");
+            //Debug.Log("Hit");
             
             if (!_isInvincible)
             {
@@ -127,15 +127,15 @@ namespace Alligator
 
                 if (_rb == null)
                 {
-                _isAttached = false;
-                //_controllerMovement.EnableMovement();
-                transform.SetParent(_parent);
-                _rb = gameObject.AddComponent<Rigidbody>();
-                _rb.isKinematic = true;
-                RigidbodyConstraints constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY;
-                _rb.constraints = constraints;
-                _rb.useGravity = false;
-                _current._rb = _rb;
+                    _isAttached = false;
+                    //_controllerMovement.EnableMovement();
+                    transform.SetParent(_parent);
+                    _rb = gameObject.AddComponent<Rigidbody>();
+                    _rb.isKinematic = true;
+                    RigidbodyConstraints constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY;
+                    _rb.constraints = constraints;
+                    _rb.useGravity = false;
+                    _current._rb = _rb;
                 }
 
                 _collider.isTrigger = false;
@@ -172,6 +172,15 @@ namespace Alligator
         {
             if (_isInRange && !_isAttached)
             {
+                Transform bitePoint = _canoe.GetClosestBitePoint(transform);
+                
+                transform.position = bitePoint.position;
+                transform.rotation = bitePoint.rotation;
+                
+                //Start animation
+                
+                
+                
                 _collider.isTrigger = true;
                 _controllerMovement.DisableMovement();
                 _canoe.OnHit();
@@ -184,23 +193,19 @@ namespace Alligator
 
         private void OnCollisionEnter(Collision pCollision)
         {
-            Debug.Log(pCollision.gameObject.name);
-            if (pCollision.gameObject.CompareTag("Canoe"))
-            {
-                Debug.Log("Hey");
-                _isInRange = true;
-
-            }
+            //Debug.Log(pCollision.gameObject.name);
+            if (!pCollision.gameObject.CompareTag("Canoe")) return;
+            
+            //Debug.Log("Hey");
+            _isInRange = true;
         }
         private void OnCollisionExit(Collision pCollision)
         {
-            if (pCollision.gameObject.CompareTag("Canoe"))
-            {
-                _rb.velocity= Vector3.zero;
-                _rb.angularVelocity= Vector3.zero;
-                _isInRange = false;
-                
-            }
+            if (!pCollision.gameObject.CompareTag("Canoe")) return;
+            
+            _rb.velocity= Vector3.zero;
+            _rb.angularVelocity= Vector3.zero;
+            _isInRange = false;
         }
     }
 }
