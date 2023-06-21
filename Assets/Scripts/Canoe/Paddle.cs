@@ -1,6 +1,7 @@
 using Alligator;
 using Unity.VisualScripting;
 using UnityEngine;
+using Valve.VR;
 
 namespace Canoe
 {
@@ -19,6 +20,10 @@ namespace Canoe
         [SerializeField] private float _depthModifier = 2f;
         [Range(-10, 0)][SerializeField] private float _maxDepthForStrength = -1;
         //private float paddlingTime = 0f;
+        [SerializeField] Valve.VR.InteractionSystem.Player _player;
+        [SerializeField] bool _isLeft = false;
+        [SerializeField] ushort _hapticPulseTimePaddle = 1;
+        [SerializeField] ushort _hapticPulseTimeBonk = 5;
 
         private void Update()
         {
@@ -60,7 +65,7 @@ namespace Canoe
            else depth = - _currentPosition.y;
 
             //modify by depth
-            _thrust *= _depthModifier * depth;
+            //_thrust *= _depthModifier * depth;
 
             _thrust.y = 0f;
             _lastFramePaddling = true;
@@ -70,8 +75,10 @@ namespace Canoe
 
         private void OnTriggerEnter(Collider pOther)
         {
-            if (pOther.gameObject.CompareTag("alligator"))
+            if (pOther.CompareTag("alligator"))
             {
+                if (_isLeft) _player.leftHand.TriggerHapticPulse(_hapticPulseTimeBonk);
+                else _player.rightHand.TriggerHapticPulse(_hapticPulseTimeBonk);
                 Debug.Log("hit alligator");
                 pOther.gameObject.GetComponent<AlligatorScript>().OnHit();
             }
@@ -79,17 +86,24 @@ namespace Canoe
             {
                 //Debug.Log("paddlin");
                 _paddling= true;
+                //SteamVR
 
                 
                 var paddleNum = Random.Range(1,4);
                 AudioManager.instance.Play("Paddle " + paddleNum);
-                
 
-            }
-            
-            
+            }            
         }
 
+        private void OnTriggerStay(Collider pOther)
+        {
+            if (pOther.CompareTag("paddleZone"))
+            {
+                if (_isLeft) _player.leftHand.TriggerHapticPulse(_hapticPulseTimePaddle);
+                else _player.rightHand.TriggerHapticPulse(_hapticPulseTimePaddle);
+            }
+
+        }
         private void OnTriggerExit(Collider pOther)
         {
             if (pOther.CompareTag("paddleZone"))
