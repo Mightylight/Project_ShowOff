@@ -746,7 +746,7 @@ MonoBehaviour:
   - {fileID: 1872754810}
   - {fileID: 1498387144}
   _obstaclesToSpawn:
-  - {fileID: 493888908980496183, guid: f358b6857704c3f4e9c2c07f9b2eb264, type: 3}
+  - {fileID: 8664760194680771742, guid: f2bae9f25dc92d640a931134e674527c, type: 3}
   spawnTime: 5
 --- !u!1 &789556817
 GameObject:
