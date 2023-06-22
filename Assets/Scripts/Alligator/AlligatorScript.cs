@@ -7,9 +7,8 @@ namespace Alligator
 {
     public class AlligatorScript : MonoBehaviour
     {
-        [SerializeField] private int _health;
+        
         [SerializeField] private float _stamina;
-        [SerializeField] private HealthBar[] _healthBars;
 
         [SerializeField] private float _invincibilityTimer = 0.5f;
         [SerializeField] private float _pushBack = 0;
@@ -83,9 +82,7 @@ namespace Alligator
             }
 
             if(_beingPushedBack)
-            {
-                //Debug.Log("bruh");
-                
+            {                
                 _pushTimer -= Time.deltaTime;
                 if (_pushTimer <= 0)
                 {
@@ -93,35 +90,24 @@ namespace Alligator
                     _controllerMovement.EnableMovement();
                 }
                 else _parent.Translate(_pushDirection);              
-
             }
         }
 
         private void BiteCanoe()
         {
             _canoe.OnHit();
-        }
-        
+        }   
 
         public void OnHit()
         {
-            //Debug.Log("Hit");
             
             if (!_isInvincible)
             {
-                //_health--;
-                foreach (HealthBar healthBar in _healthBars)
-                {
-                   // healthBar.TakeDamage(1);
-                }
                 
                 _isInvincible = true;
                 _timer = _invincibilityTimer;
                 
-                
-                
-                _pushDirection = -transform.forward * _pushBack;
-      
+                _pushDirection = -transform.forward * _pushBack;      
                 
                 _audio.PlayOneShot(_bonkSound, 0.5f);
 
@@ -139,17 +125,11 @@ namespace Alligator
                 }
 
                 _collider.isTrigger = false;
-               
 
                 if (_rb != null)
                 {
                     _beingPushedBack = true;
                     _pushTimer = _pushTime; //transform.parent.Translate(_pushDirection);
-                }
-
-                if (_health <= 0)
-                {
-                    loss?.Invoke();
                 }
             }
             
