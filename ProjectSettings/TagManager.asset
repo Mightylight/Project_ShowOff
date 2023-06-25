@@ -11,6 +11,8 @@ TagManager:
   - Obstacle
   - alligator
   - PlayerGoal
+  - Water
+  - Rain
   layers:
   - Default
   - TransparentFX
