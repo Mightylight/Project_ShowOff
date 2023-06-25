@@ -13,6 +13,7 @@ TagManager:
   - PlayerGoal
   - Water
   - Rain
+  - Fireflies
   layers:
   - Default
   - TransparentFX
