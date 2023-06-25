@@ -31,7 +31,6 @@ namespace Canoe
                 {
                     behaviour.enabled = true;
                 }
-                transform.parent.GetComponentInParent<Rigidbody>().useGravity = true;
             }
             else if (!_synced) _timeLeft -= Time.fixedDeltaTime;
             if (!_synced)

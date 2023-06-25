@@ -18,6 +18,7 @@ namespace Alligator
         
         [SerializeField] private CanoeManager _canoe;
         [SerializeField] private ControllerMovement _controllerMovement;
+        [SerializeField] private float _biteCooldown = 20;
         [SerializeField] private float _biteInterval = 0.5f;
         [SerializeField] private Transform _parent;
 

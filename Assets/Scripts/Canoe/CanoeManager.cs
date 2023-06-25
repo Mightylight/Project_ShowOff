@@ -77,9 +77,10 @@ namespace Canoe
 
         public void Slow()
         {
-            float originalMass = _canoeMove._rb.mass;
-           _canoeMove._rb.mass = 100;
-           StartCoroutine(DisableSlow(originalMass));
+            _canoeMove._rb.velocity *= 0.5f;
+           // float originalMass = _canoeMove._rb.mass;
+           //_canoeMove._rb.mass = 100;
+          // StartCoroutine(DisableSlow(originalMass));
         }
 
         private IEnumerator DisableSlow(float pOriginalMass)
