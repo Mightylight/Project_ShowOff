@@ -17,6 +17,8 @@ namespace Alligator
         [SerializeField] private Vector3 _pushDirection= Vector3.zero;
 
         [SerializeField] private Animator _animator;
+        [SerializeField] private HealthBar _cooldown;
+        
         
         
         [SerializeField] private CanoeManager _canoe;
@@ -92,7 +94,9 @@ namespace Alligator
                 if (_biteCooldownTimer <= 0)
                 {
                     _isBiteOnCooldown = false;
+                    
                 }
+                _cooldown.SetHealth(_biteCooldownTimer,true);
             }
 
 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1270163558}
-  m_IndirectSpecularColor: {r: 0.24143504, g: 0.27932253, b: 0.24628043, a: 1}
+  m_IndirectSpecularColor: {r: 0.1427325, g: 0.11947167, b: 0.06261134, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -544,6 +544,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 808528733163044634, guid: ffe8a9629ebe79f498d3c91704c08cc4,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6208711115571098753, guid: ffe8a9629ebe79f498d3c91704c08cc4,
         type: 3}
       propertyPath: m_Name
@@ -653,11 +658,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7990795630508268371, guid: ffe8a9629ebe79f498d3c91704c08cc4,
-        type: 3}
-      propertyPath: m_Name
-      value: FloridaManUi
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffe8a9629ebe79f498d3c91704c08cc4, type: 3}
@@ -1917,8 +1917,13 @@ PrefabInstance:
       objectReference: {fileID: 1137747534}
     - target: {fileID: 7172855172077850619, guid: 9cb31200bdd8bae4e8474dfbf33e7b8d,
         type: 3}
+      propertyPath: _cooldown
+      value: 
+      objectReference: {fileID: 1733971711}
+    - target: {fileID: 7172855172077850619, guid: 9cb31200bdd8bae4e8474dfbf33e7b8d,
+        type: 3}
       propertyPath: _biteInterval
-      value: 20
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7172855172077850619, guid: 9cb31200bdd8bae4e8474dfbf33e7b8d,
         type: 3}
@@ -3518,6 +3523,18 @@ MonoBehaviour:
   skyboxMaterial: {fileID: 2100000, guid: 8acf70b50d57f8e49b4dd27fe03f34b7, type: 2}
   startVolume: {fileID: 125623732}
   endVolume: {fileID: 1769212933}
+--- !u!114 &1733971711 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7427157705661885987, guid: ffe8a9629ebe79f498d3c91704c08cc4,
+    type: 3}
+  m_PrefabInstance: {fileID: 345439889}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fdd8f534334be9478f89f927a64e819, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1756200814
 GameObject:
   m_ObjectHideFlags: 0
