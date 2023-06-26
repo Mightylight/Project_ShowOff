@@ -346,6 +346,7 @@ MonoBehaviour:
   _pushDirection: {x: 0, y: 0, z: 0}
   _canoe: {fileID: 0}
   _controllerMovement: {fileID: 1702233308198654999}
+  _biteCooldown: 20
   _biteInterval: 2
   _parent: {fileID: 8788330686797849561}
   _bonkSound: {fileID: 8300000, guid: 858f34f1ac517934f8f77b7ba2b34067, type: 3}

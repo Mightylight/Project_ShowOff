@@ -563,7 +563,7 @@ MonoBehaviour:
     needsReinit: 0
   _leftPaddle: {fileID: 8799245386050767208}
   _rightPaddle: {fileID: 8333652636513007223}
-  turnRate: 75
+  turnRate: 50
   _turnPower: 0
   _turnTreshold: 0.05
   _velocityLossOnTurn: 1

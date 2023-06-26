@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1270163558}
-  m_IndirectSpecularColor: {r: 0.119147256, g: 0.13755624, b: 0.10586159, a: 1}
+  m_IndirectSpecularColor: {r: 0.1427325, g: 0.11947167, b: 0.06261134, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -544,6 +544,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 808528733163044634, guid: ffe8a9629ebe79f498d3c91704c08cc4,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6208711115571098753, guid: ffe8a9629ebe79f498d3c91704c08cc4,
         type: 3}
       propertyPath: m_Name
@@ -653,11 +658,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7990795630508268371, guid: ffe8a9629ebe79f498d3c91704c08cc4,
-        type: 3}
-      propertyPath: m_Name
-      value: FloridaManUi
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffe8a9629ebe79f498d3c91704c08cc4, type: 3}
@@ -1443,7 +1443,7 @@ PrefabInstance:
     - target: {fileID: 1702233308198654999, guid: 9cb31200bdd8bae4e8474dfbf33e7b8d,
         type: 3}
       propertyPath: _type
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1702233308198654999, guid: 9cb31200bdd8bae4e8474dfbf33e7b8d,
         type: 3}
@@ -1912,8 +1912,18 @@ PrefabInstance:
       objectReference: {fileID: 1137747526}
     - target: {fileID: 7172855172077850619, guid: 9cb31200bdd8bae4e8474dfbf33e7b8d,
         type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 1137747534}
+    - target: {fileID: 7172855172077850619, guid: 9cb31200bdd8bae4e8474dfbf33e7b8d,
+        type: 3}
+      propertyPath: _cooldown
+      value: 
+      objectReference: {fileID: 1733971711}
+    - target: {fileID: 7172855172077850619, guid: 9cb31200bdd8bae4e8474dfbf33e7b8d,
+        type: 3}
       propertyPath: _biteInterval
-      value: 20
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7172855172077850619, guid: 9cb31200bdd8bae4e8474dfbf33e7b8d,
         type: 3}
@@ -2356,6 +2366,21 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 202177672557741634, guid: 938291b506570af49958bb0e84a13dce,
         type: 3}
+      propertyPath: _bitePoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 202177672557741634, guid: 938291b506570af49958bb0e84a13dce,
+        type: 3}
+      propertyPath: _bitePoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1249783790}
+    - target: {fileID: 202177672557741634, guid: 938291b506570af49958bb0e84a13dce,
+        type: 3}
+      propertyPath: _bitePoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1756200815}
+    - target: {fileID: 202177672557741634, guid: 938291b506570af49958bb0e84a13dce,
+        type: 3}
       propertyPath: _healthBars.Array.data[1]
       value: 
       objectReference: {fileID: 345439890}
@@ -2769,6 +2794,12 @@ Rigidbody:
     type: 3}
   m_PrefabInstance: {fileID: 970390300}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1137747534 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 350667901111755361, guid: 9cb31200bdd8bae4e8474dfbf33e7b8d,
+    type: 3}
+  m_PrefabInstance: {fileID: 970390300}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1213676859
 GameObject:
   m_ObjectHideFlags: 0
@@ -2818,6 +2849,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1249783789
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1249783790}
+  m_Layer: 3
+  m_Name: BitePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1249783790
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249783789}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 2.34, y: 0.001, z: 0}
+  m_LocalScale: {x: 0.015, y: 0.015, z: 0.015}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1629538134}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!4 &1269211244 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2861846346010707239, guid: 938291b506570af49958bb0e84a13dce,
@@ -3290,6 +3352,39 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1972639155350105322}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1629538133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1629538134}
+  m_Layer: 3
+  m_Name: BitePoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1629538134
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629538133}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1249783790}
+  - {fileID: 1756200815}
+  m_Father: {fileID: 1110873550}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1642785344
 GameObject:
   m_ObjectHideFlags: 0
@@ -3428,6 +3523,49 @@ MonoBehaviour:
   skyboxMaterial: {fileID: 2100000, guid: 8acf70b50d57f8e49b4dd27fe03f34b7, type: 2}
   startVolume: {fileID: 125623732}
   endVolume: {fileID: 1769212933}
+--- !u!114 &1733971711 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7427157705661885987, guid: ffe8a9629ebe79f498d3c91704c08cc4,
+    type: 3}
+  m_PrefabInstance: {fileID: 345439889}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fdd8f534334be9478f89f927a64e819, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1756200814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1756200815}
+  m_Layer: 3
+  m_Name: BitePoint (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1756200815
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756200814}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -2.34, y: 0.001, z: 0}
+  m_LocalScale: {x: 0.015, y: 0.015, z: 0.015}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1629538134}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1769212932
 GameObject:
   m_ObjectHideFlags: 0

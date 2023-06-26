@@ -47,7 +47,7 @@ namespace TerrainGeneration
 
         private void Start()
         {
-            //GenerateStartingTerrain();
+            GenerateStartingTerrain();
         }
 
         private void MoveTerrain()
@@ -85,10 +85,11 @@ namespace TerrainGeneration
                 {
                     TerrainPiece lastOfSegment = _inactiveTerrainPieces.Last();
                     lastOfSegment.GetComponent<TerrainTrigger>()._isLastOfSegment = true;
-                    if (segmentIndex == 1)
+                    if (segmentIndex == 1 || segmentIndex == 0)
                     {
                         lastOfSegment.GetComponent<TerrainTrigger>()._segmentIndex = segmentIndex;
                     }
+                    
                     Debug.Log("Last of segment: " + lastOfSegment.name);
                 }
                 
