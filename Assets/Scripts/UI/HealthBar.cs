@@ -23,19 +23,31 @@ public class HealthBar : MonoBehaviour
         maxHealth = value;
         healthFill.fillAmount = 1f;
     }
-    public void SetHealth(int value)
+
+    public void ResetHealth()
+    {
+        healthFill.fillAmount = 1f;
+    }
+    public void SetHealth(float value, bool reverse = false)
     {
         //healthSlider.value = value;
-        healthFill.fillAmount = (float)value / maxHealth;
+        if (reverse)
+        {
+            healthFill.fillAmount = 1 - ( value / maxHealth);
+        }
+        else
+        {
+            healthFill.fillAmount = value / maxHealth;
+        }
     }
 
-    public void TakeDamage(int value)
+    public void TakeDamage(float value)
     {
         //healthSlider.value -= value;
-        healthFill.fillAmount -= (float)value / maxHealth;
+        healthFill.fillAmount -= value / maxHealth;
     }
 
-    public void GetHealed(int value)
+    public void GetHealed(float value)
     {
         //healthSlider.value += value;
         healthFill.fillAmount += (float)value / maxHealth;
