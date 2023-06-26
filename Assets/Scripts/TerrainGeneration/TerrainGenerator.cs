@@ -47,7 +47,7 @@ namespace TerrainGeneration
 
         private void Start()
         {
-            //GenerateStartingTerrain();
+            GenerateStartingTerrain();
         }
 
         private void MoveTerrain()
