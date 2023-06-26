@@ -137,17 +137,17 @@ public class PauseMenu : MonoBehaviour
             case 0:
                 volumeMusicSelected.SetActive(true);
                 volumeSoundSelected.SetActive(false);
-                //exitGameSelected.SetActive(false);
+                exitGameSelected.SetActive(false);
                 break;
             case 1:
                 volumeMusicSelected.SetActive(false);
                 volumeSoundSelected.SetActive(true);
-                //exitGameSelected.SetActive(false);
+                exitGameSelected.SetActive(false);
                 break;
             case 2:
                 volumeMusicSelected.SetActive(false);
                 volumeSoundSelected.SetActive(false);
-                //exitGameSelected.SetActive(true);
+                exitGameSelected.SetActive(true);
                 break;
         }
     }
