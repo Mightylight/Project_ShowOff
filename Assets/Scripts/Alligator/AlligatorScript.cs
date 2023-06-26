@@ -39,6 +39,12 @@ namespace Alligator
         bool _isInvincible = false;
         private bool _isAttached = false;
         private bool _beingPushedBack = false;
+
+        private float _biteCooldownTimer;
+        private bool _isBiteOnCooldown = false;
+
+
+
         [SerializeField] private float _pushTime;
 
         Rigidbody _rb;
@@ -79,7 +85,18 @@ namespace Alligator
                     BiteCanoe();
                 }
             }
-            
+
+            if (_isBiteOnCooldown)
+            {
+                _biteCooldownTimer -= Time.deltaTime;
+                if (_biteCooldownTimer <= 0)
+                {
+                    _isBiteOnCooldown = false;
+                }
+            }
+
+
+
             if(Input.GetKeyDown(KeyCode.A))
             {
                 OnHit();
@@ -154,10 +171,12 @@ namespace Alligator
 
         private void Bite()
         {
-            if (_isInRange && !_isAttached)
+            if (_isInRange && !_isAttached && !_isBiteOnCooldown)
             {
-                //Start animation
+                _isBiteOnCooldown = true;
+                _biteCooldownTimer = _biteCooldown;
                 
+                //Start animation
                 _animator.SetBool("isAttatched", true);
                 
                 _collider.isTrigger = true;
