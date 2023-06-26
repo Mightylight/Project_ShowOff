@@ -19,21 +19,29 @@ namespace TerrainGeneration
 
         private void OnTriggerEnter(Collider pOther)
         {
-            if(pOther.CompareTag("Canoe") || pOther.CompareTag("alligator") && !_hasBeenActivated)
+            Debug.Log("i beg u pls register stuff");
+            if(pOther.CompareTag("Canoe") || pOther.CompareTag("alligator"))// && !_hasBeenActivated)
             {
-                _terrainGenerator.EnableNextSegment();
-                _hasBeenActivated = true;
+                
+                //_hasBeenActivated = true;
                 if (_isLastOfSegment)
                 {
                     if (_segmentIndex == 1)
                     {
+                        Debug.Log("screeaammm2");
                         _terrainGenerator.OnSegmentLastChange?.Invoke();
                     }
-                    else if(_segmentIndex == 0)
+                    if(_segmentIndex == 0)
                     {
+                        Debug.Log("screeaammm");
                         _terrainGenerator.OnSegmentMidChange?.Invoke();
                     }
                     
+                }
+
+                else
+                {
+                    _terrainGenerator.EnableNextSegment();
                 }
             }
         }
