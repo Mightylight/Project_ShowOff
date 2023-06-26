@@ -15,6 +15,9 @@ namespace Alligator
         private float _pushTimer = 0;
 
         [SerializeField] private Vector3 _pushDirection= Vector3.zero;
+
+        [SerializeField] private Animator _animator;
+        
         
         [SerializeField] private CanoeManager _canoe;
         [SerializeField] private ControllerMovement _controllerMovement;
@@ -107,7 +110,7 @@ namespace Alligator
                 
                 _isInvincible = true;
                 _timer = _invincibilityTimer;
-                
+                _animator.SetBool("isAttatched", false);
                 _pushDirection = -transform.forward * _pushBack;      
                 
                 _audio.PlayOneShot(_bonkSound, 0.5f);
@@ -153,14 +156,9 @@ namespace Alligator
         {
             if (_isInRange && !_isAttached)
             {
-                Transform bitePoint = _canoe.GetClosestBitePoint(transform);
-                
-                transform.position = bitePoint.position;
-                transform.rotation = bitePoint.rotation;
-                
                 //Start animation
                 
-                
+                _animator.SetBool("isAttatched", true);
                 
                 _collider.isTrigger = true;
                 _controllerMovement.DisableMovement();
@@ -168,7 +166,10 @@ namespace Alligator
                 _isAttached = true;
                 if(_rb != null) Destroy(GetComponent<Rigidbody>());
                 transform.SetParent(_canoe.transform);
+                Transform bitePoint = _canoe.GetClosestBitePoint(transform);
                 
+                transform.position = bitePoint.position;
+                transform.rotation = bitePoint.rotation;
             }
         }
 
