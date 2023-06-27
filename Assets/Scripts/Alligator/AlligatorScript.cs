@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Timers;
 using Canoe;
 using UnityEngine;
 using UnityEngine.Events;
@@ -73,6 +74,24 @@ namespace Alligator
 
         private void Update()
         {
+            Timers();
+
+            if(Input.GetKeyDown(KeyCode.A))
+            {
+                OnHit();
+            }
+
+            ChangeAnimationSpeed();
+
+        }
+
+        private void ChangeAnimationSpeed()
+        {
+            _animator.SetFloat("swimmingSpeedMultiplier",_controllerMovement.GetSpeed());
+        }
+
+        private void Timers()
+        {
             if(_isInvincible)
             {
                 _timer -= Time.deltaTime;
@@ -98,14 +117,7 @@ namespace Alligator
                 }
                 _cooldown.SetHealth(_biteCooldownTimer,true);
             }
-
-
-
-            if(Input.GetKeyDown(KeyCode.A))
-            {
-                OnHit();
-            }
-
+            
             if(_beingPushedBack)
             {                
                 _pushTimer -= Time.deltaTime;
@@ -117,6 +129,7 @@ namespace Alligator
                 else _parent.Translate(_pushDirection);              
             }
         }
+        
 
         private void BiteCanoe()
         {
