@@ -30,6 +30,8 @@ namespace Alligator
 
         [SerializeField] private AudioClip _bonkSound;
         [SerializeField] private Current _current;
+
+        [SerializeField] private ParticleSystem _biteEffect;
         
         private AudioSource _audio;
         
@@ -134,6 +136,7 @@ namespace Alligator
         private void BiteCanoe()
         {
             _canoe.OnHit();
+            _biteEffect.Play();
         }   
 
         public void OnHit()
