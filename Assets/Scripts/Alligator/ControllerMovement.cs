@@ -143,6 +143,11 @@ namespace Alligator
             Ps,Xbox
         }
 
+        public float GetSpeed()
+        {
+            return _inputs.magnitude;
+        }
+
         // private void Move()
         // {
         //     _rb.MovePosition(_rb.position + _inputs * _speed * Time.fixedDeltaTime);

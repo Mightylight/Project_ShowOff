@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Timers;
 using Canoe;
 using UnityEngine;
 using UnityEngine.Events;
@@ -29,6 +30,8 @@ namespace Alligator
 
         [SerializeField] private AudioClip _bonkSound;
         [SerializeField] private Current _current;
+
+        [SerializeField] private ParticleSystem _biteEffect;
         
         private AudioSource _audio;
         
@@ -73,6 +76,24 @@ namespace Alligator
 
         private void Update()
         {
+            Timers();
+
+            if(Input.GetKeyDown(KeyCode.A))
+            {
+                OnHit();
+            }
+
+            ChangeAnimationSpeed();
+
+        }
+
+        private void ChangeAnimationSpeed()
+        {
+            _animator.SetFloat("swimmingSpeedMultiplier",_controllerMovement.GetSpeed());
+        }
+
+        private void Timers()
+        {
             if(_isInvincible)
             {
                 _timer -= Time.deltaTime;
@@ -98,14 +119,7 @@ namespace Alligator
                 }
                 _cooldown.SetHealth(_biteCooldownTimer,true);
             }
-
-
-
-            if(Input.GetKeyDown(KeyCode.A))
-            {
-                OnHit();
-            }
-
+            
             if(_beingPushedBack)
             {                
                 _pushTimer -= Time.deltaTime;
@@ -117,10 +131,12 @@ namespace Alligator
                 else _parent.Translate(_pushDirection);              
             }
         }
+        
 
         private void BiteCanoe()
         {
             _canoe.OnHit();
+            _biteEffect.Play();
         }   
 
         public void OnHit()
