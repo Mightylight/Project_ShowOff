@@ -2240,7 +2240,7 @@ PrefabInstance:
     - target: {fileID: 202177672557741634, guid: 938291b506570af49958bb0e84a13dce,
         type: 3}
       propertyPath: _health
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 202177672557741634, guid: 938291b506570af49958bb0e84a13dce,
         type: 3}
@@ -3294,19 +3294,19 @@ MonoBehaviour:
   _speed: 2
   _segments:
   - name: Start
-    length: 4
+    length: 6
     terrainTiles:
     - tile: {fileID: 2191536969924560349, guid: 9821574b879a0444dbb143db1254e711,
         type: 3}
       weight: 1
   - name: Midsection
-    length: 2
+    length: 6
     terrainTiles:
     - tile: {fileID: 2191536969924560349, guid: 48cd9a80e2a919b49be081787a4e48df,
         type: 3}
       weight: 1
   - name: Final
-    length: 2
+    length: 6
     terrainTiles:
     - tile: {fileID: 2191536969924560349, guid: d856332ab4926ad4ca86fd9a596c605e,
         type: 3}
