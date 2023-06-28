@@ -17,13 +17,17 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] public AudioMixerGroup musicMixer;
     [SerializeField] public AudioMixerGroup soundMixer;
 
+    [SerializeField] private GameObject controlsUI;
+
     [SerializeField] private GameObject pauseMenuUI;
     [SerializeField] private bool isPaused = false;
 
     [SerializeField] private Image soundVolume;
     [SerializeField] private Image musicVolume;
 
-    [SerializeField] public UnityEvent OnMainMenuButtonClick;
+    [Header("Loading Screen")]
+    [SerializeField] private string loadingSceneName = "MainManu";
+    [SerializeField] private GameObject loadingScreen;
 
     private int currentSelectedIndex = 0;
 
@@ -33,16 +37,42 @@ public class PauseMenu : MonoBehaviour
     private bool joystickHeldRight = false;
     private float joystickThreshold = 0.75f;
 
+    private bool isLoading = false;
+
     private JoystickControls _joystickControls;
 
     private void Awake()
     {
         _joystickControls = new JoystickControls();
 
+        _joystickControls.Alligator.Bite.performed += pCtx => PressButton();
         _joystickControls.Alligator.Pause.performed += pCtx => PressPause();
         //_joystickControls.Alligator.Pause.canceled += pCtx => buttonHeldDown = false;
 
         _joystickControls.Alligator.Enable();
+    }
+
+    IEnumerator LoadAsyncScene()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(loadingSceneName);
+
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+    }
+
+    void PressButton()
+    {
+        if (currentSelectedIndex == 2)
+        {
+            loadingScreen.SetActive(true);
+            controlsUI.SetActive(false);
+
+            isLoading = true;
+
+            StartCoroutine(LoadAsyncScene());
+        }
     }
 
     void PressPause()
@@ -66,6 +96,9 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("Showing pause menu.");
         pauseMenuUI.SetActive(true);
         isPaused = true;
+
+        // set time scale to 0
+        Time.timeScale = 0f;
     }
 
     void HidePauseMenu()
@@ -73,6 +106,9 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("Hiding pause menu.");
         pauseMenuUI.SetActive(false);
         isPaused = false;
+
+        // set time scale to 1
+        Time.timeScale = 1f;
     }
 
     // Start is called before the first frame update
