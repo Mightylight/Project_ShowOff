@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject exitGameSelected;
 
     [SerializeField] private AudioManager audioManager;
+    [SerializeField] public AudioMixerGroup musicMixer;
+    [SerializeField] public AudioMixerGroup soundMixer;
 
     [SerializeField] private GameObject pauseMenuUI;
     [SerializeField] private bool isPaused = false;
@@ -175,6 +178,7 @@ public class PauseMenu : MonoBehaviour
         {
             musicVolume.fillAmount -= 0.1f;
             //audioManager.SetMusicVolume(musicVolume.fillAmount);
+            //musicMixer.Setfloat("MusicVolume", musicVolume.fillAmount);
         }
     }
 
@@ -187,6 +191,7 @@ public class PauseMenu : MonoBehaviour
         {
             musicVolume.fillAmount += 0.1f;
             //audioManager.SetMusicVolume(musicVolume.fillAmount);
+            //musicMixer.Setfloat("MusicVolume", musicVolume.fillAmount);
         }
     }
 
@@ -198,6 +203,7 @@ public class PauseMenu : MonoBehaviour
         {
             soundVolume.fillAmount -= 0.1f;
             //audioManager.SetSoundVolume(soundVolume.fillAmount);
+            //soundMixer.Setfloat("EffectsMixer", soundVolume.fillAmount);
         }
     }
 
@@ -209,6 +215,7 @@ public class PauseMenu : MonoBehaviour
         {
             soundVolume.fillAmount += 0.1f;
             //audioManager.SetSoundVolume(soundVolume.fillAmount);
+            //soundMixer.Setfloat("EffectsMixer", soundVolume.fillAmount);
         }
     }
 
