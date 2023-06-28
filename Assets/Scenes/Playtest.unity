@@ -1345,7 +1345,7 @@ PrefabInstance:
     - target: {fileID: 1702233308198654999, guid: 9cb31200bdd8bae4e8474dfbf33e7b8d,
         type: 3}
       propertyPath: _type
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1702233308198654999, guid: 9cb31200bdd8bae4e8474dfbf33e7b8d,
         type: 3}
@@ -1814,6 +1814,11 @@ PrefabInstance:
       objectReference: {fileID: 1733971711}
     - target: {fileID: 7172855172077850619, guid: 9cb31200bdd8bae4e8474dfbf33e7b8d,
         type: 3}
+      propertyPath: _biteCooldown
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7172855172077850619, guid: 9cb31200bdd8bae4e8474dfbf33e7b8d,
+        type: 3}
       propertyPath: loss.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 572440819}
@@ -2064,6 +2069,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cb31200bdd8bae4e8474dfbf33e7b8d, type: 3}
+--- !u!1 &970390301 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6572344705595770978, guid: 9cb31200bdd8bae4e8474dfbf33e7b8d,
+    type: 3}
+  m_PrefabInstance: {fileID: 970390300}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &994411575
 GameObject:
   m_ObjectHideFlags: 0
@@ -2229,7 +2240,7 @@ PrefabInstance:
     - target: {fileID: 202177672557741634, guid: 938291b506570af49958bb0e84a13dce,
         type: 3}
       propertyPath: _health
-      value: 10000000
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 202177672557741634, guid: 938291b506570af49958bb0e84a13dce,
         type: 3}
@@ -2515,7 +2526,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _gator
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 970390301}
     - target: {fileID: 2860201196707886696, guid: 938291b506570af49958bb0e84a13dce,
         type: 3}
       propertyPath: m_Layer
@@ -3242,7 +3253,7 @@ Transform:
   - {fileID: 1249783790}
   - {fileID: 1756200815}
   m_Father: {fileID: 1110873550}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1642785344
 GameObject:
@@ -3283,19 +3294,19 @@ MonoBehaviour:
   _speed: 2
   _segments:
   - name: Start
-    length: 4
+    length: 6
     terrainTiles:
     - tile: {fileID: 2191536969924560349, guid: 9821574b879a0444dbb143db1254e711,
         type: 3}
       weight: 1
   - name: Midsection
-    length: 2
+    length: 6
     terrainTiles:
     - tile: {fileID: 2191536969924560349, guid: 48cd9a80e2a919b49be081787a4e48df,
         type: 3}
       weight: 1
   - name: Final
-    length: 2
+    length: 6
     terrainTiles:
     - tile: {fileID: 2191536969924560349, guid: d856332ab4926ad4ca86fd9a596c605e,
         type: 3}
