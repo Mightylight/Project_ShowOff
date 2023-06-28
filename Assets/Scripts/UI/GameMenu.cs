@@ -31,10 +31,25 @@ public class GameMenu : MonoBehaviour
     private bool joystickHeldRight = false;
     private float joystickThreshold = 0.75f;
 
+    private JoystickControls _joystickControls;
+
+    private void Awake()
+    {
+        _joystickControls = new JoystickControls();
+
+        _joystickControls.Alligator.Bite.performed += pCtx => PressButton();
+        _joystickControls.Alligator.Enable();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         //joystickControls = new JoystickControls();
+    }
+
+    void PressButton()
+    {
+        Debug.Log("PressButton");
     }
 
     // Update is called once per frame
