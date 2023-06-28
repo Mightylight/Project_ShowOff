@@ -33,6 +33,48 @@ public class PauseMenu : MonoBehaviour
     private bool joystickHeldRight = false;
     private float joystickThreshold = 0.75f;
 
+    private JoystickControls _joystickControls;
+
+    private void Awake()
+    {
+        _joystickControls = new JoystickControls();
+
+        _joystickControls.Alligator.Pause.performed += pCtx => PressPause();
+        //_joystickControls.Alligator.Pause.canceled += pCtx => buttonHeldDown = false;
+
+        _joystickControls.Alligator.Enable();
+    }
+
+    void PressPause()
+    {
+        Debug.Log("Pause button pressed.");
+
+        isPaused = !isPaused;
+
+        if (!isPaused)
+        {
+            HidePauseMenu();
+        }
+        else
+        {
+            ShowPauseMenu();
+        }
+    }
+
+    void ShowPauseMenu()
+    {
+        Debug.Log("Showing pause menu.");
+        pauseMenuUI.SetActive(true);
+        isPaused = true;
+    }
+
+    void HidePauseMenu()
+    {
+        Debug.Log("Hiding pause menu.");
+        pauseMenuUI.SetActive(false);
+        isPaused = false;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
