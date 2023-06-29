@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1270163558}
-  m_IndirectSpecularColor: {r: 0.1427325, g: 0.11947167, b: 0.06261134, a: 1}
+  m_IndirectSpecularColor: {r: 0.14233413, g: 0.11937156, b: 0.06252806, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -895,6 +895,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 3508253393835750552, guid: d2bbb787eb614ec41a513274a57eebe7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2bbb787eb614ec41a513274a57eebe7, type: 3}
 --- !u!1 &375988925
@@ -1226,7 +1231,7 @@ MonoBehaviour:
   volumeSoundSelected: {fileID: 258008790}
   exitGameSelected: {fileID: 1218053442}
   audioManager: {fileID: 0}
-  mainMixer: {fileID: 0}
+  mainMixer: {fileID: 24100000, guid: fde5629722f323c4ab692f4e441664c6, type: 2}
   controlsUI: {fileID: 1071671316}
   pauseMenuUI: {fileID: 144181435}
   isPaused: 0
@@ -1321,6 +1326,8 @@ GameObject:
   - component: {fileID: 739195578}
   - component: {fileID: 739195577}
   - component: {fileID: 739195576}
+  - component: {fileID: 739195581}
+  - component: {fileID: 739195580}
   m_Layer: 5
   m_Name: LoadingCanvas
   m_TagString: Untagged
@@ -1410,6 +1417,44 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &739195580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739195575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: cb9159a66b7f79645a19cfc264fdc1dd, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &739195581
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739195575}
+  m_CullTransparentMesh: 1
 --- !u!1001 &742026991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4245,7 +4290,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: ab1a627280d38de488531ce9077bfdf5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
