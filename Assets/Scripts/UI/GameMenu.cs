@@ -8,6 +8,9 @@ using UnityEngine.SceneManagement;
 
 public class GameMenu : MonoBehaviour
 {
+    public static float gameVolume = 1f;
+    public static float musicVolume = 1f;
+
     [SerializeField] private AudioManager audioManager;
     [SerializeField] public AudioMixer mainMixer;
 
@@ -63,6 +66,8 @@ public class GameMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        soundVolume.fillAmount = GameMenu.gameVolume;
+        musicVolume.fillAmount = GameMenu.musicVolume;      
     }
 
     IEnumerator LoadAsyncScene()
@@ -300,6 +305,7 @@ public class GameMenu : MonoBehaviour
         if (musicVolume.fillAmount > 0)
         {
             musicVolume.fillAmount -= 0.1f;
+            GameMenu.musicVolume = musicVolume.fillAmount;
 
             float newValue = ConvertRange(musicVolume.fillAmount);
 
@@ -316,6 +322,7 @@ public class GameMenu : MonoBehaviour
         if (musicVolume.fillAmount < 1)
         {
             musicVolume.fillAmount += 0.1f;
+            GameMenu.musicVolume = musicVolume.fillAmount;
             
             float newValue = ConvertRange(musicVolume.fillAmount);
 
@@ -330,6 +337,7 @@ public class GameMenu : MonoBehaviour
         if (soundVolume.fillAmount > 0)
         {
             soundVolume.fillAmount -= 0.1f;
+            GameMenu.gameVolume = soundVolume.fillAmount;
             
             float newValue = ConvertRange(soundVolume.fillAmount);
 
@@ -344,8 +352,9 @@ public class GameMenu : MonoBehaviour
         if (soundVolume.fillAmount < 1)
         {
             soundVolume.fillAmount += 0.1f;
+            GameMenu.gameVolume = soundVolume.fillAmount;
             
-            float newValue = ConvertRange(.fillAmount);
+            float newValue = ConvertRange(soundVolume.fillAmount);
 
             mainMixer.SetFloat("EffectsVolume", newValue);
         }
