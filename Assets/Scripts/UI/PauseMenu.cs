@@ -64,7 +64,7 @@ public class PauseMenu : MonoBehaviour
 
     void PressButton()
     {
-        if (isPaused)
+        if (!isPaused)
         {
             return;
         }
