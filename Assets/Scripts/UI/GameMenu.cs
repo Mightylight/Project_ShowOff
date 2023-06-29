@@ -331,9 +331,9 @@ public class GameMenu : MonoBehaviour
         {
             soundVolume.fillAmount -= 0.1f;
             
-            float newValue = ConvertRange(musicVolume.fillAmount);
+            float newValue = ConvertRange(soundVolume.fillAmount);
 
-            Debug.Log(musicVolume.fillAmount);
+            Debug.Log(soundVolume.fillAmount);
 
             mainMixer.SetFloat("EffectsVolume", newValue);
         }
@@ -347,9 +347,9 @@ public class GameMenu : MonoBehaviour
         {
             soundVolume.fillAmount += 0.1f;
             
-            float newValue = ConvertRange(musicVolume.fillAmount);
+            float newValue = ConvertRange(soundVolume.fillAmount);
 
-            Debug.Log(musicVolume.fillAmount);
+            Debug.Log(soundVolume.fillAmount);
 
             mainMixer.SetFloat("EffectsVolume", newValue);
         }
