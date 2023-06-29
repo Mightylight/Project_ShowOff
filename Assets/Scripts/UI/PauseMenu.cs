@@ -64,6 +64,11 @@ public class PauseMenu : MonoBehaviour
 
     void PressButton()
     {
+        if (isPaused)
+        {
+            return;
+        }
+
         if (currentSelectedIndex == 2)
         {
             loadingScreen.SetActive(true);
