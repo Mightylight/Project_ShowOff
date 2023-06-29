@@ -14,8 +14,8 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject exitGameSelected;
 
     [SerializeField] private AudioManager audioManager;
-    [SerializeField] public AudioMixerGroup musicMixer;
-    [SerializeField] public AudioMixerGroup soundMixer;
+    [SerializeField] public AudioMixer mainMixer;
+    
 
     [SerializeField] private GameObject controlsUI;
 
@@ -252,6 +252,21 @@ public class PauseMenu : MonoBehaviour
         isPaused = false;
     }
 
+    float ConvertRange(float value)
+    {
+        float oldMin = 0f;
+        float oldMax = 1f;
+        float newMin = -60f;
+        float newMax = 0f;
+    
+        float oldRange = oldMax - oldMin;
+        float newRange = newMax - newMin;
+        float newValue = (((value - oldMin) * newRange) / oldRange) + newMin;
+    
+        return newValue;
+    }
+
+
     // Whenever the joystick is moved left, the music volume is reduced.
     void OnMusicVolumeLeft()
     {
@@ -260,8 +275,10 @@ public class PauseMenu : MonoBehaviour
         if (musicVolume.fillAmount > 0)
         {
             musicVolume.fillAmount -= 0.1f;
-            //audioManager.SetMusicVolume(musicVolume.fillAmount);
-            //musicMixer.Setfloat("MusicVolume", musicVolume.fillAmount);
+            
+            float newValue = ConvertRange(musicVolume.fillAmount);
+
+            mainMixer.SetFloat("MusicVolume", newValue);
         }
     }
 
@@ -273,8 +290,11 @@ public class PauseMenu : MonoBehaviour
         if (musicVolume.fillAmount < 1)
         {
             musicVolume.fillAmount += 0.1f;
-            //audioManager.SetMusicVolume(musicVolume.fillAmount);
-            //musicMixer.Setfloat("MusicVolume", musicVolume.fillAmount);
+
+            float newValue = ConvertRange(musicVolume.fillAmount);
+
+            mainMixer.SetFloat("MusicVolume", newValue);
+            
         }
     }
 
@@ -285,8 +305,10 @@ public class PauseMenu : MonoBehaviour
         if (soundVolume.fillAmount > 0)
         {
             soundVolume.fillAmount -= 0.1f;
-            //audioManager.SetSoundVolume(soundVolume.fillAmount);
-            //soundMixer.Setfloat("EffectsMixer", soundVolume.fillAmount);
+            
+            float newValue = ConvertRange(soundVolume.fillAmount);
+
+            mainMixer.SetFloat("EffectsVolume", newValue);
         }
     }
 
@@ -297,8 +319,10 @@ public class PauseMenu : MonoBehaviour
         if (soundVolume.fillAmount < 1)
         {
             soundVolume.fillAmount += 0.1f;
-            //audioManager.SetSoundVolume(soundVolume.fillAmount);
-            //soundMixer.Setfloat("EffectsMixer", soundVolume.fillAmount);
+
+            float newValue = ConvertRange(soundVolume.fillAmount);
+
+            mainMixer.SetFloat("EffectsVolume", newValue);
         }
     }
 

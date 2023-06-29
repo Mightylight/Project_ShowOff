@@ -333,8 +333,6 @@ public class GameMenu : MonoBehaviour
             
             float newValue = ConvertRange(soundVolume.fillAmount);
 
-            Debug.Log(soundVolume.fillAmount);
-
             mainMixer.SetFloat("EffectsVolume", newValue);
         }
     }
@@ -347,11 +345,27 @@ public class GameMenu : MonoBehaviour
         {
             soundVolume.fillAmount += 0.1f;
             
-            float newValue = ConvertRange(soundVolume.fillAmount);
-
-            Debug.Log(soundVolume.fillAmount);
+            float newValue = ConvertRange(.fillAmount);
 
             mainMixer.SetFloat("EffectsVolume", newValue);
         }
+    }
+
+    public float GetMusicVolume()
+    {
+        float value;
+        bool result = mainMixer.GetFloat("Music", out value);
+
+        if (result) return value;
+        else return 0;
+    }
+
+    public float GetEffectsVolume()
+    {
+        float value;
+        bool result = mainMixer.GetFloat("Effects", out value);
+
+        if (result) return value;
+        else return 0;
     }
 }

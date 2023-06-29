@@ -832,21 +832,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3508253393835750551, guid: d2bbb787eb614ec41a513274a57eebe7,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.8962964
-      objectReference: {fileID: 0}
-    - target: {fileID: 3508253393835750551, guid: d2bbb787eb614ec41a513274a57eebe7,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.8962964
-      objectReference: {fileID: 0}
-    - target: {fileID: 3508253393835750551, guid: d2bbb787eb614ec41a513274a57eebe7,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.3703704
-      objectReference: {fileID: 0}
-    - target: {fileID: 3508253393835750551, guid: d2bbb787eb614ec41a513274a57eebe7,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -910,13 +895,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu
       objectReference: {fileID: 0}
-    - target: {fileID: 3508253393835750552, guid: d2bbb787eb614ec41a513274a57eebe7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3508253393835750548, guid: d2bbb787eb614ec41a513274a57eebe7, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2bbb787eb614ec41a513274a57eebe7, type: 3}
 --- !u!1 &375988925
 GameObject:
@@ -1247,8 +1226,7 @@ MonoBehaviour:
   volumeSoundSelected: {fileID: 258008790}
   exitGameSelected: {fileID: 1218053442}
   audioManager: {fileID: 0}
-  musicMixer: {fileID: 0}
-  soundMixer: {fileID: 0}
+  mainMixer: {fileID: 0}
   controlsUI: {fileID: 1071671316}
   pauseMenuUI: {fileID: 144181435}
   isPaused: 0
