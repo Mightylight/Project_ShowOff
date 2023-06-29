@@ -108,7 +108,7 @@ namespace TerrainGeneration
 
             foreach (TerrainPiece terrainPiece in _terrain)
             {
-                terrainPiece.GetComponent<TerrainTrigger>()._hasBeenActivated = true;
+                //terrainPiece.GetComponent<TerrainTrigger>()._hasBeenActivated = true;
             }
             
             // TerrainPiece firstTile = _terrain.First();
