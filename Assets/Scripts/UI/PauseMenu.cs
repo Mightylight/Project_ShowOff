@@ -119,8 +119,8 @@ public class PauseMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        soundVolume.fillAmount = GameMenu.soundVolume;
-        musicVolume.fillAmount = GameMenu.musicVolume;
+        soundVolume.fillAmount = GameMenu.gameVolume;
+        musicVolume.fillAmount = GameMenu.gameMusicVolume;
         
         //joystickControls = new JoystickControls();
     }
@@ -278,7 +278,7 @@ public class PauseMenu : MonoBehaviour
         if (musicVolume.fillAmount > 0)
         {
             musicVolume.fillAmount -= 0.1f;
-            GameMenu.musicVolume = musicVolume.fillAmount;
+            GameMenu.gameMusicVolume = musicVolume.fillAmount;
             
             float newValue = ConvertRange(musicVolume.fillAmount);
 
@@ -294,7 +294,7 @@ public class PauseMenu : MonoBehaviour
         if (musicVolume.fillAmount < 1)
         {
             musicVolume.fillAmount += 0.1f;
-            GameMenu.musicVolume = musicVolume.fillAmount;
+            GameMenu.gameMusicVolume = musicVolume.fillAmount;
 
             float newValue = ConvertRange(musicVolume.fillAmount);
 

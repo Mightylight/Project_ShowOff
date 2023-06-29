@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class GameMenu : MonoBehaviour
 {
     public static float gameVolume = 1f;
-    public static float musicVolume = 1f;
+    public static float gameMusicVolume = 1f;
 
     [SerializeField] private AudioManager audioManager;
     [SerializeField] public AudioMixer mainMixer;
@@ -31,8 +31,8 @@ public class GameMenu : MonoBehaviour
     [SerializeField] private GameObject volumeMusicSelected;
     [SerializeField] private GameObject volumeSoundSelected;
     [SerializeField] private GameObject backSelected;
-    [SerializeField] private Image soundVolume;
-    [SerializeField] private Image musicVolume;
+    [SerializeField] public Image soundVolume;
+    [SerializeField] public Image musicVolume;
 
     // Settings Menu menu
     [Header("Loading Screen")]
@@ -67,7 +67,7 @@ public class GameMenu : MonoBehaviour
     void Start()
     {
         soundVolume.fillAmount = GameMenu.gameVolume;
-        musicVolume.fillAmount = GameMenu.musicVolume;      
+        musicVolume.fillAmount = GameMenu.gameMusicVolume;      
     }
 
     IEnumerator LoadAsyncScene()
@@ -305,7 +305,7 @@ public class GameMenu : MonoBehaviour
         if (musicVolume.fillAmount > 0)
         {
             musicVolume.fillAmount -= 0.1f;
-            GameMenu.musicVolume = musicVolume.fillAmount;
+            GameMenu.gameMusicVolume = musicVolume.fillAmount;
 
             float newValue = ConvertRange(musicVolume.fillAmount);
 
@@ -322,7 +322,7 @@ public class GameMenu : MonoBehaviour
         if (musicVolume.fillAmount < 1)
         {
             musicVolume.fillAmount += 0.1f;
-            GameMenu.musicVolume = musicVolume.fillAmount;
+            GameMenu.gameMusicVolume = musicVolume.fillAmount;
             
             float newValue = ConvertRange(musicVolume.fillAmount);
 
