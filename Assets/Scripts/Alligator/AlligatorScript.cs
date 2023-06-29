@@ -33,7 +33,7 @@ namespace Alligator
 
         [SerializeField] private ParticleSystem _biteEffect;
         
-        private AudioSource _audio;
+        //private AudioSource _audio;
         
         
         private JoystickControls _joystickControls;
@@ -69,7 +69,7 @@ namespace Alligator
             _joystickControls.Alligator.Bite.performed += pCtx => Bite();
             _joystickControls.Alligator.Enable();
 
-            _audio = GetComponent<AudioSource>();
+            //_audio = GetComponent<AudioSource>();
             _collider = GetComponent<Collider>();
 
         }
@@ -150,7 +150,8 @@ namespace Alligator
                 _animator.SetBool("isAttatched", false);
                 _pushDirection = -transform.forward * _pushBack;      
                 
-                _audio.PlayOneShot(_bonkSound, 0.5f);
+                //_audio.PlayOneShot(_bonkSound, 0.5f);
+                AudioManager.instance.Play("Aligator Bonk");
 
                 if (_rb == null)
                 {
