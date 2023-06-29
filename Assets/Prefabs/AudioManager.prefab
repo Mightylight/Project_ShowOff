@@ -50,7 +50,7 @@ MonoBehaviour:
     mGroup: {fileID: -27093732686171406, guid: fde5629722f323c4ab692f4e441664c6, type: 2}
     volume: 0.5
     pitch: 1
-    loop: 0
+    loop: 1
     source: {fileID: 0}
   - name: Paddle 1
     clip: {fileID: 8300000, guid: ea9edde77bcfe654eb0a0e5e362e7f9f, type: 3}
