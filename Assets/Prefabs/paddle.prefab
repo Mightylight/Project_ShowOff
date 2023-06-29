@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 459003221761696237}
   m_LocalRotation: {x: -0.17225307, y: 0.68580526, z: 0.17225312, w: 0.68580526}
   m_LocalPosition: {x: -2.5048091, y: -0, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.03, z: 0.66}
+  m_LocalScale: {x: 0.05, y: 0.03, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7044456287657024131}
@@ -114,7 +114,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _paddleTip: {fileID: 0}
   _heldBy: {fileID: 0}
-  _strength: 500
+  _strength: 10000
+  _thrustThreshold: 0.25
+  _waterLevel: 0
+  _depthModifier: 2
+  _maxDepthForStrength: -1
+  _player: {fileID: 0}
+  _isLeft: 0
+  _hapticPulseTimePaddle: 2
+  _hapticPulseTimeBonk: 10
 --- !u!54 &167673584604011623
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -142,7 +150,6 @@ GameObject:
   - component: {fileID: 7044456287657024131}
   - component: {fileID: 7293242402482989248}
   - component: {fileID: 1304280578978916548}
-  - component: {fileID: 7383017602634915266}
   m_Layer: 0
   m_Name: paddleTip
   m_TagString: Untagged
@@ -215,16 +222,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7383017602634915266
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3624928236880973482}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.0000015, y: 0.99999976, z: 1.0000001}
-  m_Center: {x: -0.000000019751042, y: -0.0000010728054, z: -0.00000007054767}

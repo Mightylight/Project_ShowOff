@@ -5,30 +5,51 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    public Slider healthSlider;
+    //public Slider healthSlider;
+    public Image healthFill;
+
+    [SerializeField] private int maxHealth = 5;
 
     private void Awake()
     {
-        healthSlider = GetComponent<Slider>();
+        //healthSlider = GetComponent<Slider>();
+        healthFill = GetComponentInChildren<Image>();
     }
 
     public void SetMaxHealth(int value, bool resetHealth)
     {
-        healthSlider.maxValue = value;
-        if (resetHealth) healthSlider.value = value;
-    }
-    public void SetHealth(int value)
-    {
-        healthSlider.value = value;
+        //healthSlider.maxValue = value;
+        //if (resetHealth) healthSlider.value = value;
+        maxHealth = value;
+        healthFill.fillAmount = 1f;
     }
 
-    public void TakeDamage(int value)
+    public void ResetHealth()
     {
-        healthSlider.value -= value;
+        healthFill.fillAmount = 1f;
+    }
+    public void SetHealth(float value, bool reverse = false)
+    {
+        //healthSlider.value = value;
+        if (reverse)
+        {
+            healthFill.fillAmount = 1 - ( value / maxHealth);
+        }
+        else
+        {
+            healthFill.fillAmount = value / maxHealth;
+        }
     }
 
-    public void GetHealed(int value)
+    public void TakeDamage(float value)
     {
-        healthSlider.value += value;
+        //healthSlider.value -= value;
+        healthFill.fillAmount -= value / maxHealth;
+    }
+
+    public void GetHealed(float value)
+    {
+        //healthSlider.value += value;
+        healthFill.fillAmount += (float)value / maxHealth;
     }
 }

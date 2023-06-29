@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8513009190611003799}
   m_Layer: 0
   m_Name: RainSplatter
-  m_TagString: Untagged
+  m_TagString: Rain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4883,7 +4883,7 @@ GameObject:
   - component: {fileID: 8513009190662908550}
   m_Layer: 0
   m_Name: Rain ParticleSystem
-  m_TagString: Untagged
+  m_TagString: Rain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

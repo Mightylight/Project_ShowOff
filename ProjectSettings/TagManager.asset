@@ -10,6 +10,10 @@ TagManager:
   - Canoe
   - Obstacle
   - alligator
+  - PlayerGoal
+  - Water
+  - Rain
+  - Fireflies
   layers:
   - Default
   - TransparentFX

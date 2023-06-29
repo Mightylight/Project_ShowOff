@@ -35,6 +35,15 @@ public partial class @JoystickControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""eed98a25-44b1-431f-b9f1-f12d179a26d7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -48,6 +57,17 @@ public partial class @JoystickControls: IInputActionCollection2, IDisposable
                     ""action"": ""Bite"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8f024715-a213-40a6-906d-210898fff610"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -57,6 +77,7 @@ public partial class @JoystickControls: IInputActionCollection2, IDisposable
         // Alligator
         m_Alligator = asset.FindActionMap("Alligator", throwIfNotFound: true);
         m_Alligator_Bite = m_Alligator.FindAction("Bite", throwIfNotFound: true);
+        m_Alligator_Pause = m_Alligator.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -119,11 +140,13 @@ public partial class @JoystickControls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Alligator;
     private List<IAlligatorActions> m_AlligatorActionsCallbackInterfaces = new List<IAlligatorActions>();
     private readonly InputAction m_Alligator_Bite;
+    private readonly InputAction m_Alligator_Pause;
     public struct AlligatorActions
     {
         private @JoystickControls m_Wrapper;
         public AlligatorActions(@JoystickControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Bite => m_Wrapper.m_Alligator_Bite;
+        public InputAction @Pause => m_Wrapper.m_Alligator_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Alligator; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -136,6 +159,9 @@ public partial class @JoystickControls: IInputActionCollection2, IDisposable
             @Bite.started += instance.OnBite;
             @Bite.performed += instance.OnBite;
             @Bite.canceled += instance.OnBite;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IAlligatorActions instance)
@@ -143,6 +169,9 @@ public partial class @JoystickControls: IInputActionCollection2, IDisposable
             @Bite.started -= instance.OnBite;
             @Bite.performed -= instance.OnBite;
             @Bite.canceled -= instance.OnBite;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IAlligatorActions instance)
@@ -163,5 +192,6 @@ public partial class @JoystickControls: IInputActionCollection2, IDisposable
     public interface IAlligatorActions
     {
         void OnBite(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

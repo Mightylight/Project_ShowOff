@@ -7,12 +7,12 @@ namespace Alligator
 {
     public class ControllerMovement : MonoBehaviour
     {
-        private Rigidbody _rb;
+        [SerializeField]private Rigidbody _rb;
         [SerializeField] private ControllerType _type = ControllerType.Xbox;
         [SerializeField] private CameraPivot _cameraPivot;
         
         
-        [SerializeField] private float _speed = 5;
+        [SerializeField] public float _speed = 5;
         private Vector3 _inputs = Vector3.zero;
         [SerializeField] Transform _model;
         float oldAngle = 0;
@@ -21,23 +21,33 @@ namespace Alligator
         private void Awake()
         {
             _cameraPivot._type = _type;
-            _rb = GetComponent<Rigidbody>();
+            
+        }
+
+        private void Start()
+        {
+           // _rb = _model.GetComponent<Rigidbody>();
         }
 
         private void Update()
         {
+            if (!_isMoving) return;
+            newMove();
         }
 
         private void FixedUpdate()
         {
-            if (!_isMoving) return;
-            newMove();
+           
+            Vector3 current = new(0, 0, 2);
+            //_rb.MovePosition(transform.position + current * Time.fixedDeltaTime);
+            //moveRB();
         }
 
         void newMove()
         {
             _inputs.x = Input.GetAxis("Horizontal");
             _inputs.z = Input.GetAxis("Vertical");
+           
             if (_inputs.magnitude >= 0.1f)
             {
                 Vector3 movement = new Vector3(_inputs.x, 0.0f, _inputs.z);
@@ -46,11 +56,37 @@ namespace Alligator
                 _model.eulerAngles = new Vector3(0, angle, 0);
                 movement = Quaternion.Euler(0, _cameraPivot.transform.rotation.eulerAngles.y, 0) * movement;
                 transform.Translate(movement * _speed * Time.deltaTime);
+
             }
             else
             {
                 //oldAngle = _model.eulerAngles.y;
             }
+
+            
+        }
+
+        void moveRB()
+        {
+            _inputs.x = Input.GetAxis("Horizontal");
+            _inputs.z = Input.GetAxis("Vertical");
+            Vector3 current = new(0, 0, 2);
+            
+            //if (_inputs.magnitude >= 0.1f)
+            //{
+            //   // movement += new Vector3(_inputs.x, 0.0f, _inputs.z);
+            //    //movement *= transform.forward;
+            //    float angle = Mathf.Atan2(_inputs.x, _inputs.z) * Mathf.Rad2Deg + _cameraPivot.transform.rotation.eulerAngles.y;
+            //    _model.eulerAngles = new Vector3(0, angle, 0);
+            //   // movement = Quaternion.Euler(0, _cameraPivot.transform.rotation.eulerAngles.y, 0) * movement;
+
+            //}
+            //else
+            //{
+            //    //oldAngle = _model.eulerAngles.y;
+            //}
+
+            _rb.MovePosition(transform.position + current * Time.fixedDeltaTime );
         }
 
         void cameraMove()
@@ -105,6 +141,11 @@ namespace Alligator
         public enum ControllerType
         {
             Ps,Xbox
+        }
+
+        public float GetSpeed()
+        {
+            return _inputs.magnitude;
         }
 
         // private void Move()

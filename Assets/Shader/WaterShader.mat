@@ -44,7 +44,7 @@ Material:
     m_Ints: []
     m_Floats:
     - Depth: 7.35
-    - Displacement: -38.15
+    - Displacement: 0.2
     - NormalStrength: -0.12
     - Smoothness: 0.804
     - Strength: 0.025
