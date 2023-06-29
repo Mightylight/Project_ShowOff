@@ -25,7 +25,7 @@ public class SyncPosition : MonoBehaviour
             {
                 transform.rotation = Quaternion.Euler(0, _syncTo.rotation.y, 0);
             }
-            transform.rotation = _syncTo.rotation;
+            else transform.rotation = _syncTo.rotation;
         }
         else if (_VRRot)
         {
