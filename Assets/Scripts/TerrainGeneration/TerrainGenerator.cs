@@ -126,7 +126,7 @@ namespace TerrainGeneration
             if (!pDeleteSegments) return;
             GameObject tileToBeDeactivated = _terrain.First().gameObject;
             _terrain.Remove(tileToBeDeactivated.GetComponent<TerrainPiece>());
-            tileToBeDeactivated.SetActive(false);
+            //tileToBeDeactivated.SetActive(false);
         }
 
         public void ClearChildren()

@@ -173,6 +173,8 @@ namespace Alligator
                     _beingPushedBack = true;
                     _pushTimer = _pushTime; //transform.parent.Translate(_pushDirection);
                 }
+
+                _rb.transform.position = new Vector3 (_rb.transform.position.x, 0, _rb.transform.position.z);
             }
             
         }
