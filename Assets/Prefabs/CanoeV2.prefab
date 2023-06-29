@@ -341,6 +341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _syncTo: {fileID: 8598078592578759747}
   _isRotating: 1
+  _isMoving: 1
   _VRRot: 0
   speed: 0.8
 --- !u!1 &3194844225021103353
@@ -455,6 +456,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _syncTo: {fileID: 9144740502965048156}
   _isRotating: 1
+  _isMoving: 1
   _VRRot: 0
   speed: 0.8
 --- !u!1 &4043200669984710905
@@ -2234,6 +2236,103 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3582961483457153873}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6288557510757455853
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2861846346010697015}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 25aceefed8ad70a42acc65474ee37d06,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 25aceefed8ad70a42acc65474ee37d06,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 25aceefed8ad70a42acc65474ee37d06,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 25aceefed8ad70a42acc65474ee37d06,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 25aceefed8ad70a42acc65474ee37d06,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 25aceefed8ad70a42acc65474ee37d06,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 25aceefed8ad70a42acc65474ee37d06,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 25aceefed8ad70a42acc65474ee37d06,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 25aceefed8ad70a42acc65474ee37d06,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 25aceefed8ad70a42acc65474ee37d06,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 25aceefed8ad70a42acc65474ee37d06,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 25aceefed8ad70a42acc65474ee37d06,
+        type: 3}
+      propertyPath: m_Name
+      value: John Johnstonson Johnson William John Julian Junior IIIXIV
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 25aceefed8ad70a42acc65474ee37d06,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 25aceefed8ad70a42acc65474ee37d06, type: 3}
+--- !u!1 &6594422610914519740 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 25aceefed8ad70a42acc65474ee37d06,
+    type: 3}
+  m_PrefabInstance: {fileID: 6288557510757455853}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8095898206842190034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6594422610914519740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9aec26900a1b964da2bf7548eaa3f17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _syncTo: {fileID: 2861846346010707239}
+  _isRotating: 1
+  _isMoving: 0
+  _VRRot: 0
+  speed: 0.8
 --- !u!1001 &6971940021860334904
 PrefabInstance:
   m_ObjectHideFlags: 0

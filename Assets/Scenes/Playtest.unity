@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1270163558}
-  m_IndirectSpecularColor: {r: 0.14496763, g: 0.13083091, b: 0.115393005, a: 1}
+  m_IndirectSpecularColor: {r: 0.1427325, g: 0.11947167, b: 0.06261134, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2518,7 +2518,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &994411576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2968,6 +2968,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2861846346010195501, guid: 938291b506570af49958bb0e84a13dce,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4160749439
+      objectReference: {fileID: 0}
     - target: {fileID: 2861846346010258767, guid: 938291b506570af49958bb0e84a13dce,
         type: 3}
       propertyPath: m_IsActive
@@ -3062,6 +3067,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095898206842190034, guid: 938291b506570af49958bb0e84a13dce,
+        type: 3}
+      propertyPath: _onlyYrot
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 938291b506570af49958bb0e84a13dce, type: 3}
@@ -3470,8 +3480,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _syncTo: {fileID: 1137747525}
   _isRotating: 0
+  _isMoving: 1
   _VRRot: 0
   speed: 0.8
+  _onlyYrot: 0
 --- !u!4 &1319567048
 Transform:
   m_ObjectHideFlags: 0
@@ -3719,6 +3731,7 @@ GameObject:
   - component: {fileID: 1642785345}
   - component: {fileID: 1642785346}
   - component: {fileID: 1642785348}
+  - component: {fileID: 1642785349}
   m_Layer: 0
   m_Name: TerrainGenerator
   m_TagString: Untagged
@@ -3847,6 +3860,18 @@ MonoBehaviour:
   skyboxMaterial: {fileID: 2100000, guid: 8acf70b50d57f8e49b4dd27fe03f34b7, type: 2}
   startVolume: {fileID: 125623732}
   endVolume: {fileID: 1769212933}
+--- !u!114 &1642785349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642785344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffba85f6fece9c4c81c4bf464b848cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1733971711 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7427157705661885987, guid: ffe8a9629ebe79f498d3c91704c08cc4,
