@@ -47,31 +47,43 @@ MonoBehaviour:
   sounds:
   - name: Ambience 1
     clip: {fileID: 8300000, guid: 75c46bc4ae6693447887675687bcb1b3, type: 3}
+    mGroup: {fileID: -27093732686171406, guid: fde5629722f323c4ab692f4e441664c6, type: 2}
     volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Paddle 1
     clip: {fileID: 8300000, guid: ea9edde77bcfe654eb0a0e5e362e7f9f, type: 3}
+    mGroup: {fileID: -27093732686171406, guid: fde5629722f323c4ab692f4e441664c6, type: 2}
     volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Paddle 2
     clip: {fileID: 8300000, guid: 454d5c7407d81c941a236742c1f23d3b, type: 3}
+    mGroup: {fileID: -27093732686171406, guid: fde5629722f323c4ab692f4e441664c6, type: 2}
     volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Paddle 3
     clip: {fileID: 8300000, guid: 6a9cc8af37ed3534bbb9ef167128b341, type: 3}
+    mGroup: {fileID: -27093732686171406, guid: fde5629722f323c4ab692f4e441664c6, type: 2}
     volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Paddle 4
     clip: {fileID: 8300000, guid: a27d29c33c2a67747bddf0774851ebf3, type: 3}
+    mGroup: {fileID: -27093732686171406, guid: fde5629722f323c4ab692f4e441664c6, type: 2}
     volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Aligator Bonk
+    clip: {fileID: 8300000, guid: 858f34f1ac517934f8f77b7ba2b34067, type: 3}
+    mGroup: {fileID: -27093732686171406, guid: fde5629722f323c4ab692f4e441664c6, type: 2}
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}

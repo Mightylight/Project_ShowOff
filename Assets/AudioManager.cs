@@ -1,6 +1,8 @@
 using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -27,6 +29,8 @@ public class AudioManager : MonoBehaviour
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
 
+            s.source.outputAudioMixerGroup = s.mGroup;
+
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
 
@@ -37,6 +41,27 @@ public class AudioManager : MonoBehaviour
     void Start ()
     {
         Play("Ambience 1");
+    }
+
+    void OnSceneLoaded (Scene scene, LoadSceneMode mode) {
+        
+        Scene currentScene = SceneManager.GetActiveScene ();
+        string sceneName = currentScene.name;
+ 
+ /*
+        if (sceneName == "2DScene") 
+        {
+            Stop("MenuTheme");
+            Play("IngameTheme");
+        }
+        
+        else if (sceneName == "MainMenu") 
+        {
+            Stop("IngameTheme");
+            Play("MenuTheme");
+        }
+        */
+
     }
 
     public void Play(string name)

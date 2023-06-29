@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class GameMenu : MonoBehaviour
 {
     [SerializeField] private AudioManager audioManager;
+    [SerializeField] public AudioMixer mainMixer;
 
     [SerializeField] private GameObject mainMenuUI;
     [SerializeField] private GameObject settingsMenuUI;
@@ -276,6 +278,20 @@ public class GameMenu : MonoBehaviour
         }
     }
 
+    float ConvertRange(float value)
+    {
+        float oldMin = 0f;
+        float oldMax = 1f;
+        float newMin = -60f;
+        float newMax = 0f;
+    
+        float oldRange = oldMax - oldMin;
+        float newRange = newMax - newMin;
+        float newValue = (((value - oldMin) * newRange) / oldRange) + newMin;
+    
+        return newValue;
+    }
+
     // Whenever the joystick is moved left, the music volume is reduced.
     void OnMusicVolumeLeft()
     {
@@ -284,7 +300,11 @@ public class GameMenu : MonoBehaviour
         if (musicVolume.fillAmount > 0)
         {
             musicVolume.fillAmount -= 0.1f;
-            //audioManager.SetMusicVolume(musicVolume.fillAmount);
+
+            float newValue = ConvertRange(musicVolume.fillAmount);
+
+            mainMixer.SetFloat("MusicVolume", newValue);
+
         }
     }
 
@@ -296,7 +316,10 @@ public class GameMenu : MonoBehaviour
         if (musicVolume.fillAmount < 1)
         {
             musicVolume.fillAmount += 0.1f;
-            //audioManager.SetMusicVolume(musicVolume.fillAmount);
+            
+            float newValue = ConvertRange(musicVolume.fillAmount);
+
+            mainMixer.SetFloat("MusicVolume", newValue);
         }
     }
 
@@ -307,7 +330,12 @@ public class GameMenu : MonoBehaviour
         if (soundVolume.fillAmount > 0)
         {
             soundVolume.fillAmount -= 0.1f;
-            //audioManager.SetSoundVolume(soundVolume.fillAmount);
+            
+            float newValue = ConvertRange(soundVolume.fillAmount);
+
+            Debug.Log(soundVolume.fillAmount);
+
+            mainMixer.SetFloat("EffectsVolume", newValue);
         }
     }
 
@@ -318,7 +346,12 @@ public class GameMenu : MonoBehaviour
         if (soundVolume.fillAmount < 1)
         {
             soundVolume.fillAmount += 0.1f;
-            //audioManager.SetSoundVolume(soundVolume.fillAmount);
+            
+            float newValue = ConvertRange(soundVolume.fillAmount);
+
+            Debug.Log(soundVolume.fillAmount);
+
+            mainMixer.SetFloat("EffectsVolume", newValue);
         }
     }
 }
