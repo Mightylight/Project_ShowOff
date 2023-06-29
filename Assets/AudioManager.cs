@@ -43,24 +43,28 @@ public class AudioManager : MonoBehaviour
         Play("Ambience 1");
     }
 
+
+    void OnEnable () 
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
     void OnSceneLoaded (Scene scene, LoadSceneMode mode) {
         
         Scene currentScene = SceneManager.GetActiveScene ();
-        string sceneName = currentScene.name;
+        //string sceneName = currentScene.name;
  
- /*
-        if (sceneName == "2DScene") 
+ 
+        if (currentScene.buildIndex == 1) 
         {
-            Stop("MenuTheme");
-            Play("IngameTheme");
+            Play("Ingame Theme");
         }
         
-        else if (sceneName == "MainMenu") 
+        else if (currentScene.buildIndex == 0) 
         {
-            Stop("IngameTheme");
-            Play("MenuTheme");
+            Stop("Ingame Theme");
         }
-        */
+        
 
     }
 
@@ -80,5 +84,18 @@ public class AudioManager : MonoBehaviour
         Play sound from other scripts:
         FindObjectOfType<AudioManager>().Play("Sound.name");
         */
+    }
+
+    public void Stop(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+
+        if (s == null)
+        {
+            Debug.LogWarning("Sound:" + name + "not found! (check for typos)" );
+            return;
+        }
+      
+        s.source.Stop();
     }
 }
