@@ -21,6 +21,7 @@ Both players have a different objective. The person in the boat, using a VR head
 While the alligator, using a controller, is trying to break the boat, the person in the boat is able to slap the alligator away using the paddles. 
 
 ![image25](https://github.com/Mightylight/Project_ShowOff/assets/59601297/6af9d004-fda6-41ee-a691-284b710b849f)
+![GameplayGif](ReadmeGifs/image44.gif)
 
 In the boat, the person is able to physically row to advanced forward, making it a really realistic experience. By rowing past the obstacles, the player will
 find themselve in an ever-changing world that slowly turn everything digital. Vines become Cables, trees change colour and much more!
